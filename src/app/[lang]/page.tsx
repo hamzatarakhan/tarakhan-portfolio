@@ -5,6 +5,7 @@ import { Footer, Header, Rich, plain, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
+import { ContactForm } from "@/components/ContactForm";
 
 const h2 = "display text-3xl font-medium sm:text-4xl lg:text-5xl";
 const pill = "inline-flex min-h-12 items-center gap-2 rounded-full px-7 font-medium transition-transform duration-[var(--dur-fast)] active:scale-[0.97]";
@@ -227,21 +228,43 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        {/* Testimonials */}
+        <section className={`${wrap} py-20`}>
+          <Head label={plain(t.testimonials.title)} title={t.testimonials.title} intro={t.testimonials.intro} center />
+          <div className="grid gap-6 md:grid-cols-3">
+            {t.testimonials.items.map((q, i) => (
+              <figure key={i} className="glass reveal overflow-hidden p-3" style={st(i)}>
+                <div className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[calc(var(--r-lg)-6px)] bg-gradient-to-b from-accent/25 via-accent-soft to-surface">
+                  <span className="display select-none text-8xl font-semibold text-fg/10" aria-hidden>“</span>
+                  <span className="absolute grid size-14 place-items-center rounded-full bg-accent text-on-accent shadow-[0_10px_40px_-10px_var(--accent)]" aria-hidden><Icon name="arrow" className="size-5 rotate-45" /></span>
+                </div>
+                <figcaption className="p-4">
+                  <blockquote className="text-muted"><Txt>{q.quote}</Txt></blockquote>
+                  <p className="display mt-4 font-medium"><Txt>{q.name}</Txt></p>
+                  <p className="label mt-1 text-muted"><Txt>{q.role}</Txt></p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact" className={`${wrap} scroll-mt-20 pt-10 pb-24`}>
-          <div className="glass reveal !rounded-[2rem] p-8 text-center sm:p-14">
-            <p className="label text-muted">{t.nav.contact}</p>
-            <h2 className="display mx-auto mt-5 max-w-4xl text-4xl font-medium sm:text-6xl lg:text-7xl"><Rich>{t.contact.title}</Rich></h2>
-            <p className="mx-auto mt-6 max-w-prose text-lg text-muted">{t.contact.body}</p>
-            <p className="display mt-8 break-all text-2xl font-medium sm:text-4xl" dir="ltr">
-              <a href={`mailto:${t.contact.email}`} className="underline decoration-accent decoration-2 underline-offset-8 hover:text-accent">{t.contact.email}</a>
-            </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <Link href={`/${lang}/contact`} className={btnPrimary}>{t.contact.form}</Link>
-              <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />
-              <a className={btnGhost} href="https://linkedin.com/in/hamza-tarakhan-b8ab961a5" target="_blank" rel="noopener noreferrer">{t.contact.linkedin}</a>
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="glass reveal !rounded-[2rem] p-8 sm:p-12">
+              <p className="label inline-flex items-center gap-2 text-muted"><span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />{t.hero.status}</p>
+              <h2 className="display mt-6 text-4xl font-medium sm:text-5xl"><Rich>{t.contact.title}</Rich></h2>
+              <p className="mt-5 max-w-prose text-lg text-muted">{t.contact.body}</p>
+              <p className="display mt-8 break-all text-base font-medium sm:text-xl" dir="ltr">
+                <a href={`mailto:${t.contact.email}`} className="underline decoration-accent decoration-2 underline-offset-8 hover:text-accent">{t.contact.email}</a>
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />
+                <a className={btnGhost} href="https://linkedin.com/in/hamza-tarakhan-b8ab961a5" target="_blank" rel="noopener noreferrer">{t.contact.linkedin}</a>
+              </div>
+              <p className="label mt-8 text-muted"><Txt>{t.contactPage.cv}</Txt> · <Txt>{t.contactPage.whatsapp}</Txt></p>
             </div>
-            <p className="label mt-8 text-muted"><Txt>{t.contactPage.cv}</Txt> · <Txt>{t.contactPage.whatsapp}</Txt></p>
+            <div className="glass reveal !rounded-[2rem] p-6 sm:p-10" style={st(1)}><ContactForm f={t.contactPage.f} /></div>
           </div>
         </section>
       </main>

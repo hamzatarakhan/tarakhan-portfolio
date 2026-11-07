@@ -520,5 +520,26 @@
         ]
       }
     ]
+  },
+  "testimonials": {
+    "title": "What clients *say*",
+    "intro": "Real words from real people, shown only with permission.",
+    "items": [
+      {
+        "quote": "{{TODO: real testimonial, with permission}}",
+        "name": "{{TODO: name}}",
+        "role": "{{TODO: role, company}}"
+      },
+      {
+        "quote": "{{TODO: real testimonial, with permission}}",
+        "name": "{{TODO: name}}",
+        "role": "{{TODO: role, company}}"
+      },
+      {
+        "quote": "{{TODO: real testimonial, with permission}}",
+        "name": "{{TODO: name}}",
+        "role": "{{TODO: role, company}}"
+      }
+    ]
   }
 }
