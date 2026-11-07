@@ -209,7 +209,16 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             {t.play.items.map((p, i) => (
               <li key={p.name} className="glass reveal p-5" style={st(i % 5)}>
                 <span className="label text-muted">{num(i)}</span>
-                <p className="display mt-6 text-xl font-medium">{p.name}</p>
+                {"logo" in p && p.logo && (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
+                    <img src={`${p.logo}-light.svg`} alt="" className="logo-on-light mt-4 h-10 w-auto" />
+                    {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
+                    <img src={`${p.logo}-dark.svg`} alt="" className="logo-on-dark mt-4 h-10 w-auto" />
+                  </>
+                )}
+                {/* The logo already shows the name; keep it for screen readers only */}
+                <p className={"logo" in p && p.logo ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
                 <p className="mt-1 text-sm text-muted">{p.tag}</p>
               </li>
             ))}
