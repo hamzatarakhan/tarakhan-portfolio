@@ -20,9 +20,10 @@
     "headline": "I design systems that *scale*, and flows people *actually finish.*",
     "sub": "Amman, Jordan · 4+ years · Remote-friendly, working with clients worldwide.",
     "cta1": "View work",
-    "cta2": "Hire me",
+    "cta2": "Work with me",
     "skinsLabel": "Try the system",
-    "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five."
+    "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five.",
+    "ctaProject": "Start a project"
   },
   "proof": {
     "items": [
@@ -217,7 +218,7 @@
   },
   "contact": {
     "title": "Let's build something *clear.*",
-    "body": "Hiring, or have a project? Email is the fastest way to reach me.",
+    "body": "Have a project in mind, or hiring? Email is the fastest way to reach me.",
     "email": "hamzatarakhan2000@gmail.com",
     "copy": "Copy email",
     "copied": "Copied",
@@ -329,8 +330,8 @@
     "f": {
       "type": "I'm contacting you about",
       "types": [
-        "A job",
         "A freelance project",
+        "A job",
         "Something else"
       ],
       "budget": "Budget range",

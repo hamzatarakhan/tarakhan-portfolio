@@ -447,3 +447,25 @@ body {
 .sec {
   padding-block: clamp(1.75rem, 4vw, 3.5rem);
 }
+
+/* Section divider: hairline that fades out at both ends, with a small glowing accent dot */
+.divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-line) 18%, color-mix(in srgb, var(--accent) 55%, var(--glass-line)) 50%, var(--glass-line) 82%, transparent);
+}
+.divider::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 18px 2px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+:root[dir="rtl"] .divider::after {
+  transform: translate(50%, -50%);
+}

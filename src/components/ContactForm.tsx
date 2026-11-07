@@ -63,7 +63,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
         {field("name", f.name, <input {...a11y("name")} autoComplete="name" className={input} />)}
         {field("email", f.email, <input {...a11y("email")} type="email" autoComplete="email" className={input} />)}
       </div>
-      {type === 1 && (
+      {type === 0 && (
         <div className="grid gap-5 sm:grid-cols-2">
           {field("budget", f.budget, <select {...a11y("budget")} className={input}>{f.budgets.map((b) => <option key={b}>{b}</option>)}</select>)}
           {field("timeline", f.timeline, <select {...a11y("timeline")} className={input}>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}

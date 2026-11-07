@@ -14,6 +14,11 @@ export function Rich({ children }: { children: string }) {
     </>
   );
 }
+// Quiet visual break between sections.
+export function Divider() {
+  return <div className={`${wrap} py-2`} aria-hidden><div className="divider" /></div>;
+}
+
 export const plain = (s: string) => s.replace(/\*/g, "");
 
 export function Header({ lang, t }: { lang: Locale; t: Dict }) {

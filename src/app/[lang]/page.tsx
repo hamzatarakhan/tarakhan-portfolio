@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
-import { Footer, Header, Rich, plain, wrap } from "@/components/Chrome";
+import { Divider, Footer, Header, Rich, plain, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
@@ -49,7 +49,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </h1>
             <p className="rise mt-6 max-w-xl text-lg text-muted" style={st(2)}>{t.hero.sub}</p>
             <div className="rise mt-9 flex flex-wrap gap-3" style={st(3)}>
-              <Link href={`/${lang}/contact`} className={btnPrimary}>{t.hero.cta2}</Link>
+              <Link href={`/${lang}/contact`} className={btnPrimary}>{t.hero.ctaProject}</Link>
               <a href="#work" className={btnGhost}>{t.hero.cta1} <Icon name="arrow" className="flip-rtl size-4" /></a>
             </div>
             <p className="label rise mt-8 text-muted" style={st(4)}>{t.hero.eyebrow}</p>
@@ -106,6 +106,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </p>
         </section>
 
+        <Divider />
         {/* Selected work */}
         <section id="work" className={`${wrap} scroll-mt-20 sec`}>
           <Head label={plain(t.work.title)} title={t.work.title} intro={t.work.intro} center />
@@ -127,6 +128,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Services */}
         <section className={`${wrap} grid grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
@@ -147,6 +149,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Why me */}
         <section className={`${wrap} sec`}>
           <Head label={plain(t.why.title)} title={t.why.title} center />
@@ -161,6 +164,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Process */}
         <section className={`${wrap} sec`}>
           <Head label={plain(t.process.title)} title={t.process.title} intro={t.process.intro} center />
@@ -179,6 +183,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Independent products */}
         <section className={`${wrap} sec`}>
           <Head label={plain(t.play.title)} title={t.play.title} intro={t.play.intro} center />
@@ -193,6 +198,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </ul>
         </section>
 
+        <Divider />
         {/* Capabilities */}
         <section className={`${wrap} sec`}>
           <Head label={plain(t.skills.title)} title={t.skills.title} center />
@@ -206,6 +212,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* About */}
         <section className={`${wrap} sec`}>
           <div className="glass reveal grid grid-cols-1 gap-10 !rounded-[2rem] p-6 sm:p-12 lg:grid-cols-2">
@@ -228,6 +235,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Testimonials */}
         <section className={`${wrap} sec`}>
           <Head label={plain(t.testimonials.title)} title={t.testimonials.title} intro={t.testimonials.intro} center />
@@ -248,6 +256,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        <Divider />
         {/* Contact */}
         <section id="contact" className={`${wrap} scroll-mt-20 pt-2 pb-12`}>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]">
