@@ -7,7 +7,7 @@ const BRANDS = [
   { id: "stc", name: "stc", src: "/clients/stc.svg", h: "h-8", c: "#8a3ffc", lift: 2.1 },
   { id: "omantel", name: "Omantel", src: "/clients/omantel.svg", h: "h-6", c: "#5b4bff", lift: 2.2 },
   { id: "confmanage", name: "ConfManage", src: "/clients/confmanage-icon.png", h: "h-10", c: "#e0457b", lockup: true },
-  { id: "virgin", name: "Virgin Bakery", src: "/clients/virgin.svg", h: "h-12", c: "#b3262b", lift: 2.4 },
+  { id: "virgin", name: "Virgin Bakery", src: "/clients/virgin-light.svg", h: "h-12", c: "#b3262b", lift: 2.4 },
   { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-14", c: "#c7197d", lift: 1.45 },
 ] as const;
 
