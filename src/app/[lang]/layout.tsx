@@ -6,6 +6,7 @@ import {
   Bricolage_Grotesque,
   Space_Grotesk,
   IBM_Plex_Sans_Arabic,
+  Amiri_Quran,
 } from "next/font/google";
 import "../globals.css";
 import { dirOf, getDict, isLocale, locales } from "@/lib/i18n";
@@ -21,6 +22,8 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
 });
+
+const quran = Amiri_Quran({ variable: "--font-quran", subsets: ["arabic"], weight: "400" });
 
 export const generateStaticParams = () => locales.map((lang) => ({ lang }));
 
@@ -43,7 +46,7 @@ d.dataset.skin=g('skin')||'calm';}catch(e){}})()`;
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const fonts = [geist, geistMono, interTight, bricolage, space, plexArabic].map((f) => f.variable).join(" ");
+  const fonts = [geist, geistMono, interTight, bricolage, space, plexArabic, quran].map((f) => f.variable).join(" ");
   return (
     <html lang={lang} dir={dirOf(lang)} data-theme="light" data-skin="calm" className={`${fonts} antialiased`} suppressHydrationWarning>
       <head>

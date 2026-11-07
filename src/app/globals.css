@@ -210,6 +210,24 @@ body {
     transform: translateY(6px);
   }
 }
+/* Reading progress: native scroll-driven animation (no JS; absent in older browsers = no bar) */
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.progress {
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
 @keyframes rise {
   from {
     opacity: 0;

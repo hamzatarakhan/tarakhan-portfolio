@@ -3,7 +3,16 @@
     "title": "Hamza Tarakhan — Senior UI/UX & Product Designer",
     "description": "I design systems that scale and flows people actually finish. Design systems, complex product flows and bilingual Arabic/English products."
   },
-  "nav": { "work": "Work", "about": "About", "contact": "Contact", "skip": "Skip to content", "theme": ["Light", "Dark"] },
+  "nav": {
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "skip": "Skip to content",
+    "theme": [
+      "Light",
+      "Dark"
+    ]
+  },
   "hero": {
     "status": "Available for freelance projects",
     "eyebrow": "Senior UI/UX · Product · Design systems",
@@ -17,60 +26,188 @@
   },
   "proof": {
     "items": [
-      { "n": 4, "suffix": "+", "label": "years designing products" },
-      { "n": 5, "suffix": "", "label": "telecom brands on one system" },
-      { "n": 200, "suffix": "+", "label": "screens in SalesPoint" },
-      { "n": 9, "suffix": "+", "label": "apps shipped" }
+      {
+        "n": 4,
+        "suffix": "+",
+        "label": "years designing products"
+      },
+      {
+        "n": 5,
+        "suffix": "",
+        "label": "telecom brands on one system"
+      },
+      {
+        "n": 200,
+        "suffix": "+",
+        "label": "screens in SalesPoint"
+      },
+      {
+        "n": 9,
+        "suffix": "+",
+        "label": "apps shipped"
+      }
     ],
     "brandsLabel": "Designed for",
-    "brands": ["Ooredoo", "Awaser", "Beyond", "STC", "Starlink"]
+    "brands": [
+      "Ooredoo",
+      "Awaser",
+      "Beyond",
+      "STC",
+      "Starlink"
+    ]
   },
   "work": {
     "title": "Selected work",
     "intro": "Four projects, four kinds of problem: complex flows, systems, Arabic-first reading, and end-to-end product building.",
     "view": "Read case study",
     "items": [
-      { "slug": "salespoint", "title": "SalesPoint: dealer platform", "outcome": "KYC, SIM activation, billing and wallets turned into clear flows for high-volume daily use.", "role": "UX lead", "tags": ["Telecom", "Enterprise UX", "A/B testing"] },
-      { "slug": "salespoint-design-system", "title": "SalesPoint design system", "outcome": "One shared system across five operators. Each new brand launched on existing components.", "role": "Design system owner", "tags": ["Tokens", "Governance", "RTL"] },
-      { "slug": "shamat", "title": "Shamat", "outcome": "A bilingual Arabic/English app built around a Mushaf. In development.", "role": "Product designer", "tags": ["Arabic typography", "RTL-first", "Mobile"] },
-      { "slug": "flowance", "title": "Flowance", "outcome": "A complete personal finance tracker, designed and built end to end.", "role": "Designer + developer", "tags": ["Fintech", "React", "Product"] }
+      {
+        "slug": "salespoint",
+        "title": "SalesPoint: dealer platform",
+        "outcome": "KYC, SIM activation, billing and wallets turned into clear flows for high-volume daily use.",
+        "role": "UX lead",
+        "tags": [
+          "Telecom",
+          "Enterprise UX",
+          "A/B testing"
+        ]
+      },
+      {
+        "slug": "salespoint-design-system",
+        "title": "SalesPoint design system",
+        "outcome": "One shared system across five operators. Each new brand launched on existing components.",
+        "role": "Design system owner",
+        "tags": [
+          "Tokens",
+          "Governance",
+          "RTL"
+        ]
+      },
+      {
+        "slug": "shamat",
+        "title": "Shamat",
+        "outcome": "A bilingual Arabic/English app built around a Mushaf. In development.",
+        "role": "Product designer",
+        "tags": [
+          "Arabic typography",
+          "RTL-first",
+          "Mobile"
+        ]
+      },
+      {
+        "slug": "flowance",
+        "title": "Flowance",
+        "outcome": "A complete personal finance tracker, designed and built end to end.",
+        "role": "Designer + developer",
+        "tags": [
+          "Fintech",
+          "React",
+          "Product"
+        ]
+      }
     ]
   },
   "services": {
     "title": "What I do",
     "getLabel": "You get",
     "items": [
-      { "title": "Product & UX design", "body": "Complex workflows turned into flows people finish.", "get": "Research-backed flows, wireframes, high-fidelity UI and interactive prototypes." },
-      { "title": "Design systems & multi-brand theming", "body": "One system that adapts to any brand, theme or language.", "get": "Tokens, components, documentation and a governance process your team can run." },
-      { "title": "Bilingual Arabic/English (RTL) products", "body": "Arabic that is designed, not translated and flipped.", "get": "RTL layouts, Arabic type pairing and mirrored interactions across your product." },
-      { "title": "Design + front-end build", "body": "From concept to a working prototype, fast.", "get": "React / React Native builds of the designed UI, ready for your engineers to pick up." }
+      {
+        "title": "Product & UX design",
+        "body": "Complex workflows turned into flows people finish.",
+        "get": "Research-backed flows, wireframes, high-fidelity UI and interactive prototypes."
+      },
+      {
+        "title": "Design systems & multi-brand theming",
+        "body": "One system that adapts to any brand, theme or language.",
+        "get": "Tokens, components, documentation and a governance process your team can run."
+      },
+      {
+        "title": "Bilingual Arabic/English (RTL) products",
+        "body": "Arabic that is designed, not translated and flipped.",
+        "get": "RTL layouts, Arabic type pairing and mirrored interactions across your product."
+      },
+      {
+        "title": "Design + front-end build",
+        "body": "From concept to a working prototype, fast.",
+        "get": "React / React Native builds of the designed UI, ready for your engineers to pick up."
+      }
     ]
   },
   "process": {
     "title": "How I work",
     "intro": "Five steps, each with something real behind it.",
     "steps": [
-      { "name": "Discover", "body": "Understand users, business rules and constraints before drawing anything.", "example": "SalesPoint: mapped KYC, activation and approval rules across roles and operators." },
-      { "name": "Define", "body": "Turn findings into a clear problem, flows and information architecture.", "example": "Multi-stage, role-based approvals reduced to flows each role can follow." },
-      { "name": "Design", "body": "Wireframes to high-fidelity UI, built on the system, not around it.", "example": "200+ screens on shared components and tokens." },
-      { "name": "Test", "body": "Compare options side by side and decide with evidence.", "example": "12 competing variants tested: 5 activation flows, 5 credit-limit patterns, 2 migration models." },
-      { "name": "Build / hand off", "body": "Ship with specs, tokens and governance, or build the front end myself.", "example": "Components reviewed and approved before they enter the library." }
+      {
+        "name": "Discover",
+        "body": "Understand users, business rules and constraints before drawing anything.",
+        "example": "SalesPoint: mapped KYC, activation and approval rules across roles and operators."
+      },
+      {
+        "name": "Define",
+        "body": "Turn findings into a clear problem, flows and information architecture.",
+        "example": "Multi-stage, role-based approvals reduced to flows each role can follow."
+      },
+      {
+        "name": "Design",
+        "body": "Wireframes to high-fidelity UI, built on the system, not around it.",
+        "example": "200+ screens on shared components and tokens."
+      },
+      {
+        "name": "Test",
+        "body": "Compare options side by side and decide with evidence.",
+        "example": "12 competing variants tested: 5 activation flows, 5 credit-limit patterns, 2 migration models."
+      },
+      {
+        "name": "Build / hand off",
+        "body": "Ship with specs, tokens and governance, or build the front end myself.",
+        "example": "Components reviewed and approved before they enter the library."
+      }
     ]
   },
   "play": {
     "title": "Independent products",
     "intro": "Products I design and build myself, in React and React Native.",
     "items": [
-      { "name": "Shamat", "tag": "Arabic / English Mushaf app" },
-      { "name": "Flowance", "tag": "Personal finance tracker" },
-      { "name": "Activities App", "tag": "Designed, coded, deployed" },
-      { "name": "Ucan", "tag": "Gym tracking" },
-      { "name": "Fit Band", "tag": "Fitness wearable companion" },
-      { "name": "ConfMang", "tag": "Conference management portal" },
-      { "name": "Virgin Bakery", "tag": "Ordering app" },
-      { "name": "Health Care App", "tag": "Healthcare" },
-      { "name": "Masakr App", "tag": "Mobile app" },
-      { "name": "Games app", "tag": "Released" }
+      {
+        "name": "Shamat",
+        "tag": "Arabic / English Mushaf app"
+      },
+      {
+        "name": "Flowance",
+        "tag": "Personal finance tracker"
+      },
+      {
+        "name": "Activities App",
+        "tag": "Designed, coded, deployed"
+      },
+      {
+        "name": "Ucan",
+        "tag": "Gym tracking"
+      },
+      {
+        "name": "Fit Band",
+        "tag": "Fitness wearable companion"
+      },
+      {
+        "name": "ConfMang",
+        "tag": "Conference management portal"
+      },
+      {
+        "name": "Virgin Bakery",
+        "tag": "Ordering app"
+      },
+      {
+        "name": "Health Care App",
+        "tag": "Healthcare"
+      },
+      {
+        "name": "Masakr App",
+        "tag": "Mobile app"
+      },
+      {
+        "name": "Games app",
+        "tag": "Released"
+      }
     ]
   },
   "about": {
@@ -88,5 +225,32 @@
     "linkedin": "LinkedIn",
     "form": "Contact form"
   },
-  "footer": { "built": "Designed and built by Hamza", "colophon": "How this site was made" }
+  "footer": {
+    "built": "Designed and built by Hamza",
+    "colophon": "How this site was made"
+  },
+  "case": {
+    "tldr": "At a glance",
+    "problem": "Problem",
+    "role": "My role",
+    "team": "Team",
+    "timeline": "Timeline",
+    "platform": "Platform",
+    "outcome": "Outcome",
+    "sections": {
+      "problem": "The problem",
+      "found": "What I found",
+      "decisions": "Key decisions",
+      "solution": "The solution",
+      "impact": "Impact",
+      "next": "What I would do next"
+    },
+    "options": "Options considered",
+    "chose": "What I chose",
+    "why": "Why",
+    "next": "Next case study",
+    "back": "All work",
+    "contents": "On this page",
+    "demo": "Interactive demo"
+  }
 }
