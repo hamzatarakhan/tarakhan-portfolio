@@ -45,7 +45,7 @@ export function CommandMenu({ lang, d, cases }: { lang: Locale; d: Dict["cmd"]; 
 
   return (
     <>
-      <button onClick={open} aria-label={d.open} className="hidden min-h-11 items-center gap-2 rounded-md border border-line bg-surface px-3 text-sm text-muted transition-colors hover:text-fg sm:inline-flex">
+      <button onClick={open} aria-label={d.open} className="relative hidden h-9 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-3.5 text-[13px] text-muted transition-colors before:absolute before:-inset-1 before:content-[''] hover:text-fg lg:inline-flex">
         {d.open} <kbd className="rounded-sm bg-surface-2 px-1.5 font-mono text-xs">{d.hint}</kbd>
       </button>
       <dialog ref={dlg} aria-label={d.open} onClick={(e) => e.target === dlg.current && close()} className="m-auto mt-[12vh] w-[min(92vw,34rem)] rounded-lg border border-line bg-surface p-0 text-fg shadow-2 backdrop:bg-black/40 backdrop:backdrop-blur-sm">

@@ -43,15 +43,15 @@ export default async function CaseStudy({ params }: { params: Promise<{ lang: st
     <>
       <div className="progress fixed inset-x-0 top-0 z-40 h-0.5 origin-left bg-accent rtl:origin-right" aria-hidden />
       <Header lang={lang} t={t} />
-      <main id="main" className={`${wrap} pt-8 pb-24`}>
+      <main id="main" className={`${wrap} pt-6 pb-14`}>
         <Link href={`/${lang}#work`} className="rise inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg" style={st(0)}>
           <span aria-hidden className="flip-rtl">←</span> {k.back}
         </Link>
         <h1 className="display rise mt-4 max-w-4xl text-4xl font-medium sm:text-6xl lg:text-7xl" style={st(1)}>{c.title}</h1>
         <p className="rise mt-5 max-w-2xl text-lg text-muted" style={st(2)}><Txt>{c.tldr.problem}</Txt></p>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_14rem]">
-          <div className="min-w-0 space-y-20">
+        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_14rem]">
+          <div className="min-w-0 space-y-12">
             <section aria-label={k.tldr} className="glass rise p-6 sm:p-8" style={st(3)}>
               <p className="label text-accent">{k.tldr}</p>
               <dl className="mt-5 grid gap-x-10 gap-y-5 sm:grid-cols-2">

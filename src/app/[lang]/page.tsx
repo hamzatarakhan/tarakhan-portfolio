@@ -16,7 +16,7 @@ const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
 function Head({ label, title, intro, center }: { label: string; title: string; intro?: string; center?: boolean }) {
   return (
-    <div className={`reveal mb-12 ${center ? "mx-auto max-w-2xl text-center" : "max-w-3xl"}`}>
+    <div className={`reveal mb-8 sm:mb-10 ${center ? "mx-auto max-w-2xl text-center" : "max-w-3xl"}`}>
       <p className="label inline-flex items-center gap-2 rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-3 py-1.5 text-muted">{label}</p>
       <h2 className={`${h2} mt-5`}><Rich>{title}</Rich></h2>
       {intro && <p className="mt-4 text-lg text-muted">{intro}</p>}
@@ -39,7 +39,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <Header lang={lang} t={t} />
       <main id="main">
         {/* Hero */}
-        <section className={`${wrap} grid items-center gap-12 pt-12 pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:pt-20`}>
+        <section className={`${wrap} grid grid-cols-1 items-center gap-10 pt-6 pb-8 lg:grid-cols-[1.15fr_0.85fr] lg:pt-12`}>
           <div>
             <p className="rise label inline-flex items-center gap-3 rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-4 py-2" style={st(0)}>
               <span className="pulse relative size-2 rounded-full bg-accent" aria-hidden /> {t.hero.status}
@@ -63,8 +63,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </div>
             </div>
             {[
-              [t.marquee[0], "-top-4 -start-4 sm:-start-8", 0],
-              [t.marquee[2], "top-1/3 -end-3 sm:-end-8", 1.2],
+              [t.marquee[0], "-top-4 start-2 sm:-start-8", 0],
+              [t.marquee[2], "top-1/3 end-2 sm:-end-8", 1.2],
               [t.marquee[3], "-bottom-5 start-6", 2.4],
             ].map(([label, pos, d]) => (
               <span key={label as string} className={`glass float label absolute whitespace-nowrap !rounded-full px-4 py-2.5 shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
@@ -91,7 +91,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Proof */}
-        <section aria-label="Key numbers" className={`${wrap} py-16`}>
+        <section aria-label="Key numbers" className={`${wrap} sec`}>
           <dl className="glass reveal grid grid-cols-2 !rounded-[2rem] lg:grid-cols-4">
             {t.proof.items.map((it, i) => (
               <div key={it.label} className={`p-7 text-center sm:p-9 ${i < 3 ? "lg:border-e lg:border-[var(--glass-line)]" : ""} ${i % 2 === 0 ? "border-e border-[var(--glass-line)] lg:border-e" : ""}`}>
@@ -107,7 +107,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Selected work */}
-        <section id="work" className={`${wrap} scroll-mt-20 py-20`}>
+        <section id="work" className={`${wrap} scroll-mt-20 sec`}>
           <Head label={plain(t.work.title)} title={t.work.title} intro={t.work.intro} center />
           <div className="grid gap-6 md:grid-cols-2">
             {t.work.items.map((w, i) => (
@@ -115,7 +115,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <Mock v={i} className="!rounded-2xl h-56 sm:h-64 transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]" />
                 <div className="p-3 pt-6">
                   <p className="label text-accent">{w.role}</p>
-                  <h3 className="display mt-2 flex items-center justify-between gap-4 text-2xl font-medium sm:text-3xl">
+                  <h3 className="display mt-2 flex items-center justify-between gap-4 text-2xl font-medium lg:text-3xl">
                     {w.title}
                     <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[var(--glass-line)] transition-colors group-hover:bg-accent group-hover:text-on-accent"><Icon name="arrow" className="flip-rtl size-4" /></span>
                   </h3>
@@ -128,7 +128,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Services */}
-        <section className={`${wrap} grid gap-12 py-20 lg:grid-cols-[0.8fr_1.2fr]`}>
+        <section className={`${wrap} grid grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Head label={plain(t.services.title)} title={t.services.title} intro={t.hero.sub} />
           </div>
@@ -148,7 +148,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Why me */}
-        <section className={`${wrap} py-20`}>
+        <section className={`${wrap} sec`}>
           <Head label={plain(t.why.title)} title={t.why.title} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
             {t.why.items.map((w, i) => (
@@ -162,7 +162,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Process */}
-        <section className={`${wrap} py-20`}>
+        <section className={`${wrap} sec`}>
           <Head label={plain(t.process.title)} title={t.process.title} intro={t.process.intro} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
             {t.process.steps.map((p, i) => (
@@ -180,7 +180,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Independent products */}
-        <section className={`${wrap} py-20`}>
+        <section className={`${wrap} sec`}>
           <Head label={plain(t.play.title)} title={t.play.title} intro={t.play.intro} center />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {t.play.items.map((p, i) => (
@@ -194,7 +194,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Capabilities */}
-        <section className={`${wrap} py-20`}>
+        <section className={`${wrap} sec`}>
           <Head label={plain(t.skills.title)} title={t.skills.title} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {t.skills.groups.map((g, i) => (
@@ -207,8 +207,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* About */}
-        <section className={`${wrap} py-20`}>
-          <div className="glass reveal grid gap-10 !rounded-[2rem] p-8 sm:p-12 lg:grid-cols-2">
+        <section className={`${wrap} sec`}>
+          <div className="glass reveal grid grid-cols-1 gap-10 !rounded-[2rem] p-6 sm:p-12 lg:grid-cols-2">
             <div>
               <Head label={t.aboutPage.title} title={t.about.title} />
               <p className="-mt-4 max-w-prose text-lg text-muted">{t.about.body}</p>
@@ -229,7 +229,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Testimonials */}
-        <section className={`${wrap} py-20`}>
+        <section className={`${wrap} sec`}>
           <Head label={plain(t.testimonials.title)} title={t.testimonials.title} intro={t.testimonials.intro} center />
           <div className="grid gap-6 md:grid-cols-3">
             {t.testimonials.items.map((q, i) => (
@@ -249,8 +249,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </section>
 
         {/* Contact */}
-        <section id="contact" className={`${wrap} scroll-mt-20 pt-10 pb-24`}>
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <section id="contact" className={`${wrap} scroll-mt-20 pt-2 pb-12`}>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="glass reveal !rounded-[2rem] p-8 sm:p-12">
               <p className="label inline-flex items-center gap-2 text-muted"><span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />{t.hero.status}</p>
               <h2 className="display mt-6 text-4xl font-medium sm:text-5xl"><Rich>{t.contact.title}</Rich></h2>

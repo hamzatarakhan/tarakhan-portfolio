@@ -14,9 +14,9 @@ export default async function About({ params }: { params: Promise<{ lang: string
   return (
     <>
       <Header lang={lang} t={t} />
-      <main id="main" className={`${wrap} pt-10 pb-24`}>
+      <main id="main" className={`${wrap} pt-6 pb-14`}>
         <p className="label rise inline-flex rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-3 py-1.5 text-muted" style={st(0)}>{a.title}</p>
-        <div className="mt-6 grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="mt-6 grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <h1 className="display rise text-4xl font-medium sm:text-6xl" style={st(1)}>{t.hero.name}</h1>
             <div className="rise mt-6 max-w-prose space-y-5 text-lg text-muted" style={st(2)}>{a.intro.map((p) => <p key={p}>{p}</p>)}</div>
@@ -29,14 +29,14 @@ export default async function About({ params }: { params: Promise<{ lang: string
           </div>
         </div>
 
-        <section className="mt-24">
+        <section className="mt-14">
           <h2 className={`${h2} reveal`}>{a.how.title}</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {a.how.items.map((i, n) => <li key={i} className="glass reveal p-6 text-lg" style={st(n % 2)}><span className="display me-3 text-2xl font-semibold text-accent/70">{String(n + 1).padStart(2, "0")}</span>{i}</li>)}
           </ul>
         </section>
 
-        <section className="mt-24">
+        <section className="mt-14">
           <h2 className={`${h2} reveal`}>{a.timeline.title}</h2>
           <div className="mt-8 space-y-3">
             {a.timeline.items.map((it, n) => (
@@ -51,7 +51,7 @@ export default async function About({ params }: { params: Promise<{ lang: string
           </div>
         </section>
 
-        <div className="mt-24 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {[a.edu, a.tools].map((s) => (
             <section key={s.title} className="glass reveal p-7">
               <h2 className={h2}>{s.title}</h2>

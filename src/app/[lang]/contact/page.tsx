@@ -15,13 +15,13 @@ export default async function Contact({ params }: { params: Promise<{ lang: stri
   return (
     <>
       <Header lang={lang} t={t} />
-      <main id="main" className={`${wrap} pt-10 pb-24`}>
+      <main id="main" className={`${wrap} pt-6 pb-14`}>
         <p className="label rise inline-flex items-center gap-2 rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-3 py-1.5 text-muted" style={st(0)}>
           <span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />{t.hero.status}
         </p>
         <h1 className="display rise mt-5 text-4xl font-medium sm:text-6xl" style={st(1)}>{c.title}</h1>
         <p className="rise mt-4 max-w-prose text-lg text-muted" style={st(2)}><Txt>{c.intro}</Txt></p>
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_22rem]">
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_22rem]">
           <div className="glass rise p-6 sm:p-10" style={st(3)}><ContactForm f={c.f} /></div>
           <aside className="glass rise h-fit space-y-5 p-6 sm:p-8" style={st(4)}>
             <h2 className="display text-xl font-medium">{c.direct}</h2>

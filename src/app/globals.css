@@ -257,7 +257,9 @@ body {
   }
 }
 
-/* ───────── Glass surfaces with a pointer-following spotlight ───────── */
+/* ───────── Glass surfaces with a pointer-following spotlight ─────────
+   In the components layer so Tailwind utilities (absolute, rounded-*, p-*) can override it. */
+@layer components {
 .glass {
   position: relative;
   background: var(--glass);
@@ -287,6 +289,7 @@ body {
   .glass:hover::before {
     opacity: 1;
   }
+}
 }
 
 /* ───────── Scroll reveal (only when JS is on, so content is never hidden without it) ───────── */
@@ -438,4 +441,9 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Section rhythm: tighter on phones, roomy but not wasteful on desktop */
+.sec {
+  padding-block: clamp(1.75rem, 4vw, 3.5rem);
 }

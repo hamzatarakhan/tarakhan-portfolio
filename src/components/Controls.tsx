@@ -51,12 +51,27 @@ export function switchLang(next: string, path: string, push: (u: string) => void
   transition(() => push(path.replace(/^\/(en|ar)/, `/${next}`)));
 }
 
+// Compact header control: 36px visual, 44px hit area via the pseudo-element.
+export const btnSm =
+  "relative h-9 min-w-9 px-3.5 rounded-full border border-line bg-surface text-[13px] font-medium transition-[background,transform] duration-[var(--dur-fast)] active:scale-[0.97] hover:bg-surface-2 aria-pressed:bg-accent aria-pressed:text-on-accent aria-pressed:border-accent before:absolute before:-inset-1 before:content-['']";
+
+// Round 36px icon control (44px hit area via the pseudo-element).
+const iconBtn =
+  "relative grid size-9 place-items-center rounded-full border border-line bg-surface text-[13px] font-semibold text-muted transition-[background,color,transform] duration-[var(--dur-fast)] hover:bg-surface-2 hover:text-fg active:scale-[0.94] before:absolute before:-inset-1 before:content-['']";
+
 export function ThemeButton({ labels }: { labels?: [string, string] }) {
   const p = usePrefs();
   const dark = p?.theme === "dark";
+  const [light, darkL] = labels ?? ["Light", "Dark"];
   return (
-    <button className={btn} aria-pressed={dark} onClick={() => setTheme(dark ? "light" : "dark")}>
-      {(labels ?? ["Light", "Dark"])[dark ? 1 : 0]}
+    <button className={iconBtn} aria-label={dark ? light : darkL} title={dark ? light : darkL} onClick={() => setTheme(dark ? "light" : "dark")}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="size-[18px]" aria-hidden>
+        {dark ? (
+          <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m0-11.32L4.93 4.93m14.14 14.14-1.41-1.41M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+        ) : (
+          <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" />
+        )}
+      </svg>
     </button>
   );
 }
@@ -66,13 +81,10 @@ export function LangButton() {
   const router = useRouter();
   const p = usePrefs();
   const next = p?.lang === "ar" ? "en" : "ar";
+  const label = next === "ar" ? "العربية" : "English";
   return (
-    <button
-      className={btn}
-      lang={next}
-      onClick={() => switchLang(next, path, router.push)}
-    >
-      {next === "ar" ? "العربية" : "English"}
+    <button className={iconBtn} lang={next} aria-label={label} title={label} onClick={() => switchLang(next, path, router.push)}>
+      {next === "ar" ? <span className="font-[family-name:var(--font-plex-arabic)] text-[15px] leading-none">ع</span> : "EN"}
     </button>
   );
 }

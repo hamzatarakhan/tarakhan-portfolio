@@ -14,7 +14,7 @@ export default async function Colophon({ params }: { params: Promise<{ lang: str
   return (
     <>
       <Header lang={lang} t={t} />
-      <main id="main" className={`${wrap} pt-10 pb-24`}>
+      <main id="main" className={`${wrap} pt-6 pb-14`}>
         <h1 className="display rise text-4xl font-medium sm:text-6xl" style={st(0)}>{c.title}</h1>
         <p className="rise mt-5 max-w-prose text-lg text-muted" style={st(1)}>{c.intro}</p>
         <dl className="mt-12 grid gap-4 md:grid-cols-2">
