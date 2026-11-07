@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ThemeButton } from "./Controls";
+import { LangButton, ThemeButton } from "./Controls";
 import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
 import { cases } from "@/content/work";
@@ -37,6 +37,7 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
         <div className="flex items-center gap-2">
           <CommandMenu lang={lang} d={t.cmd} cases={cases.map((c) => ({ slug: c.slug, title: c[lang].title }))} />
           <ThemeButton labels={t.nav.theme as [string, string]} />
+          <LangButton />
           <Link href={`/${lang}/contact`} className="hidden min-h-11 items-center rounded-full border border-accent px-5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-on-accent sm:inline-flex">
             {t.hero.cta2}
           </Link>
