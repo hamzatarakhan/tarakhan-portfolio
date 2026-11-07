@@ -1,27 +1,14 @@
-/* Client logo strip: solid single-colour marks at rest (full strength, never greyed).
-   On hover the logo shows its real colours and the tile picks up a soft brand tint. */
+/* Client logo strip: every logo in its real colours, on every screen.
+   Hover (mouse) adds a soft brand tint to the tile and a small lift. */
 .logo-strip .mq-track {
   animation-duration: 45s;
 }
 .client-mark {
-  transition:
-    filter var(--dur-base) var(--ease-out),
-    transform var(--dur-slow) var(--ease-spring);
+  transition: transform var(--dur-slow) var(--ease-spring);
 }
-/* Mouse users: solid marks at rest, real colours on hover (below) */
-@media (hover: hover) {
-  .client-mark {
-    filter: brightness(0) invert(1); /* pure white on dark */
-  }
-  :root[data-theme="light"] .client-mark {
-    filter: brightness(0); /* pure ink on light */
-  }
-}
-/* Touch screens have no hover: show the real colours from the start */
-@media (hover: none) {
-  :root:not([data-theme="light"]) .logo-mark[data-lift] .client-mark {
-    filter: brightness(var(--lift)) saturate(1.1);
-  }
+/* Deep-coloured logos (stc purple, Omantel, Starlink, Virgin) get a per-brand brightness lift on dark */
+:root:not([data-theme="light"]) .logo-mark[data-lift] .client-mark {
+  filter: brightness(var(--lift)) saturate(1.1);
 }
 /* Brands that ship separate artwork for dark and light backgrounds */
 :root[data-theme="light"] .logo-on-dark,
@@ -43,12 +30,7 @@
     transform: translateY(-2px);
   }
   .logo-mark:hover .client-mark {
-    filter: none; /* the logo in its own colours */
     transform: scale(1.05);
-  }
-  /* Deep-coloured logos (stc purple, Starlink magenta wordmark) get a per-brand brightness lift on dark */
-  :root:not([data-theme="light"]) .logo-mark[data-lift]:hover .client-mark {
-    filter: brightness(var(--lift)) saturate(1.1);
   }
 }
 

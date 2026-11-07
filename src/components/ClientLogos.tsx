@@ -1,5 +1,5 @@
 // Brands I have designed products for: the SalesPoint operators, Omantel, ConfManage and Virgin Bakery. Logos are the brands' own artwork (trademarks of their owners).
-// Shown as solid single-colour marks in an auto-scrolling strip; on hover a logo shows its real colours and the tile picks up a soft brand tint (`c`).
+// Shown in their real colours in an auto-scrolling strip; on hover the tile picks up a soft brand tint (`c`).
 const BRANDS = [
   { id: "ooredoo", name: "Ooredoo", src: "/clients/ooredoo.svg", h: "h-6", c: "#ed1c24" },
   { id: "awasr", name: "Awasr", src: "/clients/awasr.webp", h: "h-9", c: "#17a39c" },
