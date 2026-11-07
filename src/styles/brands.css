@@ -1,4 +1,5 @@
-/* Client logo strip: solid single-colour marks (full strength, never greyed), lit in the brand's colour on hover. */
+/* Client logo strip: solid single-colour marks at rest (full strength, never greyed).
+   On hover the logo shows its real colours and the tile picks up a soft brand tint. */
 .logo-strip .mq-track {
   animation-duration: 45s;
 }
@@ -11,23 +12,31 @@
 :root[data-theme="light"] .client-mark {
   filter: brightness(0); /* pure ink on light */
 }
+/* Brands that ship separate artwork for dark and light backgrounds */
+:root[data-theme="light"] .logo-on-dark,
+:root:not([data-theme="light"]) .logo-on-light {
+  display: none;
+}
 .logo-mark {
   transition:
     border-color var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-slow) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
     background var(--dur-base) var(--ease-out),
     transform var(--dur-slow) var(--ease-out);
 }
 @media (hover: hover) {
   .logo-mark:hover {
-    border-color: var(--b);
-    background: color-mix(in srgb, var(--b) 14%, var(--glass));
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--b) 40%, transparent),
-      0 18px 40px -16px var(--b);
-    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--b) 60%, transparent);
+    background: color-mix(in srgb, var(--b) 8%, var(--glass));
+    box-shadow: 0 6px 16px -10px color-mix(in srgb, var(--b) 70%, transparent);
+    transform: translateY(-2px);
   }
   .logo-mark:hover .client-mark {
-    transform: scale(1.08);
+    filter: none; /* the logo in its own colours */
+    transform: scale(1.05);
+  }
+  /* Deep-coloured logos (stc purple, Starlink magenta wordmark) get a per-brand brightness lift on dark */
+  :root:not([data-theme="light"]) .logo-mark[data-lift]:hover .client-mark {
+    filter: brightness(var(--lift)) saturate(1.1);
   }
 }
