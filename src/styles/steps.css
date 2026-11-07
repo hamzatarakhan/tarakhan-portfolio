@@ -99,3 +99,18 @@
     display: none;
   }
 }
+
+/* Orbit portrait: the dashed ring turns slowly, like the system orbiting the person */
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.orbit {
+  animation: orbit-spin 60s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit {
+    animation: none;
+  }
+}

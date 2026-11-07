@@ -9,6 +9,7 @@ import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { ClientLogos } from "@/components/ClientLogos";
+import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -143,6 +144,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <section className={`${wrap} grid grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Head label={t.services.eyebrow} title={t.services.title} intro={t.services.intro} />
+            <OrbitPortrait alt={t.hero.name} className="mt-6 hidden lg:block" tags={[{ label: t.hero.tags[2], icon: "cursor" }, { label: t.hero.tags[3], icon: "code" }, { label: t.hero.tags[4], icon: "layers" }]} />
           </div>
           <div className="space-y-4">
             {t.services.items.map((sv, i) => (
@@ -281,8 +283,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <section id="contact" className={`${wrap} scroll-mt-20 pt-2 pb-12`}>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="glass reveal !rounded-[2rem] p-8 sm:p-12">
-              <p className="label inline-flex items-center gap-2 text-muted"><span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />{t.hero.status}</p>
-              <h2 className="display mt-6 text-4xl font-medium sm:text-5xl"><Rich>{t.contact.title}</Rich></h2>
+              <OrbitPortrait alt={t.hero.name} status={t.hero.status} className="mb-10 max-w-[16rem]" tags={[{ label: t.hero.tags[0], icon: "rocket" }, { label: t.hero.tags[1], icon: "sparkle" }, { label: t.hero.tags[3], icon: "code" }]} />
+              <h2 className="display text-4xl font-medium sm:text-5xl"><Rich>{t.contact.title}</Rich></h2>
               <p className="mt-5 max-w-prose text-lg text-muted">{t.contact.body}</p>
               <p className="display mt-8 break-all text-base font-medium sm:text-xl" dir="ltr">
                 <a href={`mailto:${t.contact.email}`} className="underline decoration-accent decoration-2 underline-offset-8 hover:text-accent">{t.contact.email}</a>

@@ -8,7 +8,7 @@ const BRANDS = [
   { id: "awasr", name: "Awasr", src: "/clients/awasr.webp", h: "h-7 sm:h-9" },
   { id: "beyond", name: "Beyond ONE", src: "/clients/beyond-light.svg", h: "h-6 sm:h-7" },
   { id: "stc", name: "stc", src: "/clients/stc.svg", h: "h-7 sm:h-8" },
-  { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-8 sm:h-10" },
+  { id: "starlink", name: "Starlink", src: "", h: "" } // TODO: logo of the Omani Starlink operator, shown as text until confirmed,
 ] as const;
 
 type Labels = { label: string; hint: string; showing: string; reset: string };
@@ -32,8 +32,12 @@ export function ClientLogos({ l }: { l: Labels }) {
               onClick={() => setSkin(active?.id === b.id ? "indigo" : b.id)}
               className="client-tile glass grid h-20 w-36 place-items-center !rounded-2xl px-5 transition-transform duration-[var(--dur-base)] ease-[var(--ease-out)] hover:-translate-y-1 active:scale-[0.97] aria-pressed:ring-2 aria-pressed:ring-accent sm:w-44"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element -- small brand artwork, no optimisation needed */}
-              <img src={b.src} alt="" className={`client-logo ${b.h} w-auto max-w-full object-contain `} />
+              {b.src ? (
+                // eslint-disable-next-line @next/next/no-img-element -- small brand artwork, no optimisation needed
+                <img src={b.src} alt="" className={`client-logo ${b.h} w-auto max-w-full object-contain`} />
+              ) : (
+                <span className="client-logo display text-xl font-semibold tracking-wide text-fg" dir="ltr">{b.name}</span>
+              )}
             </button>
           </li>
         ))}

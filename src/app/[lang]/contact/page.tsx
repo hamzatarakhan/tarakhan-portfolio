@@ -4,6 +4,7 @@ import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { CopyEmail } from "@/components/HomeClient";
+import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
@@ -25,6 +26,7 @@ export default async function Contact({ params }: { params: Promise<{ lang: stri
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_22rem]">
           <div className="glass rise p-6 sm:p-10" style={st(3)}><ContactForm f={c.f} /></div>
           <aside className="glass rise h-fit space-y-5 p-6 sm:p-8" style={st(4)}>
+            <OrbitPortrait alt={t.hero.name} status={t.hero.status} className="mb-8 max-w-[15rem]" tags={[{ label: t.hero.tags[0], icon: "rocket" }, { label: t.hero.tags[1], icon: "sparkle" }, { label: t.hero.tags[2], icon: "cursor" }]} />
             <h2 className="display text-xl font-medium">{c.direct}</h2>
             <p dir="ltr" className="break-all font-mono text-sm"><a className="underline decoration-accent underline-offset-4" href={`mailto:${t.contact.email}`}>{t.contact.email}</a></p>
             <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />
