@@ -227,7 +227,8 @@
         "lockup": "ucan",
         "shots": 11,
         "tag": "Gym tracking",
-        "kind": "redesign"
+        "kind": "redesign",
+        "before": 6
       },
       {
         "name": "Fit Band",
@@ -262,7 +263,10 @@
     "kinds": {
       "redesign": "Redesign",
       "new": "Built from zero"
-    }
+    },
+    "compare": "Compare before & after",
+    "after": "After (redesign)",
+    "before": "Before (original)"
   },
   "about": {
     "title": "A designer who *ships*",

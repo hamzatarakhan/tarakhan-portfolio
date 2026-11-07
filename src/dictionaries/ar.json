@@ -227,7 +227,8 @@
         "lockup": "ucan",
         "shots": 11,
         "tag": "تتبّع التمارين",
-        "kind": "redesign"
+        "kind": "redesign",
+        "before": 6
       },
       {
         "name": "Fit Band",
@@ -262,7 +263,10 @@
     "kinds": {
       "redesign": "إعادة تصميم",
       "new": "من الصفر"
-    }
+    },
+    "compare": "قارن قبل وبعد",
+    "after": "بعد (التصميم الجديد)",
+    "before": "قبل (الأصلي)"
   },
   "about": {
     "title": "مصمم *يُنجز ويُسلّم*",

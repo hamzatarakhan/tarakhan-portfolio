@@ -243,7 +243,13 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <p className={("logo" in p && p.logo) || "lockup" in p ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
                 <p className="mt-1 text-sm text-muted">{p.tag}</p>
                 {"shots" in p && p.shots && "lockup" in p && (
-                  <ProductShots id={p.lockup} name={p.name} count={p.shots} view={t.play.view} screen={t.play.screen} close={t.nav.close} />
+                  <ProductShots
+                    id={p.lockup}
+                    name={p.name}
+                    count={p.shots}
+                    before={"before" in p ? p.before : 0}
+                    l={{ view: "before" in p ? t.play.compare : t.play.view, screen: t.play.screen, close: t.nav.close, after: t.play.after, before: t.play.before }}
+                  />
                 )}
               </li>
             ))}

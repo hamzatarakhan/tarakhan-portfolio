@@ -57,3 +57,11 @@
   scrollbar-width: thin;
   scrollbar-color: var(--accent-soft) transparent;
 }
+/* After / Before switch: only the chosen row shows */
+.shots [data-set="before"],
+.shots:has(input[value="before"]:checked) [data-set="after"] {
+  display: none;
+}
+.shots:has(input[value="before"]:checked) [data-set="before"] {
+  display: flex;
+}
