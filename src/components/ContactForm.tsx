@@ -173,7 +173,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
               name="code"
               aria-label={f.phoneCode}
               defaultValue="JO-962"
-              className={`${input.replace("w-full", "w-[8.5rem]")} select shrink-0 whitespace-nowrap`}
+              className={`${input.replace("w-full", "w-[6.25rem]")} select select-sm shrink-0 whitespace-nowrap text-sm`}
             >
               {CODES.map(([c, n]) => (
                 <option key={c} value={`${c}-${n}`}>
