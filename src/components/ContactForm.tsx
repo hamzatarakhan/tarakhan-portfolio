@@ -5,7 +5,7 @@ import type { Dict } from "@/lib/i18n";
 import { btn } from "./Controls";
 import "@/styles/forms.css";
 
-// Web3Forms works on static hosting. Set NEXT_PUBLIC_WEB3FORMS_KEY (free key from web3forms.com).
+// Email: Web3Forms (NEXT_PUBLIC_WEB3FORMS_KEY, free from web3forms.com). WhatsApp: /api/contact (CALLMEBOT_KEY).
 const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 const input = "min-h-11 w-full rounded-md border border-line bg-surface px-3 placeholder:text-muted/70 aria-[invalid=true]:border-accent aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-accent";
 
@@ -26,18 +26,16 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
     if (!v("message")) next.message = f.required;
     setErrs(next);
     if (Object.keys(next).length) return;
-    if (!KEY) return setState("fail");
     setState("sending");
-    try {
-      const r = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: KEY, subject: "Portfolio contact", type: f.types[type], name: v("name"), email: v("email"), timeline: v("timeline"), message: v("message") }),
-      });
-      setState(r.ok ? "ok" : "fail");
-    } catch {
-      setState("fail");
-    }
+    const msg = { type: f.types[type], name: v("name"), email: v("email"), timeline: v("timeline"), message: v("message") };
+    const post = (url: string, body: object) =>
+      fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }).then((r) => r.ok, () => false);
+    // Email (Web3Forms, from the browser) and WhatsApp (our /api/contact) at the same time; success if either arrives.
+    const sent = await Promise.all([
+      KEY ? post("https://api.web3forms.com/submit", { access_key: KEY, subject: `Portfolio: ${msg.type} from ${msg.name}`, ...msg }) : false,
+      post("/api/contact", msg),
+    ]);
+    setState(sent.some(Boolean) ? "ok" : "fail");
   }
 
   if (state === "ok")
