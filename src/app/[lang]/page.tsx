@@ -61,19 +61,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <p className="label rise mt-8 text-muted" style={st(4)}>{t.hero.eyebrow}</p>
           </div>
 
-          <div className="rise relative mx-auto w-full max-w-md" style={st(2)}>
+          <div className="rise relative mx-auto mt-10 w-full max-w-md lg:mt-0" style={st(2)}>
             {/* Floating cut-out portrait: accent glow and a thin orbit ring behind, soft fade at the bottom */}
             <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-accent/40 blur-3xl" />
             <div aria-hidden className="absolute start-1/2 top-[6%] aspect-square w-[92%] -translate-x-1/2 rounded-full border border-[var(--glass-line)] rtl:translate-x-1/2" />
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
               <Image src={cutout} placeholder="blur" alt={t.hero.name} sizes="(min-width: 1024px) 28rem, 90vw" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" priority />
             </div>
-            {[
-              [t.marquee[0], "-top-4 start-2 sm:-start-8", 0],
-              [t.marquee[2], "bottom-[22%] end-2 sm:-end-8", 1.2],
-              [t.marquee[3], "-bottom-5 start-6", 2.4],
-            ].map(([label, pos, d]) => (
-              <span key={label as string} className={`glass float label absolute whitespace-nowrap !rounded-full bg-bg/90 px-4 py-2.5 text-fg shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
+            {/* What I do, in four tags. Placed on the background and the jacket, never over the face. */}
+            {(
+              [
+                [t.hero.tags[0], "rocket", "-top-9 start-0 sm:-start-10", 0],
+                [t.hero.tags[1], "sparkle", "top-[58%] end-0 sm:-end-12", 1.1],
+                [t.hero.tags[2], "layers", "bottom-[17%] start-0 sm:-start-12", 2.2],
+                [t.hero.tags[3], "globe", "-bottom-3 end-0 sm:-end-6", 3.3],
+              ] as const
+            ).map(([label, icon, pos, d]) => (
+              <span key={label} className={`glass float label absolute flex items-center gap-2 whitespace-nowrap !rounded-full bg-bg/90 px-3.5 py-2.5 text-fg normal-case shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
+                <Icon name={icon} className="size-4 text-accent" />
                 {label}
               </span>
             ))}

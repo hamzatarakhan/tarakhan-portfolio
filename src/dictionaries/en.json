@@ -25,7 +25,13 @@
     "cta2": "Work with me",
     "skinsLabel": "Try the system",
     "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five.",
-    "ctaProject": "Start a project"
+    "ctaProject": "Start a project",
+    "tags": [
+      "Idea → live product",
+      "AI-powered workflow",
+      "Design systems",
+      "Arabic & English"
+    ]
   },
   "proof": {
     "items": [
@@ -408,12 +414,12 @@
     "home": "Back to home"
   },
   "marquee": [
+    "Idea to launch",
+    "AI-powered design",
     "Design systems",
     "Telecom & enterprise UX",
     "Arabic / RTL",
-    "Multi-brand theming",
-    "React & React Native",
-    "Interactive prototyping"
+    "React & React Native"
   ],
   "facts": {
     "title": "At a glance",
