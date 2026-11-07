@@ -68,13 +68,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
               <Image src={cutout} placeholder="blur" alt={t.hero.name} sizes="(min-width: 1024px) 28rem, 90vw" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" priority />
             </div>
-            {/* What I do, in four tags. Placed on the background and the jacket, never over the face. */}
+            {/* What I do, in five tags. Placed on the background and the jacket, never over the face. */}
             {(
               [
                 [t.hero.tags[0], "rocket", "-top-9 start-0 sm:-start-10", 0],
-                [t.hero.tags[1], "sparkle", "top-[58%] end-0 sm:-end-12", 1.1],
-                [t.hero.tags[2], "layers", "bottom-[17%] start-0 sm:-start-12", 2.2],
-                [t.hero.tags[3], "globe", "-bottom-3 end-0 sm:-end-6", 3.3],
+                [t.hero.tags[1], "sparkle", "top-[57%] end-0 sm:-end-12", 0.9],
+                [t.hero.tags[2], "cursor", "top-[69%] start-0 sm:-start-14", 1.8],
+                [t.hero.tags[3], "code", "top-[81%] end-0 sm:-end-8", 2.7],
+                [t.hero.tags[4], "layers", "-bottom-4 start-2 sm:-start-6", 3.6],
               ] as const
             ).map(([label, icon, pos, d]) => (
               <span key={label} className={`glass float label absolute flex items-center gap-2 whitespace-nowrap !rounded-full bg-bg/90 px-3.5 py-2.5 text-fg normal-case shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
