@@ -1,0 +1,28 @@
+/* Process steps: each card carries its own colour (--c) on the icon, example rule and hover tint */
+.step .step-icon {
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--c) 30%, transparent), 0 10px 30px -8px color-mix(in srgb, var(--c) 55%, transparent);
+}
+.step .step-example {
+  border-color: var(--c);
+}
+.step {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 6%, transparent), transparent 60%), var(--glass);
+}
+@media (hover: hover) {
+  .step:hover {
+    border-color: color-mix(in srgb, var(--c) 55%, var(--glass-line));
+    background: linear-gradient(160deg, color-mix(in srgb, var(--c) 18%, transparent), transparent 70%), var(--glass);
+  }
+}
+/* Light theme: deepen the colours so icons keep contrast on pale glass */
+:root[data-theme="light"] .step {
+  --c-light: color-mix(in srgb, var(--c) 70%, #15122b);
+}
+:root[data-theme="light"] .step .step-icon {
+  color: var(--c-light);
+}
+:root[data-theme="light"] .step .step-example {
+  border-color: var(--c-light);
+}

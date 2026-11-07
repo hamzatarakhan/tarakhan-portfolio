@@ -9,6 +9,7 @@ import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { CV_URL, whatsappLink } from "@/lib/contact";
+import "@/styles/steps.css";
 
 const h2 = "display text-3xl font-medium sm:text-4xl lg:text-5xl";
 const pill = "inline-flex min-h-12 items-center gap-2 rounded-full px-7 font-medium transition-transform duration-[var(--dur-fast)] active:scale-[0.97]";
@@ -36,6 +37,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const row2 = cards.slice(7).concat(cards.slice(0, 4));
   const processCols = ["lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "lg:col-span-3", "lg:col-span-3"];
   const icons = ["search", "target", "pen", "flask", "code"];
+  // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
+  const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
   const quotes = t.testimonials.items.filter((q) => !q.quote.startsWith("{{TODO"));
 
   return (
@@ -173,14 +176,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Head label={t.process.eyebrow} title={t.process.title} intro={t.process.intro} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
             {t.process.steps.map((p, i) => (
-              <article key={p.name} className={`glass reveal p-7 ${processCols[i]}`} style={st(i % 3)}>
+              <article key={p.name} className={`glass step reveal p-7 ${processCols[i]}`} style={{ ...st(i % 3), "--c": stepColors[i] } as React.CSSProperties}>
                 <div className="flex items-start justify-between">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-accent-soft text-accent"><Icon name={icons[i]} /></span>
-                  <span className="display text-4xl font-semibold text-fg/15">{num(i)}</span>
+                  <span className="step-icon grid size-12 place-items-center rounded-2xl"><Icon name={icons[i]} /></span>
+                  <span className="display text-5xl font-semibold text-fg/10">{num(i)}</span>
                 </div>
                 <h3 className="display mt-6 text-xl font-medium sm:text-2xl">{p.name}</h3>
                 <p className="mt-2 text-muted">{p.body}</p>
-                <p className="mt-4 border-s-2 border-accent ps-4 text-sm">{p.example}</p>
+                <p className="step-example mt-4 border-s-2 ps-4 text-sm">{p.example}</p>
               </article>
             ))}
           </div>
