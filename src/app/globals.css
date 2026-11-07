@@ -204,6 +204,23 @@ body {
   animation-timing-function: var(--ease-in-out);
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.rise {
+  animation: rise var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+}
+
 /* Reduced motion: movement becomes simple fades, content stays */
 @media (prefers-reduced-motion: reduce) {
   :root {
