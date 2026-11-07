@@ -3,6 +3,7 @@ import { LangButton, ThemeButton } from "./Controls";
 import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
 import { MobileMenu } from "./MobileMenu";
+import { Logo } from "./Logo";
 import { cases } from "@/content/work";
 
 export const wrap = "mx-auto w-full max-w-[1440px] px-5 sm:px-10";
@@ -30,7 +31,8 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
         {t.nav.skip}
       </a>
       <div className={`${wrap} flex items-center justify-between gap-3`}>
-        <Link href={`/${lang}`} className="display min-h-10 content-center whitespace-nowrap text-base font-semibold sm:text-lg">
+        <Link href={`/${lang}`} className="display group flex min-h-10 items-center gap-2.5 whitespace-nowrap text-base font-semibold sm:text-lg">
+          <Logo className="size-7 shrink-0 transition-transform duration-[var(--dur-base)] ease-[var(--ease-spring)] group-hover:scale-110" />
           {t.hero.name}
         </Link>
         <nav className="glass hidden items-center gap-1 !rounded-full px-2 py-1 md:flex" aria-label="Primary">

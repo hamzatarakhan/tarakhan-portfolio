@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LangButton, ThemeButton } from "./Controls";
+import { Logo } from "./Logo";
 
 type Props = {
   name: string;
@@ -52,7 +53,7 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
         {open && (
           <div className="flex h-full flex-col px-5 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             <div className="flex items-center justify-between">
-              <span className="display text-base font-semibold">{name}</span>
+              <span className="display flex items-center gap-2.5 text-base font-semibold"><Logo className="size-7" />{name}</span>
               <button
                 onClick={hide}
                 aria-label={labels.close}
