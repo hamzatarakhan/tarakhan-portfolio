@@ -42,9 +42,12 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
         </nav>
         <div className="flex items-center gap-2">
           <CommandMenu lang={lang} d={t.cmd} cases={cases.map((c) => ({ slug: c.slug, title: c[lang].title }))} />
-          <ThemeButton labels={t.nav.theme as [string, string]} />
-          <LangButton />
-          <Link href={`/${lang}/contact`} className="relative hidden h-9 items-center whitespace-nowrap rounded-full border border-accent px-4 text-[13px] font-medium text-accent transition-colors before:absolute before:-inset-1 before:content-[''] hover:bg-accent hover:text-on-accent sm:inline-flex">
+          {/* On phones these live inside the menu, leaving room for the CTA. */}
+          <div className="hidden items-center gap-2 md:flex">
+            <ThemeButton labels={t.nav.theme as [string, string]} />
+            <LangButton />
+          </div>
+          <Link href={`/${lang}/contact`} className="relative inline-flex h-9 items-center whitespace-nowrap rounded-full border border-accent px-4 text-[13px] font-medium text-accent transition-colors before:absolute before:-inset-1 before:content-[''] hover:bg-accent hover:text-on-accent">
             {t.hero.cta2}
           </Link>
           <MobileMenu
