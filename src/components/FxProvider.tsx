@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 // Global effects: pointer spotlight on .glass cards and scroll-reveal for .reveal elements.
+// Both write only things React does not render (a data-in attribute; style vars after hydration),
+// so parts of the page that hydrate later (partial prerendering) never see a mismatch.
 export function FxProvider() {
   const path = usePathname();
 
@@ -15,17 +17,22 @@ export function FxProvider() {
       g.style.setProperty("--mx", `${e.clientX - r.left}px`);
       g.style.setProperty("--my", `${e.clientY - r.top}px`);
     };
-    addEventListener("pointermove", move, { passive: true });
-    return () => removeEventListener("pointermove", move);
+    // Wait until the page is idle (hydrated) before touching style attributes React owns.
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 200));
+    const id = idle(() => addEventListener("pointermove", move, { passive: true }));
+    return () => {
+      window.cancelIdleCallback?.(id as number);
+      removeEventListener("pointermove", move);
+    };
   }, []);
 
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal:not(.in)");
+    const els = document.querySelectorAll<HTMLElement>(".reveal:not([data-in])");
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("in");
+            (e.target as HTMLElement).dataset.in = "";
             io.unobserve(e.target);
           }
         }),
