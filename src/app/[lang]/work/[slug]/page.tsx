@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getDict, isLocale, locales } from "@/lib/i18n";
 import { cases } from "@/content/work";
 import { Footer, Header, wrap } from "@/components/Chrome";
+import { Txt } from "@/components/Txt";
 import { ActivationDemo, LedgerDemo, ReaderDemo, TokenDiagram } from "@/components/Artifacts";
 
 export const generateStaticParams = () => locales.flatMap((lang) => cases.map((c) => ({ lang, slug: c.slug })));
@@ -12,21 +13,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang, slug } = await params;
   const c = cases.find((x) => x.slug === slug);
   return c && isLocale(lang) ? { title: `${c[lang].title} — Hamza Tarakhan`, description: c[lang].tldr.problem } : {};
-}
-
-// {{TODO: …}} placeholders render as a visible marker so nothing unfinished looks final.
-function Txt({ children }: { children: string }) {
-  return (
-    <>
-      {children.split(/(\{\{TODO[^}]*\}\})/).map((s, i) =>
-        s.startsWith("{{") ? (
-          <mark key={i} className="rounded-sm bg-accent-soft px-1 font-mono text-[0.85em] text-accent">{s.slice(2, -2)}</mark>
-        ) : (
-          s
-        ),
-      )}
-    </>
-  );
 }
 
 const h2 = "display text-2xl font-semibold scroll-mt-24";

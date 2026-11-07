@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { LangButton, ThemeButton } from "./Controls";
 import type { Dict, Locale } from "@/lib/i18n";
+import { CommandMenu } from "./CommandMenu";
+import { cases } from "@/content/work";
 
 export const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6";
 
@@ -16,12 +18,13 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
         </Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {(["work", "about", "contact"] as const).map((k) => (
-            <a key={k} href={k === "work" ? "#work" : k === "contact" ? "#contact" : `/${lang}/about`} className="min-h-11 content-center rounded-md px-3 text-sm text-muted transition-colors hover:text-fg">
+            <a key={k} href={k === "work" ? `/${lang}#work` : k === "contact" ? `/${lang}/contact` : `/${lang}/about`} className="min-h-11 content-center rounded-md px-3 text-sm text-muted transition-colors hover:text-fg">
               {t.nav[k]}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <CommandMenu lang={lang} d={t.cmd} cases={cases.map((c) => ({ slug: c.slug, title: c[lang].title }))} />
           <ThemeButton labels={t.nav.theme as [string, string]} />
           <LangButton />
         </div>

@@ -252,5 +252,155 @@
     "back": "All work",
     "contents": "On this page",
     "demo": "Interactive demo"
+  },
+  "cmd": {
+    "open": "Search",
+    "placeholder": "Search or jump to…",
+    "empty": "Nothing found",
+    "pages": "Pages",
+    "work": "Work",
+    "actions": "Actions",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "colophon": "Colophon",
+    "theme": "Toggle light / dark",
+    "lang": "Switch to Arabic",
+    "skin": "Skin",
+    "copy": "Copy email",
+    "copied": "Email copied",
+    "cv": "Download CV (coming soon)",
+    "hint": "Ctrl K"
+  },
+  "aboutPage": {
+    "title": "About",
+    "intro": [
+      "I'm Hamza, a senior UI/UX and product designer in Amman, Jordan. I've spent four years making complex telecom platforms simple enough for daily, high-volume use.",
+      "I own the UX and the design system of SalesPoint, one dealer platform running across five operators. I also build what I design, in React and React Native, and use AI tools to get from concept to a near-production prototype quickly."
+    ],
+    "photo": "{{TODO: photo}}",
+    "how": {
+      "title": "How I think",
+      "items": [
+        "Systems before screens: one set of components that adapts to many brands.",
+        "Make the complex simple: clear flows for KYC, activation, billing and approvals.",
+        "Decide with evidence: I compare variants side by side.",
+        "Lead through standards: design-system governance and review before components enter the library."
+      ]
+    },
+    "timeline": {
+      "title": "Experience",
+      "items": [
+        {
+          "when": "Oct 2022 – now",
+          "role": "Senior UI/UX Designer",
+          "org": "Leading Point Software",
+          "body": "Promoted from UI/UX Designer. UX and design system owner for SalesPoint; design-system governance; coordinating design priorities across the team."
+        },
+        {
+          "when": "{{TODO: dates}}",
+          "role": "UI/UX Designer",
+          "org": "Leading Point Software",
+          "body": "{{TODO: what you worked on before promotion}}"
+        }
+      ]
+    },
+    "edu": {
+      "title": "Education & certifications",
+      "items": [
+        "B.Sc. Computer Information Systems, The Hashemite University (2022)",
+        "UX Design, Nielsen Norman Group",
+        "User Experience Design, Interaction Design Foundation"
+      ]
+    },
+    "tools": {
+      "title": "Tools & languages",
+      "items": [
+        "Figma, FigJam, Jira, Azure DevOps",
+        "HTML, CSS, Tailwind, React, React Native",
+        "Claude, Cursor, Figma Make, Lovable, MCP",
+        "Arabic (native), English (professional)"
+      ]
+    }
+  },
+  "contactPage": {
+    "title": "Let's talk",
+    "intro": "Tell me what you need. I usually reply within {{TODO: reply time}}.",
+    "f": {
+      "type": "I'm contacting you about",
+      "types": [
+        "A job",
+        "A freelance project",
+        "Something else"
+      ],
+      "budget": "Budget range",
+      "budgets": [
+        "Under $2k",
+        "$2k – $5k",
+        "$5k – $10k",
+        "$10k+",
+        "Not sure yet"
+      ],
+      "timeline": "Timeline",
+      "timelines": [
+        "As soon as possible",
+        "1–3 months",
+        "3+ months",
+        "Flexible"
+      ],
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Thanks. Your message is on its way, and I'll reply soon.",
+      "error": "Something went wrong. Please email me directly instead.",
+      "required": "Please fill this in.",
+      "invalid": "Please enter a valid email.",
+      "select": "Select…"
+    },
+    "direct": "Or reach me directly",
+    "whatsapp": "WhatsApp: {{TODO: number}}",
+    "cv": "CV: {{TODO: PDF}}"
+  },
+  "colophon": {
+    "title": "Colophon",
+    "intro": "I designed and built this site myself. It is also a small demo of how I work: one token system, many themes.",
+    "items": [
+      [
+        "Framework",
+        "Next.js (App Router) and TypeScript"
+      ],
+      [
+        "Styling",
+        "Tailwind CSS driven by CSS-variable tokens (primitive, semantic, component)"
+      ],
+      [
+        "Type",
+        "Geist, Inter Tight, Bricolage Grotesque and Space Grotesk for Latin; IBM Plex Sans Arabic and Amiri Quran for Arabic"
+      ],
+      [
+        "Themes",
+        "Light and dark, designed separately, plus four brand skins switched live"
+      ],
+      [
+        "Languages",
+        "English and Arabic with full RTL mirroring through CSS logical properties"
+      ],
+      [
+        "Motion",
+        "Tokenised durations and easings, View Transitions for theme switching, reduced-motion respected"
+      ],
+      [
+        "Hosting",
+        "{{TODO: Vercel}}"
+      ]
+    ],
+    "system": "See the design system"
+  },
+  "notFound": {
+    "title": "This page wandered off.",
+    "body": "The link may be wrong or the page may have moved.",
+    "home": "Back to home"
   }
 }

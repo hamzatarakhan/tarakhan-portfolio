@@ -45,6 +45,12 @@ export function usePrefs() {
 export const btn =
   "min-h-11 min-w-11 px-4 rounded-md border border-line bg-surface text-sm font-medium transition-[background,transform] duration-[var(--dur-fast)] active:scale-[0.97] hover:bg-surface-2 aria-pressed:bg-accent aria-pressed:text-on-accent aria-pressed:border-accent";
 
+// Language lives in the URL: swap the locale segment and remember the choice.
+export function switchLang(next: string, path: string, push: (u: string) => void) {
+  document.cookie = `lang=${next};path=/;max-age=31536000;samesite=lax`;
+  transition(() => push(path.replace(/^\/(en|ar)/, `/${next}`)));
+}
+
 export function ThemeButton({ labels }: { labels?: [string, string] }) {
   const p = usePrefs();
   const dark = p?.theme === "dark";
@@ -55,7 +61,6 @@ export function ThemeButton({ labels }: { labels?: [string, string] }) {
   );
 }
 
-// Language lives in the URL: swap the locale segment and remember the choice.
 export function LangButton() {
   const path = usePathname();
   const router = useRouter();
@@ -65,10 +70,7 @@ export function LangButton() {
     <button
       className={btn}
       lang={next}
-      onClick={() => {
-        document.cookie = `lang=${next};path=/;max-age=31536000;samesite=lax`;
-        transition(() => router.push(path.replace(/^\/(en|ar)/, `/${next}`)));
-      }}
+      onClick={() => switchLang(next, path, router.push)}
     >
       {next === "ar" ? "العربية" : "English"}
     </button>
