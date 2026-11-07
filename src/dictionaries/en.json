@@ -225,7 +225,7 @@
   },
   "contact": {
     "title": "Let's build something *clear.*",
-    "body": "Tell me what you're building and I'll reply with clear next steps. Hiring for a design role? That's welcome too.",
+    "body": "Tell me what you’re building and I’ll reply within 24 hours with clear next steps. Hiring for a design role? That’s welcome too.",
     "email": "hamzatarakhan2000@gmail.com",
     "copy": "Copy email",
     "copied": "Copied",
@@ -333,21 +333,13 @@
   },
   "contactPage": {
     "title": "Let's work together",
-    "intro": "Tell me what you need. I usually reply within {{TODO: reply time}}.",
+    "intro": "Tell me what you need. I usually reply within 24 hours.",
     "f": {
       "type": "What can I help with?",
       "types": [
         "A freelance project",
         "A job",
         "Something else"
-      ],
-      "budget": "Budget range",
-      "budgets": [
-        "Under $2k",
-        "$2k – $5k",
-        "$5k – $10k",
-        "$10k+",
-        "Not sure yet"
       ],
       "timeline": "Timeline",
       "timelines": [

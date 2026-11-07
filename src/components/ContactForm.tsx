@@ -31,7 +31,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
       const r = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: KEY, subject: "Portfolio contact", type: f.types[type], name: v("name"), email: v("email"), budget: v("budget"), timeline: v("timeline"), message: v("message") }),
+        body: JSON.stringify({ access_key: KEY, subject: "Portfolio contact", type: f.types[type], name: v("name"), email: v("email"), timeline: v("timeline"), message: v("message") }),
       });
       setState(r.ok ? "ok" : "fail");
     } catch {
@@ -64,8 +64,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
         {field("email", f.email, <input {...a11y("email")} type="email" autoComplete="email" className={input} />)}
       </div>
       {type === 0 && (
-        <div className="grid gap-5 sm:grid-cols-2">
-          {field("budget", f.budget, <select {...a11y("budget")} className={input}>{f.budgets.map((b) => <option key={b}>{b}</option>)}</select>)}
+        <div className="sm:max-w-[calc(50%-0.625rem)]">
           {field("timeline", f.timeline, <select {...a11y("timeline")} className={input}>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}
         </div>
       )}

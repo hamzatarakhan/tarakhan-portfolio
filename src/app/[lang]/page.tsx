@@ -35,6 +35,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const row2 = cards.slice(7).concat(cards.slice(0, 4));
   const processCols = ["lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "lg:col-span-3", "lg:col-span-3"];
   const icons = ["search", "target", "pen", "flask", "code"];
+  const quotes = t.testimonials.items.filter((q) => !q.quote.startsWith("{{TODO"));
 
   return (
     <>
@@ -65,7 +66,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </div>
             {[
               [t.marquee[0], "-top-4 start-2 sm:-start-8", 0],
-              [t.marquee[2], "top-1/3 end-2 sm:-end-8", 1.2],
+              [t.marquee[2], "bottom-[22%] end-2 sm:-end-8", 1.2],
               [t.marquee[3], "-bottom-5 start-6", 2.4],
             ].map(([label, pos, d]) => (
               <span key={label as string} className={`glass float label absolute whitespace-nowrap !rounded-full bg-bg/90 px-4 py-2.5 text-fg shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
@@ -236,12 +237,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
+        {/* Testimonials: hidden until at least one real (non-TODO) quote exists */}
+        {quotes.length > 0 && (
+        <>
         <Divider />
-        {/* Testimonials */}
         <section className={`${wrap} sec`}>
           <Head label={t.testimonials.eyebrow} title={t.testimonials.title} intro={t.testimonials.intro} center />
           <div className="grid gap-6 md:grid-cols-3">
-            {t.testimonials.items.map((q, i) => (
+            {quotes.map((q, i) => (
               <figure key={i} className="glass reveal overflow-hidden p-3" style={st(i)}>
                 <div className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[calc(var(--r-lg)-6px)] bg-gradient-to-b from-accent/25 via-accent-soft to-surface">
                   <span className="display select-none text-8xl font-semibold text-fg/10" aria-hidden>“</span>
@@ -256,6 +259,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             ))}
           </div>
         </section>
+        </>
+        )}
 
         <Divider />
         {/* Contact */}
