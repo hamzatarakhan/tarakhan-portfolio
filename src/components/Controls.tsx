@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-export const SKINS = ["blue", "acid", "ember", "mint"] as const;
+export const SKINS = ["indigo", "acid", "ember", "mint"] as const;
 
 // Runs a change inside a View Transition when supported (smooth, no flash).
 function transition(run: () => void) {

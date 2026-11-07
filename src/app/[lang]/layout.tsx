@@ -46,14 +46,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 // Runs before paint: restores theme + skin so there is no flash. Language comes from the URL.
 const prefsScript = `(()=>{try{var d=document.documentElement;d.classList.add('js');var g=k=>localStorage.getItem(k);
 d.dataset.theme=g('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-d.dataset.skin=g('skin')||'blue';}catch(e){}})()`;
+d.dataset.skin=g('skin')||'indigo';}catch(e){}})()`;
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const fonts = [geist, jb, interTight, bricolage, space, plexArabic, quran, outfit, serif].map((f) => f.variable).join(" ");
   return (
-    <html lang={lang} dir={dirOf(lang)} data-theme="dark" data-skin="blue" className={`${fonts} antialiased`} suppressHydrationWarning>
+    <html lang={lang} dir={dirOf(lang)} data-theme="dark" data-skin="indigo" className={`${fonts} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: prefsScript }} />
       </head>
