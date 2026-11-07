@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
 import { Footer, Header, wrap } from "@/components/Chrome";
@@ -22,10 +23,9 @@ export default async function About({ params }: { params: Promise<{ lang: string
             <div className="rise mt-6 max-w-prose space-y-5 text-lg text-muted" style={st(2)}>{a.intro.map((p) => <p key={p}>{p}</p>)}</div>
           </div>
           <div className="glass rise !rounded-[2rem] p-3" style={st(3)}>
-            <div className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-accent/30 via-accent-soft to-surface">
-              <span className="display select-none text-[8rem] font-semibold leading-none text-fg/10" aria-hidden>HT</span>
-              <p className="label absolute inset-x-4 bottom-4 rounded-full bg-bg/70 px-3 py-2 text-center backdrop-blur"><Txt>{a.photo}</Txt></p>
-            </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white">
+                <Image src="/hamza.webp" alt={t.hero.name} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover object-top" />
+              </div>
           </div>
         </div>
 

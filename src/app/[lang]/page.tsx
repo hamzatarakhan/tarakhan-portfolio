@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
@@ -57,9 +58,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
           <div className="rise relative mx-auto w-full max-w-md" style={st(2)}>
             <div className="glass !rounded-[2rem] p-3">
-              <div className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-accent/30 via-accent-soft to-surface">
-                <span className="display text-[9rem] font-semibold leading-none text-fg/10 select-none" aria-hidden>HT</span>
-                <p className="label absolute bottom-4 start-4 end-4 rounded-full bg-bg/70 px-3 py-2 text-center backdrop-blur"><Txt>{t.aboutPage.photo}</Txt></p>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white">
+                <Image src="/hamza.webp" alt={t.hero.name} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover object-top" priority />
               </div>
             </div>
             {[
@@ -67,7 +67,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               [t.marquee[2], "top-1/3 end-2 sm:-end-8", 1.2],
               [t.marquee[3], "-bottom-5 start-6", 2.4],
             ].map(([label, pos, d]) => (
-              <span key={label as string} className={`glass float label absolute whitespace-nowrap !rounded-full px-4 py-2.5 shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
+              <span key={label as string} className={`glass float label absolute whitespace-nowrap !rounded-full bg-bg/90 px-4 py-2.5 text-fg shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
                 {label}
               </span>
             ))}
