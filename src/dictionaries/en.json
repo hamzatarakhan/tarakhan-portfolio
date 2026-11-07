@@ -391,6 +391,10 @@
       "select": "Select a timeline",
       "namePh": "e.g. Sara Ahmad",
       "emailPh": "you@company.com",
+      "phone": "Phone (optional)",
+      "phoneCode": "Country code",
+      "phonePh": "79 123 4567",
+      "phoneInvalid": "That number looks too short or long. Please check it.",
       "messagePh": "What are you building, who is it for, and where do you need help?"
     },
     "direct": "Or reach me directly",
