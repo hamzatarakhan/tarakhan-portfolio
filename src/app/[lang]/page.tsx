@@ -10,6 +10,7 @@ import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { ClientLogos } from "@/components/ClientLogos";
 import { OrbitPortrait } from "@/components/OrbitPortrait";
+import { Testimonials, type Testimonial } from "@/components/Testimonials";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -40,7 +41,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const icons = ["search", "target", "pen", "flask", "code"];
   // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
   const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
-  const quotes = t.testimonials.items.filter((q) => !q.quote.startsWith("{{TODO"));
 
   return (
     <>
@@ -253,30 +253,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
-        {/* Testimonials: hidden until at least one real (non-TODO) quote exists */}
-        {quotes.length > 0 && (
-        <>
         <Divider />
+        {/* Testimonials: real ones only; an invitation in the same card style until they arrive */}
         <section className={`${wrap} sec`}>
           <Head label={t.testimonials.eyebrow} title={t.testimonials.title} intro={t.testimonials.intro} center />
-          <div className="grid gap-6 md:grid-cols-3">
-            {quotes.map((q, i) => (
-              <figure key={i} className="glass reveal overflow-hidden p-3" style={st(i)}>
-                <div className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[calc(var(--r-lg)-6px)] bg-gradient-to-b from-accent/25 via-accent-soft to-surface">
-                  <span className="display select-none text-8xl font-semibold text-fg/10" aria-hidden>“</span>
-                  <span className="absolute grid size-14 place-items-center rounded-full bg-accent text-on-accent shadow-[0_10px_40px_-10px_var(--accent)]" aria-hidden><Icon name="arrow" className="size-5 rotate-45" /></span>
-                </div>
-                <figcaption className="p-4">
-                  <blockquote className="text-muted"><Txt>{q.quote}</Txt></blockquote>
-                  <p className="display mt-4 font-medium"><Txt>{q.name}</Txt></p>
-                  <p className="label mt-1 text-muted"><Txt>{q.role}</Txt></p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <Testimonials
+            items={t.testimonials.items as Testimonial[]}
+            invite={{ ...t.testimonials.invite, mailto: `mailto:${t.contact.email}?subject=${encodeURIComponent(t.testimonials.invite.subject)}` }}
+          />
         </section>
-        </>
-        )}
 
         <Divider />
         {/* Contact */}

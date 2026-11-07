@@ -48,6 +48,8 @@ const paths: Record<string, string> = {
   layers: "M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5",
   cursor: "M4 4l7 17 2.5-7.5L21 11 4 4ZM13.5 13.5 19 19",
   chat: "M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12ZM8.5 12h.01M12 12h.01M15.5 12h.01",
+  play: "M7 4.5v15l12-7.5-12-7.5Z",
+  user: "M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM3.5 21a8.5 8.5 0 0 1 17 0",
   globe: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z",
 };
 export function Icon({ name, className = "size-6" }: { name: string; className?: string }) {

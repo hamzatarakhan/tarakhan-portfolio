@@ -65,7 +65,7 @@
       "STC",
       "Starlink"
     ],
-    "brandsHint": "One design system behind all five operators."
+    "brandsHint": "Telecom brands I’ve designed products for, from dealer platforms to employee apps."
   },
   "work": {
     "title": "Selected *work*",
@@ -554,25 +554,16 @@
     "intro": "Everything I use to take a product from research to release."
   },
   "testimonials": {
+    "eyebrow": "Testimonials",
     "title": "What people *say*",
-    "intro": "Words from people I've worked with.",
-    "items": [
-      {
-        "quote": "{{TODO: real testimonial, with permission}}",
-        "name": "{{TODO: name}}",
-        "role": "{{TODO: role, company}}"
-      },
-      {
-        "quote": "{{TODO: real testimonial, with permission}}",
-        "name": "{{TODO: name}}",
-        "role": "{{TODO: role, company}}"
-      },
-      {
-        "quote": "{{TODO: real testimonial, with permission}}",
-        "name": "{{TODO: name}}",
-        "role": "{{TODO: role, company}}"
-      }
-    ],
-    "eyebrow": "Testimonials"
+    "intro": "Words from clients and teammates, shown with their permission.",
+    "invite": {
+      "title": "Worked with me?",
+      "body": "I’m collecting a few words from clients and teammates. I’d love to hear yours.",
+      "cta": "Share your feedback",
+      "soon": "Coming soon",
+      "subject": "Feedback for Hamza"
+    },
+    "items": []
   }
 }

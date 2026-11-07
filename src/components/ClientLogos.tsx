@@ -1,10 +1,11 @@
-// The operators SalesPoint runs on. Logos are the brands' own artwork (trademarks of their owners).
+// Telecom brands I have designed products for (SalesPoint operators, plus Omantel). Logos are the brands' own artwork (trademarks of their owners).
 // Shown as solid single-colour marks in an auto-scrolling strip; on hover a logo shows its real colours and the tile picks up a soft brand tint (`c`).
 const BRANDS = [
   { id: "ooredoo", name: "Ooredoo", src: "/clients/ooredoo.svg", h: "h-6", c: "#ed1c24" },
   { id: "awasr", name: "Awasr", src: "/clients/awasr.webp", h: "h-9", c: "#17a39c" },
   { id: "beyond", name: "Beyond ONE", src: "/clients/beyond-light.svg", dark: "/clients/beyond-dark.svg", h: "h-7", c: "#0076bf" },
   { id: "stc", name: "stc", src: "/clients/stc.svg", h: "h-8", c: "#8a3ffc", lift: 2.1 },
+  { id: "omantel", name: "Omantel", src: "/clients/omantel.svg", h: "h-6", c: "#5b4bff", lift: 2.2 },
   { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-14", c: "#c7197d", lift: 1.45 },
 ] as const;
 
