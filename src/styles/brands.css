@@ -1,0 +1,52 @@
+/* Client brand skins: tapping a client logo re-themes the whole site in that brand's colour.
+   Only the accent tokens change; radius and type stay mine, which is the point: one system, many brands.
+   Each brand is tuned separately for dark and light so text on the accent stays readable. */
+
+:root[data-skin="ooredoo"] { --accent: #ff4d55; --on-accent: #1a0507; --accent-soft: #3a0f13; }
+:root[data-skin="ooredoo"][data-theme="light"] { --accent: #d0121b; --on-accent: #ffffff; --accent-soft: #ffe1e3; }
+
+:root[data-skin="awasr"] { --accent: #2cc7bf; --on-accent: #031412; --accent-soft: #0c2e2c; }
+:root[data-skin="awasr"][data-theme="light"] { --accent: #0e7c77; --on-accent: #ffffff; --accent-soft: #d3f2f0; }
+
+:root[data-skin="beyond"] { --accent: #3fa2ea; --on-accent: #04121e; --accent-soft: #0d2638; }
+:root[data-skin="beyond"][data-theme="light"] { --accent: #0069aa; --on-accent: #ffffff; --accent-soft: #d9ecf9; }
+
+:root[data-skin="stc"] { --accent: #b07cff; --on-accent: #12052a; --accent-soft: #24104a; }
+:root[data-skin="stc"][data-theme="light"] { --accent: #4f008c; --on-accent: #ffffff; --accent-soft: #ece0f8; }
+
+:root[data-skin="starlink"] { --accent: #e8e8ec; --on-accent: #0a0a14; --accent-soft: #24242e; }
+:root[data-skin="starlink"][data-theme="light"] { --accent: #111114; --on-accent: #ffffff; --accent-soft: #e4e4ea; }
+
+/* ───── Client logo wall ───── */
+/* At rest every logo is a single-colour silhouette, so the row reads as one calm line. */
+.client-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.62;
+  transition:
+    filter var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-slow) var(--ease-spring);
+}
+:root[data-theme="light"] .client-logo {
+  filter: brightness(0);
+  opacity: 0.55;
+}
+/* On hover, focus or when its skin is active, a logo shows its real colours. */
+.client-tile:hover .client-logo,
+.client-tile:focus-visible .client-logo,
+.client-tile[aria-pressed="true"] .client-logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.06);
+}
+/* Hovered, focused or active: the tile turns white, so every brand shows its true colours on its natural ground. */
+.client-tile:hover,
+.client-tile:focus-visible,
+.client-tile[aria-pressed="true"] {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.client-tile:hover::before,
+.client-tile[aria-pressed="true"]::before {
+  opacity: 0; /* no spotlight tint on the white tile */
+}

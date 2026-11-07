@@ -4,6 +4,8 @@ import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
 import { MobileMenu } from "./MobileMenu";
 import { Logo } from "./Logo";
+// Client brand skins must load on every page (a chosen brand persists across navigation).
+import "@/styles/brands.css";
 import { cases } from "@/content/work";
 
 export const wrap = "mx-auto w-full max-w-[1440px] px-5 sm:px-10";

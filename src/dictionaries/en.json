@@ -64,7 +64,10 @@
       "Beyond",
       "STC",
       "Starlink"
-    ]
+    ],
+    "brandsHint": "Tap a brand to see this site in its colours, the way SalesPoint switches between operators.",
+    "brandsShowing": "Now showing this site in",
+    "brandsReset": "Back to my colours"
   },
   "work": {
     "title": "Selected *work*",

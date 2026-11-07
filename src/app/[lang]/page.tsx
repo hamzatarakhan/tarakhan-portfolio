@@ -8,6 +8,7 @@ import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
+import { ClientLogos } from "@/components/ClientLogos";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -112,10 +113,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </div>
             ))}
           </dl>
-          <p className="label reveal mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-muted">
-            {t.proof.brandsLabel}
-            {t.proof.brands.map((b) => <span key={b} dir="ltr" className="display text-xl normal-case text-fg">{b}</span>)}
-          </p>
+          <ClientLogos l={{ label: t.proof.brandsLabel, hint: t.proof.brandsHint, showing: t.proof.brandsShowing, reset: t.proof.brandsReset }} />
         </section>
 
         <Divider />

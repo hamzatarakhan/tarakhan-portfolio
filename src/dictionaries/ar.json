@@ -64,7 +64,10 @@
       "Beyond",
       "STC",
       "Starlink"
-    ]
+    ],
+    "brandsHint": "اضغط على أي علامة لترى الموقع بألوانها، كما ينتقل SalesPoint بين المشغّلين.",
+    "brandsShowing": "الموقع الآن بألوان",
+    "brandsReset": "العودة إلى ألواني"
   },
   "work": {
     "title": "أعمال *مختارة*",
