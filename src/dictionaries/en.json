@@ -225,7 +225,8 @@
         "tag": "Fitness wearable companion"
       },
       {
-        "name": "ConfMang",
+        "name": "ConfManage",
+        "lockup": "confmanage",
         "tag": "Conference management portal"
       },
       {

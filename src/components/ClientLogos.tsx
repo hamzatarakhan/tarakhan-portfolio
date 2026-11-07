@@ -11,6 +11,21 @@ const BRANDS = [
   { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-14", c: "#c7197d", lift: 1.45 },
 ] as const;
 
+// ConfManage's own header lockup: their icon + "CONF / MANAGE / HOST YOUR CONFERENCE" set as text (also used on its product card)
+export function ConfManageMark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`flex w-fit items-center gap-2 text-start text-fg ${className}`} dir="ltr">
+      {/* eslint-disable-next-line @next/next/no-img-element -- small brand artwork */}
+      <img src="/clients/confmanage-icon.png" alt="" className="h-10 w-auto" />
+      <span className="block font-[family-name:var(--font-outfit)] leading-none">
+        <span className="block text-[15px] font-extrabold tracking-[0.08em]">CONF</span>
+        <span className="block text-[15px] font-extrabold tracking-[0.08em]">MANAGE</span>
+        <span className="mt-1 block whitespace-nowrap text-[7px] font-semibold tracking-[0.14em] opacity-60">HOST YOUR CONFERENCE</span>
+      </span>
+    </span>
+  );
+}
+
 export function ClientLogos({ label, hint }: { label: string; hint: string }) {
   // Enough copies to fill wide screens; the track is duplicated once more for a seamless loop.
   const row = [...BRANDS, ...BRANDS];
@@ -33,16 +48,7 @@ export function ClientLogos({ label, hint }: { label: string; hint: string }) {
               style={{ "--b": b.c, "--lift": "lift" in b ? b.lift : 1 } as React.CSSProperties}
             >
               {"lockup" in b ? (
-                // ConfManage's own header lockup: their icon + "CONF / MANAGE / HOST YOUR CONFERENCE" set as text
-                <span className="client-mark flex items-center gap-2 text-start text-fg" dir="ltr">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- small brand artwork */}
-                  <img src={b.src} alt="" className={`${b.h} w-auto`} />
-                  <span className="block font-[family-name:var(--font-outfit)] leading-none">
-                    <span className="block text-[15px] font-extrabold tracking-[0.08em]">CONF</span>
-                    <span className="block text-[15px] font-extrabold tracking-[0.08em]">MANAGE</span>
-                    <span className="mt-1 block whitespace-nowrap text-[7px] font-semibold tracking-[0.14em] opacity-60">HOST YOUR CONFERENCE</span>
-                  </span>
-                </span>
+                <ConfManageMark className="client-mark" />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element -- small brand artwork, no optimisation needed
                 <img src={b.src} alt="" className={`client-mark ${b.h} w-auto max-w-full object-contain ${"dark" in b ? "logo-on-light" : ""}`} />

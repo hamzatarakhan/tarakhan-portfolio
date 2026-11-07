@@ -8,7 +8,7 @@ import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
-import { ClientLogos } from "@/components/ClientLogos";
+import { ClientLogos, ConfManageMark } from "@/components/ClientLogos";
 import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { Testimonials, type Testimonial } from "@/components/Testimonials";
 import { ProductShots } from "@/components/ProductShots";
@@ -210,6 +210,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             {t.play.items.map((p, i) => (
               <li key={p.name} className="glass reveal relative p-5" style={st(i % 5)}>
                 <span className="label text-muted">{num(i)}</span>
+                {"lockup" in p && p.lockup === "confmanage" && <ConfManageMark className="mt-4" />}
                 {"lockup" in p && p.lockup === "ucan" && (
                   // U CAN's own lockup (as on u-cangym.com): heavy red U, bold CAN, spaced FITNESS
                   <span aria-hidden className="mt-4 block w-fit font-[family-name:var(--font-inter-tight)] leading-none" dir="ltr">

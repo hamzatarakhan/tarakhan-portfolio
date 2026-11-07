@@ -225,7 +225,8 @@
         "tag": "تطبيق مرافق لسوار اللياقة"
       },
       {
-        "name": "ConfMang",
+        "name": "ConfManage",
+        "lockup": "confmanage",
         "tag": "بوابة إدارة المؤتمرات"
       },
       {
