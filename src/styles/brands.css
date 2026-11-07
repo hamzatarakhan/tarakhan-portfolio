@@ -1,22 +1,33 @@
-/* Client logos: full colour on white tiles (a logo's natural ground), never greyed out.
-   The selected brand gets a ring in its own colour. */
-.logo-tile[aria-pressed="true"] {
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--b), 0 14px 30px -12px var(--b);
-  transform: translateY(-2px);
+/* Client logo strip: solid single-colour marks (full strength, never greyed), lit in the brand's colour on hover. */
+.logo-strip .mq-track {
+  animation-duration: 45s;
 }
-
-/* Mini SalesPoint screen: every brand-coloured part reads --b and animates when it changes */
-.brand-screen .brand-fill,
-.brand-screen .brand-dot {
-  background: var(--b);
-  transition: background-color var(--dur-slow) var(--ease-out);
+.client-mark {
+  filter: brightness(0) invert(1); /* pure white on dark */
+  transition:
+    filter var(--dur-base) var(--ease-out),
+    transform var(--dur-slow) var(--ease-spring);
 }
-@keyframes brand-swap-in {
-  from {
-    opacity: 0;
-    transform: translateY(4px) scale(0.96);
+:root[data-theme="light"] .client-mark {
+  filter: brightness(0); /* pure ink on light */
+}
+.logo-mark {
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-slow) var(--ease-out),
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+}
+@media (hover: hover) {
+  .logo-mark:hover {
+    border-color: var(--b);
+    background: color-mix(in srgb, var(--b) 14%, var(--glass));
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--b) 40%, transparent),
+      0 18px 40px -16px var(--b);
+    transform: translateY(-4px);
   }
-}
-.brand-swap {
-  animation: brand-swap-in var(--dur-slow) var(--ease-out);
+  .logo-mark:hover .client-mark {
+    transform: scale(1.08);
+  }
 }
