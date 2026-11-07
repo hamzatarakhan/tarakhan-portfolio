@@ -14,8 +14,8 @@
 :root[data-skin="stc"] { --accent: #b07cff; --on-accent: #12052a; --accent-soft: #24104a; }
 :root[data-skin="stc"][data-theme="light"] { --accent: #4f008c; --on-accent: #ffffff; --accent-soft: #ece0f8; }
 
-:root[data-skin="starlink"] { --accent: #e8e8ec; --on-accent: #0a0a14; --accent-soft: #24242e; }
-:root[data-skin="starlink"][data-theme="light"] { --accent: #111114; --on-accent: #ffffff; --accent-soft: #e4e4ea; }
+:root[data-skin="starlink"] { --accent: #f062ae; --on-accent: #1a0410; --accent-soft: #3a0f26; }
+:root[data-skin="starlink"][data-theme="light"] { --accent: #b01772; --on-accent: #ffffff; --accent-soft: #fbe0ee; }
 
 /* ───── Client logo wall ───── */
 /* At rest every logo is a single-colour silhouette, so the row reads as one calm line. */

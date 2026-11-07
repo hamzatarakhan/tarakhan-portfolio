@@ -8,7 +8,7 @@ const BRANDS = [
   { id: "awasr", name: "Awasr", src: "/clients/awasr.webp", h: "h-7 sm:h-9" },
   { id: "beyond", name: "Beyond ONE", src: "/clients/beyond-light.svg", h: "h-6 sm:h-7" },
   { id: "stc", name: "stc", src: "/clients/stc.svg", h: "h-7 sm:h-8" },
-  { id: "starlink", name: "Starlink", src: "", h: "" } // TODO: logo of the Omani Starlink operator, shown as text until confirmed,
+  { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-12 sm:h-14" }
 ] as const;
 
 type Labels = { label: string; hint: string; showing: string; reset: string };
