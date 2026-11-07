@@ -305,6 +305,17 @@ body {
   opacity: 1;
   transform: none;
 }
+/* Cards that also lift on hover keep the reveal and add a quick hover transition */
+.lift,
+.js .reveal.lift {
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out),
+    translate var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+  /* stagger only the reveal; hover reacts at once */
+  transition-delay: calc(var(--i, 0) * var(--stagger)), calc(var(--i, 0) * var(--stagger)), 0s, 0s;
+}
 
 /* ───────── Motion pieces ───────── */
 @keyframes marquee {
