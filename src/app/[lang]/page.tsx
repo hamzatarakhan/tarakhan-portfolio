@@ -258,7 +258,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <section className={`${wrap} sec`}>
           <Head label={t.testimonials.eyebrow} title={t.testimonials.title} intro={t.testimonials.intro} center />
           <Testimonials
-            items={t.testimonials.items as Testimonial[]}
+            items={
+              (t.testimonials.items as Testimonial[]).length
+                ? (t.testimonials.items as Testimonial[])
+                : process.env.NODE_ENV === "production"
+                  ? []
+                  : (t.testimonials.samples as Testimonial[])
+            }
+            badge={t.testimonials.sampleBadge}
             invite={{ ...t.testimonials.invite, mailto: `mailto:${t.contact.email}?subject=${encodeURIComponent(t.testimonials.invite.subject)}` }}
           />
         </section>

@@ -10,6 +10,7 @@ export type Testimonial = {
   location?: string;
   photo?: string; // /testimonials/name.webp
   video?: string; // link to the video testimonial
+  sample?: boolean; // placeholder for design preview only; never shown in production
 };
 
 type Invite = { title: string; body: string; cta: string; soon: string; mailto: string };
@@ -21,7 +22,7 @@ function Shade() {
 }
 
 function Play({ href, label }: { href?: string; label: string }) {
-  const cls = "absolute start-1/2 top-[46%] grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-white/15 text-white backdrop-blur-md transition-transform duration-[var(--dur-base)] hover:scale-110 rtl:translate-x-1/2";
+  const cls = "absolute start-1/2 top-[60%] grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-white/15 text-white backdrop-blur-md transition-transform duration-[var(--dur-base)] hover:scale-110 rtl:translate-x-1/2";
   return href ? (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={cls}>
       <Icon name="play" className="size-5 translate-x-0.5" />
@@ -33,7 +34,7 @@ function Play({ href, label }: { href?: string; label: string }) {
   );
 }
 
-export function Testimonials({ items, invite }: { items: Testimonial[]; invite: Invite }) {
+export function Testimonials({ items, invite, badge }: { items: Testimonial[]; invite: Invite; badge?: string }) {
   if (items.length) {
     return (
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -44,7 +45,10 @@ export function Testimonials({ items, invite }: { items: Testimonial[]; invite: 
               <img src={q.photo} alt="" className="absolute inset-0 h-full w-full object-cover object-top" />
             )}
             <Shade />
-            {q.video && <Play href={q.video} label={`${q.name}: video`} />}
+            {(q.video || q.sample) && <Play href={q.video} label={`${q.name}: video`} />}
+            {q.sample && (
+              <span className="label absolute start-4 top-4 rounded-full border border-white/30 bg-black/40 px-3 py-1.5 text-white backdrop-blur">{badge}</span>
+            )}
             <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
               <blockquote className="line-clamp-3 text-sm opacity-90">“{q.quote}”</blockquote>
               <p className="display mt-3 text-lg font-medium">{q.name}</p>

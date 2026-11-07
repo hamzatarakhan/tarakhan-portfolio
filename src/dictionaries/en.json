@@ -564,6 +564,33 @@
       "soon": "Coming soon",
       "subject": "Feedback for Hamza"
     },
-    "items": []
+    "items": [],
+    "samples": [
+      {
+        "quote": "Sample testimonial. A short quote about the project, the process and the result goes here, in two or three lines.",
+        "name": "Client name 1",
+        "role": "Role · Company",
+        "location": "City, Country",
+        "photo": "/testimonials/sample-1.webp",
+        "sample": true
+      },
+      {
+        "quote": "Sample testimonial. A short quote about the project, the process and the result goes here, in two or three lines.",
+        "name": "Client name 2",
+        "role": "Role · Company",
+        "location": "City, Country",
+        "photo": "/testimonials/sample-2.webp",
+        "sample": true
+      },
+      {
+        "quote": "Sample testimonial. A short quote about the project, the process and the result goes here, in two or three lines.",
+        "name": "Client name 3",
+        "role": "Role · Company",
+        "location": "City, Country",
+        "photo": "/testimonials/sample-3.webp",
+        "sample": true
+      }
+    ],
+    "sampleBadge": "Sample"
   }
 }
