@@ -1,0 +1,106 @@
+/* Select: own chevron with room for it on the end side (both directions).
+   Where the browser supports customizable selects (Chromium 135+), the option list is a glass dropdown too;
+   elsewhere the native list is kept. */
+.select {
+  appearance: none;
+  padding-inline-end: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a9a8c4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 1.1rem;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+[dir="rtl"] .select {
+  background-position: left 1rem center;
+}
+
+@supports (appearance: base-select) {
+  .select,
+  .select::picker(select) {
+    appearance: base-select;
+  }
+  .select {
+    display: flex;
+    align-items: center;
+    background-image: none;
+    padding-inline: 1rem;
+  }
+  .select::picker-icon {
+    content: "";
+    margin-inline-start: auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+    color: var(--muted);
+    transition: rotate var(--dur-base) var(--ease-out);
+  }
+  .select:open::picker-icon {
+    rotate: 180deg;
+  }
+  .select:open {
+    border-color: var(--accent);
+  }
+  .select::picker(select) {
+    margin-block: 0.5rem;
+    padding: 0.375rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-2);
+    color: var(--fg);
+    opacity: 0;
+    translate: 0 -4px;
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      translate var(--dur-base) var(--ease-out),
+      overlay var(--dur-base) allow-discrete,
+      display var(--dur-base) allow-discrete;
+  }
+  .select:open::picker(select) {
+    opacity: 1;
+    translate: 0;
+  }
+  @starting-style {
+    .select:open::picker(select) {
+      opacity: 0;
+      translate: 0 -4px;
+    }
+  }
+  .select option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding-inline: 0.75rem;
+    border-radius: calc(var(--r-md) - 0.375rem);
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: background var(--dur-fast, 120ms) var(--ease-out);
+  }
+  .select option:hover,
+  .select option:focus-visible {
+    background: var(--accent-soft);
+    outline: none;
+  }
+  .select option:checked {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .select option::checkmark {
+    order: 1;
+    margin-inline-start: auto;
+    content: "✓";
+  }
+  .select option[value=""] {
+    display: none; /* the "Select a timeline" prompt stays on the button only */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select::picker(select),
+  .select::picker-icon {
+    transition: none;
+  }
+}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { btn } from "./Controls";
+import "@/styles/forms.css";
 
 // Web3Forms works on static hosting. Set NEXT_PUBLIC_WEB3FORMS_KEY (free key from web3forms.com).
 const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
@@ -65,7 +66,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
       </div>
       {type === 0 && (
         <div className="sm:max-w-[calc(50%-0.625rem)]">
-          {field("timeline", f.timeline, <select {...a11y("timeline")} defaultValue="" className={`${input} has-[option[value='']:checked]:text-muted`}><option value="" disabled>{f.select}</option>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}
+          {field("timeline", f.timeline, <select {...a11y("timeline")} defaultValue="" className={`${input} select has-[option[value='']:checked]:text-muted`}><option value="" disabled>{f.select}</option>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}
         </div>
       )}
       {field("message", f.message, <textarea {...a11y("message")} rows={6} placeholder={f.messagePh} className={`${input} py-2`} />)}
