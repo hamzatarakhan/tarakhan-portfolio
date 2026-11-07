@@ -1,4 +1,5 @@
 import Image from "next/image";
+import photo from "@/assets/hamza.webp";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
 import { Footer, Header, wrap } from "@/components/Chrome";
@@ -24,7 +25,7 @@ export default async function About({ params }: { params: Promise<{ lang: string
           </div>
           <div className="glass rise !rounded-[2rem] p-3" style={st(3)}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white">
-                <Image src="/hamza.webp" alt={t.hero.name} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover object-top" />
+                <Image src={photo} placeholder="blur" alt={t.hero.name} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover object-top" />
               </div>
           </div>
         </div>
