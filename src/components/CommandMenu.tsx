@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { Dict, Locale } from "@/lib/i18n";
+import { CV_URL } from "@/lib/contact";
 import { SKINS, switchLang, setSkin, setTheme, usePrefs } from "./Controls";
 
 type Cmd = { group: string; label: string; run: () => void };
@@ -38,7 +39,7 @@ export function CommandMenu({ lang, d, cases }: { lang: Locale; d: Dict["cmd"]; 
     { group: d.actions, label: d.lang, run: () => switchLang(other, path, router.push) },
     ...SKINS.map((s) => ({ group: d.actions, label: `${d.skin}: ${s}`, run: () => setSkin(s) })),
     { group: d.actions, label: d.copy, run: () => navigator.clipboard?.writeText(email) },
-    { group: d.actions, label: d.cv, run: () => {} },
+    { group: d.actions, label: d.cv, run: () => window.open(CV_URL, "_blank") },
   ];
   const list = all.filter((c) => c.label.toLowerCase().includes(q.toLowerCase()));
   const pick = (c?: Cmd) => { if (!c) return; close(); c.run(); };

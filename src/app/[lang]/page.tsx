@@ -8,6 +8,7 @@ import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
+import { CV_URL, whatsappLink } from "@/lib/contact";
 
 const h2 = "display text-3xl font-medium sm:text-4xl lg:text-5xl";
 const pill = "inline-flex min-h-12 items-center gap-2 rounded-full px-7 font-medium transition-transform duration-[var(--dur-fast)] active:scale-[0.97]";
@@ -277,7 +278,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />
                 <a className={btnGhost} href="https://linkedin.com/in/hamza-tarakhan-b8ab961a5" target="_blank" rel="noopener noreferrer">{t.contact.linkedin}</a>
               </div>
-              <p className="label mt-8 text-muted"><Txt>{t.contactPage.cv}</Txt> · <Txt>{t.contactPage.whatsapp}</Txt></p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a className={btnGhost} href={whatsappLink(t.contactPage.waText)} target="_blank" rel="noopener noreferrer">{t.contactPage.whatsapp}</a>
+                <a className={btnGhost} href={CV_URL} download>{t.contactPage.cv}</a>
+              </div>
             </div>
             <div className="glass reveal !rounded-[2rem] p-6 sm:p-10" style={st(1)}><ContactForm f={t.contactPage.f} /></div>
           </div>

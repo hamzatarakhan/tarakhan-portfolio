@@ -4,6 +4,7 @@ import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { CopyEmail } from "@/components/HomeClient";
+import { CV_URL, whatsappLink } from "@/lib/contact";
 
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
@@ -28,8 +29,8 @@ export default async function Contact({ params }: { params: Promise<{ lang: stri
             <p dir="ltr" className="break-all font-mono text-sm"><a className="underline decoration-accent underline-offset-4" href={`mailto:${t.contact.email}`}>{t.contact.email}</a></p>
             <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />
             <p><a className="underline decoration-accent underline-offset-4" href="https://linkedin.com/in/hamza-tarakhan-b8ab961a5" target="_blank" rel="noopener noreferrer">{t.contact.linkedin}</a></p>
-            <p className="text-muted"><Txt>{c.whatsapp}</Txt></p>
-            <p className="text-muted"><Txt>{c.cv}</Txt></p>
+            <p><a className="underline decoration-accent underline-offset-4" href={whatsappLink(c.waText)} target="_blank" rel="noopener noreferrer">{c.whatsapp}</a></p>
+            <p><a className="underline decoration-accent underline-offset-4" href={CV_URL} download>{c.cv}</a></p>
           </aside>
         </div>
       </main>

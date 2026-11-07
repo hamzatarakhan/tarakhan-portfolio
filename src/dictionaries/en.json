@@ -277,7 +277,7 @@
     "skin": "Skin",
     "copy": "Copy email",
     "copied": "Email copied",
-    "cv": "Download CV (coming soon)",
+    "cv": "Download CV",
     "hint": "Ctrl K"
   },
   "aboutPage": {
@@ -360,8 +360,9 @@
       "select": "Select…"
     },
     "direct": "Or reach me directly",
-    "whatsapp": "WhatsApp: {{TODO: number}}",
-    "cv": "CV: {{TODO: PDF}}"
+    "whatsapp": "Chat on WhatsApp",
+    "cv": "Download CV (PDF)",
+    "waText": "Hi Hamza, I saw your portfolio and I'd like to talk about a project."
   },
   "colophon": {
     "title": "Colophon",
