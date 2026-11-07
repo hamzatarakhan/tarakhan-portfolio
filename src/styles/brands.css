@@ -51,3 +51,27 @@
     filter: brightness(var(--lift)) saturate(1.1);
   }
 }
+
+/* Product screens popover (ProductShots) */
+.shots::backdrop {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px);
+}
+.shots:popover-open {
+  animation: shots-in var(--dur-base) var(--ease-out);
+}
+@keyframes shots-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shots:popover-open {
+    animation: none;
+  }
+}
+.shots ul {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-soft) transparent;
+}

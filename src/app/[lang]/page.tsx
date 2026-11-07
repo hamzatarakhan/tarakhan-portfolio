@@ -11,6 +11,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { ClientLogos } from "@/components/ClientLogos";
 import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { Testimonials, type Testimonial } from "@/components/Testimonials";
+import { ProductShots } from "@/components/ProductShots";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -207,8 +208,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Head label={t.play.eyebrow} title={t.play.title} intro={t.play.intro} center />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {t.play.items.map((p, i) => (
-              <li key={p.name} className="glass reveal p-5" style={st(i % 5)}>
+              <li key={p.name} className="glass reveal relative p-5" style={st(i % 5)}>
                 <span className="label text-muted">{num(i)}</span>
+                {"lockup" in p && p.lockup === "ucan" && (
+                  // U CAN's own lockup (as on u-cangym.com): heavy red U, bold CAN, spaced FITNESS
+                  <span aria-hidden className="mt-4 block w-fit font-[family-name:var(--font-inter-tight)] leading-none" dir="ltr">
+                    <span className="flex items-baseline gap-1">
+                      <span className="text-[2rem] font-black text-[#ef4343]">U</span>
+                      <span className="text-2xl font-bold">CAN</span>
+                    </span>
+                    <span className="mt-1 block text-[10px] tracking-[0.3em] text-muted">FITNESS</span>
+                  </span>
+                )}
                 {"logo" in p && p.logo && (
                   <>
                     {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
@@ -218,8 +229,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   </>
                 )}
                 {/* The logo already shows the name; keep it for screen readers only */}
-                <p className={"logo" in p && p.logo ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
+                <p className={("logo" in p && p.logo) || "lockup" in p ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
                 <p className="mt-1 text-sm text-muted">{p.tag}</p>
+                {"shots" in p && p.shots && "lockup" in p && (
+                  <ProductShots id={p.lockup} name={p.name} count={p.shots} view={t.play.view} screen={t.play.screen} close={t.nav.close} />
+                )}
               </li>
             ))}
           </ul>

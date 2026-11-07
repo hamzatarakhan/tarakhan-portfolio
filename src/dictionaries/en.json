@@ -197,6 +197,8 @@
     "eyebrow": "Process"
   },
   "play": {
+    "view": "View screens",
+    "screen": "screen",
     "title": "Things I've *built*",
     "intro": "Apps I designed and built on my own, in React and React Native.",
     "items": [
@@ -213,7 +215,9 @@
         "tag": "Designed, coded, deployed"
       },
       {
-        "name": "Ucan",
+        "name": "U CAN",
+        "lockup": "ucan",
+        "shots": 11,
         "tag": "Gym tracking"
       },
       {
