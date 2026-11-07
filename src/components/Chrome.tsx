@@ -4,6 +4,7 @@ import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
 import { MobileMenu } from "./MobileMenu";
 import { Logo } from "./Logo";
+import { HomeLink } from "./HomeLink";
 // Client brand skins must load on every page (a chosen brand persists across navigation).
 import "@/styles/brands.css";
 import { cases } from "@/content/work";
@@ -33,10 +34,10 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
         {t.nav.skip}
       </a>
       <div className={`${wrap} flex items-center justify-between gap-3`}>
-        <Link href={`/${lang}`} className="display group flex min-h-10 items-center gap-2.5 whitespace-nowrap text-base font-semibold sm:text-lg">
+        <HomeLink href={`/${lang}`} className="display group flex min-h-10 items-center gap-2.5 whitespace-nowrap text-base font-semibold sm:text-lg">
           <Logo className="size-7 shrink-0 transition-transform duration-[var(--dur-base)] ease-[var(--ease-spring)] group-hover:scale-110" />
           {t.hero.name}
-        </Link>
+        </HomeLink>
         <nav className="glass hidden items-center gap-1 !rounded-full px-2 py-1 md:flex" aria-label="Primary">
           {links.map(([k, href]) => (
             <a key={k} href={href} className="min-h-9 content-center rounded-full px-3.5 text-[13px] text-muted transition-colors hover:bg-accent-soft hover:text-fg">
