@@ -1,5 +1,5 @@
 import Image from "next/image";
-import photo from "@/assets/hamza.webp";
+import cutout from "@/assets/hamza-cutout.webp";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
@@ -35,7 +35,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const cards = [...t.work.items.map((w) => w.title), ...t.play.items.map((p) => p.name)];
   const row1 = cards.slice(0, 7);
   const row2 = cards.slice(7).concat(cards.slice(0, 4));
-  const processCols = ["lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "lg:col-span-3", "lg:col-span-3"];
   const icons = ["search", "target", "pen", "flask", "code"];
   // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
   const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
@@ -63,10 +62,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
 
           <div className="rise relative mx-auto w-full max-w-md" style={st(2)}>
-            <div className="glass !rounded-[2rem] p-3">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white">
-                <Image src={photo} placeholder="blur" alt={t.hero.name} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover object-top" priority />
-              </div>
+            {/* Floating cut-out portrait: accent glow and a thin orbit ring behind, soft fade at the bottom */}
+            <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-accent/40 blur-3xl" />
+            <div aria-hidden className="absolute start-1/2 top-[6%] aspect-square w-[92%] -translate-x-1/2 rounded-full border border-[var(--glass-line)] rtl:translate-x-1/2" />
+            <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
+              <Image src={cutout} placeholder="blur" alt={t.hero.name} sizes="(min-width: 1024px) 28rem, 90vw" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" priority />
             </div>
             {[
               [t.marquee[0], "-top-4 start-2 sm:-start-8", 0],
@@ -174,19 +174,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         {/* Process */}
         <section className={`${wrap} sec`}>
           <Head label={t.process.eyebrow} title={t.process.title} intro={t.process.intro} center />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
+          {/* A connected path: each node links to the next with a line blending the two step colours */}
+          <ol className="path grid gap-6 lg:grid-cols-5 lg:gap-5">
             {t.process.steps.map((p, i) => (
-              <article key={p.name} className={`glass step reveal p-7 ${processCols[i]}`} style={{ ...st(i % 3), "--c": stepColors[i] } as React.CSSProperties}>
-                <div className="flex items-start justify-between">
-                  <span className="step-icon grid size-12 place-items-center rounded-2xl"><Icon name={icons[i]} /></span>
-                  <span className="display text-5xl font-semibold text-fg/10">{num(i)}</span>
-                </div>
-                <h3 className="display mt-6 text-xl font-medium sm:text-2xl">{p.name}</h3>
-                <p className="mt-2 text-muted">{p.body}</p>
-                <p className="step-example mt-4 border-s-2 ps-4 text-sm">{p.example}</p>
-              </article>
+              <li
+                key={p.name}
+                className="path-step reveal relative flex gap-5 lg:flex-col lg:gap-6"
+                style={{ ...st(i), "--c": stepColors[i], "--cn": stepColors[i + 1] ?? stepColors[i] } as React.CSSProperties}
+              >
+                <span className="path-node step-icon relative z-10 grid size-14 shrink-0 place-items-center rounded-full"><Icon name={icons[i]} /></span>
+                <article className="glass step flex-1 p-6">
+                  <span className="label text-muted">{num(i)}</span>
+                  <h3 className="display mt-2 text-xl font-medium">{p.name}</h3>
+                  <p className="mt-2 text-sm text-muted">{p.body}</p>
+                  <p className="step-example mt-4 border-s-2 ps-3 text-sm">{p.example}</p>
+                </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         <Divider />

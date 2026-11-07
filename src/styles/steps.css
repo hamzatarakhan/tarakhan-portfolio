@@ -26,3 +26,76 @@
 :root[data-theme="light"] .step .step-example {
   border-color: var(--c-light);
 }
+
+/* ───── Connected path ─────
+   Phones: nodes on the start edge, a vertical line runs down to the next node.
+   Desktop (5 columns, 1.25rem gap): nodes at the start of each column, a horizontal line runs to the next node.
+   Logical properties keep it correct in RTL. */
+.path-node {
+  background: var(--bg); /* solid base, so the line stops cleanly at each node */
+}
+.path-node::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--c) 16%, transparent);
+}
+.path-node svg {
+  position: relative;
+}
+.path-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 27px;
+  top: 56px;
+  height: calc(100% - 56px + 1.5rem); /* to the next node, across the 1.5rem gap */
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--c), var(--cn));
+  opacity: 0.8;
+}
+.path-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cn);
+  box-shadow: 0 0 12px 3px color-mix(in srgb, var(--cn) 70%, transparent);
+  animation: path-down 3.2s var(--ease-in-out) infinite;
+  animation-delay: calc(var(--i, 0) * 0.6s);
+}
+@keyframes path-down {
+  0% { top: 56px; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { top: calc(100% + 1.5rem - 8px); opacity: 0; }
+}
+@media (min-width: 1024px) {
+  .path-step:not(:last-child)::after {
+    top: 27px;
+    inset-inline-start: 56px;
+    width: calc(100% + 1.25rem - 56px); /* this column + the gap, minus this node */
+    height: 2px;
+    background: linear-gradient(to right, var(--c), var(--cn));
+  }
+  :root[dir="rtl"] .path-step:not(:last-child)::after {
+    background: linear-gradient(to left, var(--c), var(--cn));
+  }
+  .path-step:not(:last-child)::before {
+    top: 24px;
+    animation-name: path-across;
+  }
+  @keyframes path-across {
+    0% { inset-inline-start: 56px; opacity: 0; }
+    15%, 85% { opacity: 1; }
+    100% { inset-inline-start: calc(100% + 1.25rem - 8px); opacity: 0; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .path-step::before {
+    display: none;
+  }
+}
