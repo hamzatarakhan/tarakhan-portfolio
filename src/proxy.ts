@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-// Sends locale-less URLs to /en or /ar: saved choice first, then browser language.
+// Sends locale-less URLs to /en or /ar: the visitor's saved choice, otherwise English.
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (/^\/(en|ar)(\/|$)/.test(pathname)) {
@@ -9,8 +9,7 @@ export function proxy(req: NextRequest) {
     return NextResponse.next({ request: { headers: h } });
   }
   const saved = req.cookies.get("lang")?.value;
-  const accept = req.headers.get("accept-language") ?? "";
-  const lang = saved === "ar" || saved === "en" ? saved : /^\s*ar/i.test(accept) ? "ar" : "en";
+  const lang = saved === "ar" ? "ar" : "en";
   const url = req.nextUrl.clone();
   url.pathname = `/${lang}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
