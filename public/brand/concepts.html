@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Logo concepts — Hamza Tarakhan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root { --dark: #0a0a14; --dark-2: #12121f; --ink: #eeeefa; --muted: #a9a8c4; --paper: #f2f0fa; --ink-l: #15122b; --acc: #a78bfa; --acc-l: #5b3bd0; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #07070e; color: var(--ink); font: 400 15px/1.5 Outfit, sans-serif; padding: 40px 24px 80px; }
+  h1 { font-weight: 500; font-size: 28px; letter-spacing: -0.02em; }
+  .lead { color: var(--muted); margin: 6px 0 32px; max-width: 70ch; }
+  .label { font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .concept { border: 1px solid #23233a; border-radius: 24px; padding: 28px; margin-bottom: 28px; background: #0c0c18; }
+  .concept h2 { font-weight: 500; font-size: 22px; margin: 8px 0 4px; }
+  .concept p { color: var(--muted); max-width: 72ch; }
+  .row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 22px; }
+  .tile { border-radius: 18px; padding: 26px; display: grid; place-items: center; min-height: 190px; gap: 14px; }
+  .tile.dark { background: var(--dark); color: var(--ink); --a: var(--acc); border: 1px solid #1d1d30; }
+  .tile.light { background: var(--paper); color: var(--ink-l); --a: var(--acc-l); }
+  .tile.accent { background: var(--acc-l); color: #fff; --a: #fff; }
+  .mark { width: 96px; height: 96px; }
+  .lockup { display: flex; align-items: center; gap: 12px; }
+  .lockup svg { width: 36px; height: 36px; }
+  .word { font-weight: 600; font-size: 20px; letter-spacing: -0.02em; }
+  .word-ar { font-family: "IBM Plex Sans Arabic"; font-weight: 600; font-size: 19px; }
+  .sizes { display: flex; align-items: end; gap: 18px; }
+  .sizes svg:nth-child(1) { width: 16px; height: 16px; }
+  .sizes svg:nth-child(2) { width: 24px; height: 24px; }
+  .sizes svg:nth-child(3) { width: 32px; height: 32px; }
+  .sizes svg:nth-child(4) { width: 48px; height: 48px; }
+  .appicon { width: 72px; height: 72px; border-radius: 18px; display: grid; place-items: center; background: linear-gradient(150deg, #1d1840, #0a0a14); box-shadow: 0 10px 30px -10px #000; }
+  .appicon svg { width: 44px; height: 44px; color: var(--ink); --a: var(--acc); }
+</style>
+</head>
+<body>
+  <!-- Shared symbol definitions: each mark uses currentColor for ink and --a for the accent, so it follows any skin. -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <!-- A · Switch H: two stems joined by a toggle. The crossbar is a switch in the "on" state. -->
+      <symbol id="a" viewBox="0 0 48 48">
+        <rect x="12" y="17" width="24" height="14" rx="7" fill="var(--a)" opacity=".4" />
+        <rect x="4" y="5" width="10" height="38" rx="5" fill="currentColor" />
+        <rect x="34" y="5" width="10" height="38" rx="5" fill="currentColor" />
+        <circle cx="28" cy="24" r="5.5" fill="var(--a)" />
+      </symbol>
+      <!-- B · Component H: an H cut out of a solid chip, like a design-system component tile. -->
+      <symbol id="b" viewBox="0 0 48 48">
+        <path fill="var(--a)" fill-rule="evenodd" d="M14 4h20a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10H14A10 10 0 0 1 4 34V14A10 10 0 0 1 14 4Zm4 0v16h12V4H18Zm0 24v16h12V28H18Z" />
+      </symbol>
+      <!-- C · HT ligature: H's right stem rises into the T, one shared stroke for both initials. -->
+      <symbol id="c" viewBox="0 0 48 48">
+        <rect x="5" y="8" width="7.5" height="32" rx="2" fill="currentColor" />
+        <rect x="5" y="20.25" width="19" height="7.5" fill="currentColor" />
+        <rect x="18" y="8" width="7.5" height="32" rx="2" fill="currentColor" />
+        <rect x="18" y="8" width="25" height="7.5" rx="2" fill="var(--a)" />
+        <rect x="31.5" y="8" width="7.5" height="32" rx="2" fill="var(--a)" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <h1>Logo concepts</h1>
+  <p class="lead">Three directions for one idea: <b>one system, many brands</b>. Every mark uses only the ink colour and the accent, so it re-tints with the site's skins and works in one colour. Shown on dark, light and accent, as a lockup with your name, as an app icon, and at real favicon sizes.</p>
+
+  <section class="concept">
+    <span class="label">Concept A</span>
+    <h2>Switch H</h2>
+    <p>Your initial H, where the crossbar is a toggle switched on. It points straight at your signature: products that switch theme, language and brand from one system. Friendly and product-minded, and the knob stays readable as a dot even at 16px.</p>
+    <div class="row">
+      <div class="tile dark"><svg class="mark"><use href="#a" /></svg></div>
+      <div class="tile light"><svg class="mark"><use href="#a" /></svg></div>
+      <div class="tile dark"><div class="lockup"><svg><use href="#a" /></svg><span class="word">Hamza Tarakhan</span></div><div class="lockup" dir="rtl"><svg><use href="#a" /></svg><span class="word-ar">حمزة طرخان</span></div></div>
+      <div class="tile dark"><div class="appicon"><svg><use href="#a" /></svg></div><div class="sizes"><svg><use href="#a" /></svg><svg><use href="#a" /></svg><svg><use href="#a" /></svg><svg><use href="#a" /></svg></div></div>
+    </div>
+  </section>
+
+  <section class="concept">
+    <span class="label">Concept B</span>
+    <h2>Component H</h2>
+    <p>A solid rounded tile with an H cut out of it, like a component chip from a design-system library. Bold and compact, it gives the strongest favicon and app icon of the three. It's also the most "systems" in feel, and the least playful.</p>
+    <div class="row">
+      <div class="tile dark"><svg class="mark"><use href="#b" /></svg></div>
+      <div class="tile light"><svg class="mark"><use href="#b" /></svg></div>
+      <div class="tile dark"><div class="lockup"><svg><use href="#b" /></svg><span class="word">Hamza Tarakhan</span></div><div class="lockup" dir="rtl"><svg><use href="#b" /></svg><span class="word-ar">حمزة طرخان</span></div></div>
+      <div class="tile dark"><div class="appicon"><svg><use href="#b" /></svg></div><div class="sizes"><svg><use href="#b" /></svg><svg><use href="#b" /></svg><svg><use href="#b" /></svg><svg><use href="#b" /></svg></div></div>
+    </div>
+  </section>
+
+  <section class="concept">
+    <span class="label">Concept C</span>
+    <h2>HT ligature</h2>
+    <p>Both initials in one form: the right stem of the H rises into the T, so a single stroke belongs to both letters. Editorial and personal, it reads as a monogram rather than an app. It needs a bit more size to read, so it's weaker as a 16px favicon.</p>
+    <div class="row">
+      <div class="tile dark"><svg class="mark"><use href="#c" /></svg></div>
+      <div class="tile light"><svg class="mark"><use href="#c" /></svg></div>
+      <div class="tile dark"><div class="lockup"><svg><use href="#c" /></svg><span class="word">Hamza Tarakhan</span></div><div class="lockup" dir="rtl"><svg><use href="#c" /></svg><span class="word-ar">حمزة طرخان</span></div></div>
+      <div class="tile dark"><div class="appicon"><svg><use href="#c" /></svg></div><div class="sizes"><svg><use href="#c" /></svg><svg><use href="#c" /></svg><svg><use href="#c" /></svg><svg><use href="#c" /></svg></div></div>
+    </div>
+  </section>
+</body>
+</html>
