@@ -2,13 +2,13 @@
 
 /* ───────── Layer 1: primitives (raw values, never used directly in components) ───────── */
 :root {
-  --p-ink-950: #0a0a14;
-  --p-ink-900: #12121f;
-  --p-ink-800: #1a1a2c;
-  --p-slate-500: #5b5778;
-  --p-slate-300: #a9a8c4;
+  --p-ink-950: #070b14;
+  --p-ink-900: #0f1522;
+  --p-ink-800: #172031;
+  --p-slate-500: #55607a;
+  --p-slate-300: #a3aec4;
   --p-mist-100: #ffffff;
-  --p-mist-50: #f2f0fa;
+  --p-mist-50: #f0f4fa;
   --p-white: #ffffff;
 
   /* motion primitives */
@@ -36,9 +36,9 @@
   --bg: var(--p-ink-950);
   --surface: var(--p-ink-900);
   --surface-2: var(--p-ink-800);
-  --fg: #eeeefa;
+  --fg: #edf2fa;
   --muted: var(--p-slate-300); /* 8:1 on --bg */
-  --line: #26263a;
+  --line: #222b3d;
   --glass: rgb(255 255 255 / 0.045);
   --glass-line: rgb(255 255 255 / 0.09);
   --aura-opacity: 0.55;
@@ -49,32 +49,32 @@
   color-scheme: light;
   --bg: var(--p-mist-50);
   --surface: var(--p-mist-100);
-  --surface-2: #e9e6f5;
-  --fg: #15122b;
+  --surface-2: #e3e9f4;
+  --fg: #0f172a;
   --muted: var(--p-slate-500); /* 5.9:1 on --bg */
-  --line: #d8d4ea;
+  --line: #d3dbe9;
   --glass: rgb(255 255 255 / 0.65);
-  --glass-line: rgb(21 18 43 / 0.1);
+  --glass-line: rgb(15 23 42 / 0.1);
   --aura-opacity: 0.35;
-  --shadow-1: 0 1px 2px rgb(21 18 43 / 0.08);
-  --shadow-2: 0 30px 60px -24px rgb(21 18 43 / 0.3), 0 2px 8px rgb(21 18 43 / 0.08);
+  --shadow-1: 0 1px 2px rgb(15 23 42 / 0.08);
+  --shadow-2: 0 30px 60px -24px rgb(15 23 42 / 0.3), 0 2px 8px rgb(15 23 42 / 0.08);
 }
 
 /* ───────── Brand skins: accent + radius + type pairing (each tuned per theme) ───────── */
-/* Indigo (default) */
+/* Blue (default) */
 :root,
-:root[data-skin="indigo"] {
-  --accent: #a78bfa;
-  --on-accent: #0a0a14;
-  --accent-soft: #1d1840;
+:root[data-skin="blue"] {
+  --accent: #6aa8ff;
+  --on-accent: #06101f;
+  --accent-soft: #0e2244;
   --r-base: 16px;
   --font-display: var(--font-outfit);
 }
-:root[data-skin="indigo"][data-theme="light"],
+:root[data-skin="blue"][data-theme="light"],
 :root:not([data-skin])[data-theme="light"] {
-  --accent: #5b3bd0;
+  --accent: #1f5fd6;
   --on-accent: #ffffff;
-  --accent-soft: #e6e0ff;
+  --accent-soft: #dbe7ff;
 }
 /* Acid */
 :root[data-skin="acid"] {

@@ -72,7 +72,7 @@ export default function System() {
           </div>
         </Section>
 
-        <Section id="shape" title="Radius & elevation" note="Radius derives from the skin's base value, so Violet is sharp and Moss is soft with no component changes.">
+        <Section id="shape" title="Radius & elevation" note="Radius derives from the skin's base value, so Ember is sharp and Mint is soft with no component changes.">
           <div className="flex flex-wrap gap-4">
             {["sm", "md", "lg"].map((r) => (
               <div key={r} className={`grid h-24 w-32 place-items-center border border-line bg-surface font-mono text-xs shadow-1 rounded-${r}`}>
