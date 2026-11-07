@@ -17,10 +17,10 @@
     "status": "Available for freelance projects",
     "eyebrow": "Senior UI/UX · Product · Design systems",
     "name": "Hamza Tarakhan",
-    "headline": "I design systems that scale, and flows people actually finish.",
+    "headline": "I design systems that *scale*, and flows people *actually finish.*",
     "sub": "Amman, Jordan · 4+ years · Remote-friendly, working with clients worldwide.",
     "cta1": "View work",
-    "cta2": "Work with me",
+    "cta2": "Hire me",
     "skinsLabel": "Try the system",
     "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five."
   },
@@ -57,7 +57,7 @@
     ]
   },
   "work": {
-    "title": "Selected work",
+    "title": "Selected *work*",
     "intro": "Four projects, four kinds of problem: complex flows, systems, Arabic-first reading, and end-to-end product building.",
     "view": "Read case study",
     "items": [
@@ -108,7 +108,7 @@
     ]
   },
   "services": {
-    "title": "What I do",
+    "title": "What I *do*",
     "getLabel": "You get",
     "items": [
       {
@@ -134,7 +134,7 @@
     ]
   },
   "process": {
-    "title": "How I work",
+    "title": "From problem to *product*",
     "intro": "Five steps, each with something real behind it.",
     "steps": [
       {
@@ -165,7 +165,7 @@
     ]
   },
   "play": {
-    "title": "Independent products",
+    "title": "Independent *products*",
     "intro": "Products I design and build myself, in React and React Native.",
     "items": [
       {
@@ -211,12 +211,12 @@
     ]
   },
   "about": {
-    "title": "Designer who ships",
+    "title": "Designer who *ships*",
     "body": "Senior UI/UX Designer at Leading Point Software since 2022. I own the UX and design system of SalesPoint, run design-system governance, and build what I design with React and AI tools.",
     "cta": "More about me"
   },
   "contact": {
-    "title": "Let's build something clear.",
+    "title": "Let's build something *clear.*",
     "body": "Hiring, or have a project? Email is the fastest way to reach me.",
     "email": "hamzatarakhan2000@gmail.com",
     "copy": "Copy email",
@@ -441,7 +441,7 @@
     ]
   },
   "why": {
-    "title": "Why work with me",
+    "title": "Why work *with me*",
     "items": [
       {
         "t": "I design systems that scale",
@@ -466,7 +466,7 @@
     ]
   },
   "skills": {
-    "title": "Capabilities",
+    "title": "*Capabilities*",
     "groups": [
       {
         "name": "Research & strategy",

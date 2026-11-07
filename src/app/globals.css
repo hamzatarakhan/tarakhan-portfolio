@@ -2,24 +2,24 @@
 
 /* ───────── Layer 1: primitives (raw values, never used directly in components) ───────── */
 :root {
-  --p-ink-950: #0b0b0a;
-  --p-ink-900: #141412;
-  --p-ink-800: #1c1c19;
-  --p-slate-500: #5e5a52;
-  --p-slate-300: #a7a399;
-  --p-mist-100: #f5f2eb;
-  --p-mist-50: #ece8df;
+  --p-ink-950: #0a0a14;
+  --p-ink-900: #12121f;
+  --p-ink-800: #1a1a2c;
+  --p-slate-500: #5b5778;
+  --p-slate-300: #a9a8c4;
+  --p-mist-100: #ffffff;
+  --p-mist-50: #f2f0fa;
   --p-white: #ffffff;
 
   /* motion primitives */
   --dur-fast: 120ms;
-  --dur-base: 220ms;
-  --dur-slow: 480ms;
+  --dur-base: 240ms;
+  --dur-slow: 700ms;
   --dur-theme: 360ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
-  --stagger: 70ms;
+  --stagger: 90ms;
 
   /* z-index scale */
   --z-base: 0;
@@ -36,9 +36,12 @@
   --bg: var(--p-ink-950);
   --surface: var(--p-ink-900);
   --surface-2: var(--p-ink-800);
-  --fg: #edeae2;
+  --fg: #eeeefa;
   --muted: var(--p-slate-300); /* 8:1 on --bg */
-  --line: #2a2a26;
+  --line: #26263a;
+  --glass: rgb(255 255 255 / 0.045);
+  --glass-line: rgb(255 255 255 / 0.09);
+  --aura-opacity: 0.55;
   --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5);
   --shadow-2: 0 30px 70px -20px rgb(0 0 0 / 0.75), 0 2px 8px rgb(0 0 0 / 0.4);
 }
@@ -46,33 +49,49 @@
   color-scheme: light;
   --bg: var(--p-mist-50);
   --surface: var(--p-mist-100);
-  --surface-2: #e2ddd0;
-  --fg: #0b0b0a;
-  --muted: var(--p-slate-500); /* 5.6:1 on --bg */
-  --line: #cfcabd;
-  --shadow-1: 0 1px 2px rgb(11 11 10 / 0.08);
-  --shadow-2: 0 30px 60px -24px rgb(11 11 10 / 0.3), 0 2px 8px rgb(11 11 10 / 0.08);
+  --surface-2: #e9e6f5;
+  --fg: #15122b;
+  --muted: var(--p-slate-500); /* 5.9:1 on --bg */
+  --line: #d8d4ea;
+  --glass: rgb(255 255 255 / 0.65);
+  --glass-line: rgb(21 18 43 / 0.1);
+  --aura-opacity: 0.35;
+  --shadow-1: 0 1px 2px rgb(21 18 43 / 0.08);
+  --shadow-2: 0 30px 60px -24px rgb(21 18 43 / 0.3), 0 2px 8px rgb(21 18 43 / 0.08);
 }
 
 /* ───────── Brand skins: accent + radius + type pairing (each tuned per theme) ───────── */
-/* Acid (default) */
+/* Indigo (default) */
 :root,
+:root[data-skin="indigo"] {
+  --accent: #a78bfa;
+  --on-accent: #0a0a14;
+  --accent-soft: #1d1840;
+  --r-base: 16px;
+  --font-display: var(--font-outfit);
+}
+:root[data-skin="indigo"][data-theme="light"],
+:root:not([data-skin])[data-theme="light"] {
+  --accent: #5b3bd0;
+  --on-accent: #ffffff;
+  --accent-soft: #e6e0ff;
+}
+/* Acid */
 :root[data-skin="acid"] {
   --accent: #c8ff2e;
   --on-accent: #0b0b0a;
   --accent-soft: #1f2a0a;
-  --r-base: 14px;
+  --r-base: 12px;
   --font-display: var(--font-bricolage);
 }
-:root[data-skin="acid"][data-theme="light"],
-:root:not([data-skin])[data-theme="light"] {
+:root[data-skin="acid"][data-theme="light"] {
   --accent: #3f5e00;
   --on-accent: #ffffff;
   --accent-soft: #dde8bd;
 }
 /* Ember */
 :root[data-skin="ember"] {
-  --accent: #ff6a3d;
+  --accent: #ff7a4d;
   --on-accent: #1a0a04;
   --accent-soft: #33180d;
   --r-base: 6px;
@@ -88,26 +107,13 @@
   --accent: #4fe3a4;
   --on-accent: #04130c;
   --accent-soft: #0e2a1e;
-  --r-base: 22px;
+  --r-base: 24px;
   --font-display: var(--font-space);
 }
 :root[data-skin="mint"][data-theme="light"] {
   --accent: #0e7a4e;
   --on-accent: #ffffff;
   --accent-soft: #d0f0e0;
-}
-/* Violet */
-:root[data-skin="violet"] {
-  --accent: #b8a4ff;
-  --on-accent: #0f0a24;
-  --accent-soft: #231a4d;
-  --r-base: 2px;
-  --font-display: var(--font-geist);
-}
-:root[data-skin="violet"][data-theme="light"] {
-  --accent: #5b3bd0;
-  --on-accent: #ffffff;
-  --accent-soft: #e6e0ff;
 }
 
 /* radius scale derived from the skin's base */
@@ -120,8 +126,8 @@
 /* ───────── Direction + Arabic typography (tuned separately, never an afterthought) ───────── */
 :root {
   --font-body: var(--font-display), var(--font-plex-arabic), system-ui, sans-serif;
-  --lh-body: 1.55;
-  --lh-display: 0.95;
+  --lh-body: 1.6;
+  --lh-display: 1.05;
   --arabic-scale: 1;
 }
 :root[dir="rtl"] {
@@ -157,9 +163,9 @@
   --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
   --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
   --text-xl: clamp(1.375rem, 1.2rem + 0.9vw, 1.75rem);
-  --text-2xl: clamp(1.875rem, 1.4rem + 2vw, 3rem);
-  --text-3xl: clamp(2.5rem, 1.6rem + 3.8vw, 4.75rem);
-  --text-4xl: clamp(3rem, 1.7rem + 6vw, 7rem);
+  --text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --text-3xl: clamp(2.25rem, 1.6rem + 2.8vw, 4rem);
+  --text-4xl: clamp(2.75rem, 1.7rem + 4.6vw, 6rem);
 }
 
 html {
@@ -174,6 +180,7 @@ body {
   min-height: 100dvh;
   padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
   overflow-x: clip;
+  position: relative;
 }
 ::selection {
   background: var(--accent);
@@ -182,7 +189,7 @@ body {
 .display {
   font-family: var(--font-display);
   line-height: var(--lh-display);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 :root[dir="rtl"] .display {
   letter-spacing: 0; /* tracking breaks Arabic joins */
@@ -197,80 +204,181 @@ body {
 :root[dir="rtl"] .label {
   letter-spacing: 0;
 }
+/* Accent word inside headings: serif italic in Latin, accent colour only in Arabic */
+.ital {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+:root[dir="rtl"] .ital {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
 
 /* Directional icons flip in RTL; opt in with .flip-rtl */
 :root[dir="rtl"] .flip-rtl {
   transform: scaleX(-1);
 }
 
-/* ───────── Home signature pieces ───────── */
-.name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3rem, 19.2vw, 21rem);
-  line-height: 0.84;
-  letter-spacing: -0.065em;
-  text-transform: uppercase;
+/* ───────── Atmosphere: slow drifting colour glows tinted by the active skin ───────── */
+.aura {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: var(--aura-opacity);
 }
-.name span {
-  display: block;
+.aura i {
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 55%, transparent), transparent);
+  filter: blur(40px);
+  will-change: transform;
 }
-.name .dim {
-  color: color-mix(in srgb, var(--fg) 34%, transparent);
+.aura i:nth-child(1) {
+  top: -28vmax;
+  inset-inline-start: -14vmax;
+  animation: drift 26s ease-in-out infinite alternate;
 }
-:root[dir="rtl"] .name {
-  font-size: clamp(5rem, 22vw, 20rem);
-  line-height: 1;
-  letter-spacing: 0;
-  text-transform: none;
-  font-weight: 700;
+.aura i:nth-child(2) {
+  bottom: -34vmax;
+  inset-inline-end: -18vmax;
+  animation: drift 32s ease-in-out infinite alternate-reverse;
 }
+@keyframes drift {
+  to {
+    transform: translate3d(8vmax, 6vmax, 0) scale(1.12);
+  }
+}
+
+/* ───────── Glass surfaces with a pointer-following spotlight ───────── */
+.glass {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out),
+    background var(--dur-base);
+}
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%);
+  transition: opacity var(--dur-base);
+}
+@media (hover: hover) {
+  .glass:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--glass-line));
+  }
+  .glass:hover::before {
+    opacity: 1;
+  }
+}
+
+/* ───────── Scroll reveal (only when JS is on, so content is never hidden without it) ───────── */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ───────── Motion pieces ───────── */
 @keyframes marquee {
   to {
     transform: translateX(-50%);
   }
 }
-.marquee-track {
+.mq {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.mq-track {
   display: flex;
+  gap: 1.25rem;
   width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: marquee 60s linear infinite;
 }
-.idx-row .peek {
-  opacity: 0;
-  transform: translateY(8px) rotate(-4deg) scale(0.96);
-  transition:
-    opacity var(--dur-base) var(--ease-out),
-    transform var(--dur-slow) var(--ease-out);
-  pointer-events: none;
+.mq.rev .mq-track {
+  animation-direction: reverse;
+  animation-duration: 75s;
 }
-@media (hover: hover) {
-  .idx-row:hover .peek,
-  .idx-row:focus-visible .peek {
-    opacity: 1;
-    transform: translateY(0) rotate(-4deg) scale(1);
+.mq:hover .mq-track {
+  animation-play-state: paused;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
   }
 }
-
-/* Focus ring fits the system */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--r-sm);
+.float {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--d, 0) * 1s);
 }
-
-/* Smooth theme / skin / direction switch via View Transitions (no flash, no layout jump) */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: var(--dur-theme);
-  animation-timing-function: var(--ease-in-out);
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
 }
-
+.rise {
+  animation: rise var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+}
 @keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(6px);
   }
 }
+@keyframes pulse-ring {
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-ring 2s var(--ease-out) infinite;
+}
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+.shine {
+  background: linear-gradient(100deg, var(--accent), var(--fg), var(--accent));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
 /* Reading progress: native scroll-driven animation (no JS; absent in older browsers = no bar) */
 @keyframes grow {
   from {
@@ -289,15 +397,19 @@ body {
     animation-timeline: scroll(root block);
   }
 }
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
+
+/* Focus ring fits the system */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
 }
-.rise {
-  animation: rise var(--dur-slow) var(--ease-out) both;
-  animation-delay: calc(var(--i, 0) * var(--stagger));
+
+/* Smooth theme / skin / direction switch via View Transitions (no flash, no layout jump) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--dur-theme);
+  animation-timing-function: var(--ease-in-out);
 }
 
 /* Reduced motion: movement becomes simple fades, content stays */
@@ -315,7 +427,15 @@ body {
     animation-duration: 1ms !important;
     transition-duration: 1ms !important;
   }
-  .marquee-track {
-    animation: none;
+  .mq-track,
+  .float,
+  .aura i,
+  .shine,
+  .pulse::after {
+    animation: none !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

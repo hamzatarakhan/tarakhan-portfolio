@@ -7,10 +7,13 @@ import {
   Space_Grotesk,
   IBM_Plex_Sans_Arabic,
   Amiri_Quran,
+  Outfit,
+  Instrument_Serif,
 } from "next/font/google";
 import "../globals.css";
 import { dirOf, getDict, isLocale, locales } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import { FxProvider } from "@/components/FxProvider";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const jb = JetBrains_Mono({ variable: "--font-jb", subsets: ["latin"] });
@@ -23,6 +26,8 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
 });
 
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"] });
+const serif = Instrument_Serif({ variable: "--font-serif", subsets: ["latin"], weight: "400", style: "italic" });
 const quran = Amiri_Quran({ variable: "--font-quran", subsets: ["arabic"], weight: "400" });
 
 export const generateStaticParams = () => locales.map((lang) => ({ lang }));
@@ -39,20 +44,24 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 // Runs before paint: restores theme + skin so there is no flash. Language comes from the URL.
-const prefsScript = `(()=>{try{var d=document.documentElement,g=k=>localStorage.getItem(k);
+const prefsScript = `(()=>{try{var d=document.documentElement;d.classList.add('js');var g=k=>localStorage.getItem(k);
 d.dataset.theme=g('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-d.dataset.skin=g('skin')||'acid';}catch(e){}})()`;
+d.dataset.skin=g('skin')||'indigo';}catch(e){}})()`;
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const fonts = [geist, jb, interTight, bricolage, space, plexArabic, quran].map((f) => f.variable).join(" ");
+  const fonts = [geist, jb, interTight, bricolage, space, plexArabic, quran, outfit, serif].map((f) => f.variable).join(" ");
   return (
-    <html lang={lang} dir={dirOf(lang)} data-theme="dark" data-skin="acid" className={`${fonts} antialiased`} suppressHydrationWarning>
+    <html lang={lang} dir={dirOf(lang)} data-theme="dark" data-skin="indigo" className={`${fonts} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: prefsScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="aura" aria-hidden><i /><i /></div>
+        <FxProvider />
+        {children}
+      </body>
     </html>
   );
 }
