@@ -147,14 +147,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
           <div className="space-y-4">
             {t.services.items.map((sv, i) => (
-              <article key={sv.title} className="glass reveal group flex items-start gap-5 p-6 sm:p-7" style={st(i)}>
-                <span className="label mt-1 text-muted">{num(i)}</span>
+              <article key={sv.title} className="glass reveal group flex flex-col gap-4 p-6 sm:flex-row sm:items-start sm:gap-5 sm:p-7" style={st(i)}>
+                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent"><Icon name={sv.icon} /></span>
                 <div className="flex-1">
-                  <h3 className="display text-xl font-medium sm:text-2xl">{sv.title}</h3>
+                  <span className="label text-muted">{num(i)}</span>
+                  <h3 className="display mt-1 text-xl font-medium sm:text-2xl">{sv.title}</h3>
                   <p className="mt-2 text-muted">{sv.body}</p>
                   <p className="mt-4 text-sm"><span className="label me-2 text-accent">{t.services.getLabel}</span>{sv.get}</p>
                 </div>
-                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[var(--glass-line)] transition-colors group-hover:bg-accent group-hover:text-on-accent"><Icon name="arrow" className="flip-rtl size-4" /></span>
+                <span className="hidden size-10 shrink-0 place-items-center rounded-full sm:grid border border-[var(--glass-line)] transition-colors group-hover:bg-accent group-hover:text-on-accent"><Icon name="arrow" className="flip-rtl size-4" /></span>
               </article>
             ))}
           </div>

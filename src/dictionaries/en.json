@@ -122,24 +122,40 @@
     "getLabel": "What you get",
     "items": [
       {
+        "icon": "pen",
         "title": "Product & UX design",
         "body": "Turn a complicated workflow into a product people can finish without help.",
-        "get": "Research, user flows, wireframes, high-fidelity UI and a clickable prototype."
+        "get": "Research, user flows, wireframes and high-fidelity UI for web and mobile."
       },
       {
-        "title": "Design systems",
-        "body": "One system that adapts to every brand, theme and language you need.",
-        "get": "Tokens, components, documentation and a review process your team can run."
+        "icon": "cursor",
+        "title": "Interactive prototypes",
+        "body": "Test the real experience before launch. Your users and stakeholders click through it like the finished app.",
+        "get": "A fully interactive prototype on real devices, ready for user testing and sign-off before development."
       },
       {
+        "icon": "code",
+        "title": "Design + front-end code",
+        "body": "No handoff gap: the design arrives as working code.",
+        "get": "React or React Native front end built from the design, ready for your engineers to connect."
+      },
+      {
+        "icon": "layers",
+        "title": "Design system & Figma library",
+        "body": "Every screen delivered on a system your team can keep building with.",
+        "get": "A Figma file with tokens, components, variants and documentation, organised for handoff."
+      },
+      {
+        "icon": "globe",
         "title": "Arabic & English products",
         "body": "Arabic designed from the start, not translated and flipped at the end.",
         "get": "RTL layouts, Arabic type pairing and mirrored interactions across your product."
       },
       {
-        "title": "Design + front-end build",
-        "body": "No handoff gap: I can build what I design.",
-        "get": "React or React Native code for the designed UI, ready for your engineers."
+        "icon": "chat",
+        "title": "Design workflow consulting",
+        "body": "Help your team design faster, with fewer surprises at handoff.",
+        "get": "A review of your design process, tools and handoff, with a clear plan, including where AI saves real time."
       }
     ],
     "eyebrow": "Services",
