@@ -65,9 +65,18 @@
       "STC",
       "Starlink"
     ],
-    "brandsHint": "Tap a brand to see this site in its colours, the way SalesPoint switches between operators.",
-    "brandsShowing": "Now showing this site in",
-    "brandsReset": "Back to my colours"
+    "brandsHint": "One design system behind all five operators. Tap or hover a brand to see the same SalesPoint screen in its colours.",
+    "demo": {
+      "screen": "SalesPoint",
+      "balance": "Dealer wallet",
+      "cta": "Activate SIM",
+      "rows": [
+        "New activation",
+        "Commission",
+        "Top-up"
+      ],
+      "caption": "Same components, themed for"
+    }
   },
   "work": {
     "title": "Selected *work*",

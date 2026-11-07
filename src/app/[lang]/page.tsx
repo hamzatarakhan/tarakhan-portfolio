@@ -114,7 +114,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </div>
             ))}
           </dl>
-          <ClientLogos l={{ label: t.proof.brandsLabel, hint: t.proof.brandsHint, showing: t.proof.brandsShowing, reset: t.proof.brandsReset }} />
+          <ClientLogos l={{ label: t.proof.brandsLabel, hint: t.proof.brandsHint, screen: t.proof.demo.screen, balance: t.proof.demo.balance, cta: t.proof.demo.cta, rows: t.proof.demo.rows as [string, string, string], caption: t.proof.demo.caption }} />
         </section>
 
         <Divider />

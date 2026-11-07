@@ -1,52 +1,22 @@
-/* Client brand skins: tapping a client logo re-themes the whole site in that brand's colour.
-   Only the accent tokens change; radius and type stay mine, which is the point: one system, many brands.
-   Each brand is tuned separately for dark and light so text on the accent stays readable. */
-
-:root[data-skin="ooredoo"] { --accent: #ff4d55; --on-accent: #1a0507; --accent-soft: #3a0f13; }
-:root[data-skin="ooredoo"][data-theme="light"] { --accent: #d0121b; --on-accent: #ffffff; --accent-soft: #ffe1e3; }
-
-:root[data-skin="awasr"] { --accent: #2cc7bf; --on-accent: #031412; --accent-soft: #0c2e2c; }
-:root[data-skin="awasr"][data-theme="light"] { --accent: #0e7c77; --on-accent: #ffffff; --accent-soft: #d3f2f0; }
-
-:root[data-skin="beyond"] { --accent: #3fa2ea; --on-accent: #04121e; --accent-soft: #0d2638; }
-:root[data-skin="beyond"][data-theme="light"] { --accent: #0069aa; --on-accent: #ffffff; --accent-soft: #d9ecf9; }
-
-:root[data-skin="stc"] { --accent: #b07cff; --on-accent: #12052a; --accent-soft: #24104a; }
-:root[data-skin="stc"][data-theme="light"] { --accent: #4f008c; --on-accent: #ffffff; --accent-soft: #ece0f8; }
-
-:root[data-skin="starlink"] { --accent: #f062ae; --on-accent: #1a0410; --accent-soft: #3a0f26; }
-:root[data-skin="starlink"][data-theme="light"] { --accent: #b01772; --on-accent: #ffffff; --accent-soft: #fbe0ee; }
-
-/* ───── Client logo wall ───── */
-/* At rest every logo is a single-colour silhouette, so the row reads as one calm line. */
-.client-logo {
-  filter: brightness(0) invert(1);
-  opacity: 0.62;
-  transition:
-    filter var(--dur-base) var(--ease-out),
-    opacity var(--dur-base) var(--ease-out),
-    transform var(--dur-slow) var(--ease-spring);
+/* Client logos: full colour on white tiles (a logo's natural ground), never greyed out.
+   The selected brand gets a ring in its own colour. */
+.logo-tile[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--b), 0 14px 30px -12px var(--b);
+  transform: translateY(-2px);
 }
-:root[data-theme="light"] .client-logo {
-  filter: brightness(0);
-  opacity: 0.55;
+
+/* Mini SalesPoint screen: every brand-coloured part reads --b and animates when it changes */
+.brand-screen .brand-fill,
+.brand-screen .brand-dot {
+  background: var(--b);
+  transition: background-color var(--dur-slow) var(--ease-out);
 }
-/* On hover, focus or when its skin is active, a logo shows its real colours. */
-.client-tile:hover .client-logo,
-.client-tile:focus-visible .client-logo,
-.client-tile[aria-pressed="true"] .client-logo {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.06);
+@keyframes brand-swap-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+  }
 }
-/* Hovered, focused or active: the tile turns white, so every brand shows its true colours on its natural ground. */
-.client-tile:hover,
-.client-tile:focus-visible,
-.client-tile[aria-pressed="true"] {
-  background: #ffffff;
-  border-color: #ffffff;
-}
-.client-tile:hover::before,
-.client-tile[aria-pressed="true"]::before {
-  opacity: 0; /* no spotlight tint on the white tile */
+.brand-swap {
+  animation: brand-swap-in var(--dur-slow) var(--ease-out);
 }
