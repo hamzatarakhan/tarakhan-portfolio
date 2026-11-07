@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Hamza Tarakhan — Senior UI/UX & Product Designer",
-    "description": "I design systems that scale and flows people actually finish. Design systems, complex product flows and bilingual Arabic/English products."
+    "description": "Senior product designer for telecom, fintech and enterprise teams. I turn complex products into clear experiences, build the design system behind them, and ship in Arabic and English."
   },
   "nav": {
     "work": "Work",
@@ -16,12 +16,12 @@
     "close": "Close menu"
   },
   "hero": {
-    "status": "Available for freelance projects",
-    "eyebrow": "Senior UI/UX · Product · Design systems",
+    "status": "Open for freelance projects",
+    "eyebrow": "Based in Amman · Working remotely worldwide",
     "name": "Hamza Tarakhan",
-    "headline": "I design systems that *scale*, and flows people *actually finish.*",
-    "sub": "Amman, Jordan · 4+ years · Remote-friendly, working with clients worldwide.",
-    "cta1": "View work",
+    "headline": "I turn complex products into *clear* experiences people *actually finish.*",
+    "sub": "Senior product designer for telecom, fintech and enterprise teams. I design the UX, build the design system, and can ship the front end, in English and Arabic.",
+    "cta1": "See case studies",
     "cta2": "Work with me",
     "skinsLabel": "Try the system",
     "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five.",
@@ -37,17 +37,17 @@
       {
         "n": 5,
         "suffix": "",
-        "label": "telecom brands on one system"
+        "label": "telecom brands on one design system"
       },
       {
         "n": 200,
         "suffix": "+",
-        "label": "screens in SalesPoint"
+        "label": "screens designed for SalesPoint"
       },
       {
         "n": 9,
         "suffix": "+",
-        "label": "apps shipped"
+        "label": "products shipped end to end"
       }
     ],
     "brandsLabel": "Designed for",
@@ -61,13 +61,13 @@
   },
   "work": {
     "title": "Selected *work*",
-    "intro": "Four projects, four kinds of problem: complex flows, systems, Arabic-first reading, and end-to-end product building.",
-    "view": "Read case study",
+    "intro": "Each case study shows the problem, the decisions I made and why, and what changed.",
+    "view": "Read the case study",
     "items": [
       {
         "slug": "salespoint",
         "title": "SalesPoint: dealer platform",
-        "outcome": "KYC, SIM activation, billing and wallets turned into clear flows for high-volume daily use.",
+        "outcome": "Turned KYC, SIM activation, billing and wallets into clear flows that dealers use all day.",
         "role": "UX lead",
         "tags": [
           "Telecom",
@@ -78,7 +78,7 @@
       {
         "slug": "salespoint-design-system",
         "title": "SalesPoint design system",
-        "outcome": "One shared system across five operators. Each new brand launched on existing components.",
+        "outcome": "One design system behind five telecom brands. New operators launch on existing components, not new designs.",
         "role": "Design system owner",
         "tags": [
           "Tokens",
@@ -89,7 +89,7 @@
       {
         "slug": "shamat",
         "title": "Shamat",
-        "outcome": "A bilingual Arabic/English app built around a Mushaf. In development.",
+        "outcome": "An Arabic-first Mushaf reading app, designed to feel natural in both languages. In development.",
         "role": "Product designer",
         "tags": [
           "Arabic typography",
@@ -100,7 +100,7 @@
       {
         "slug": "flowance",
         "title": "Flowance",
-        "outcome": "A complete personal finance tracker, designed and built end to end.",
+        "outcome": "A personal finance tracker I designed and built myself, from first idea to working product.",
         "role": "Designer + developer",
         "tags": [
           "Fintech",
@@ -108,68 +108,72 @@
           "Product"
         ]
       }
-    ]
+    ],
+    "eyebrow": "Case studies"
   },
   "services": {
-    "title": "What I *do*",
-    "getLabel": "You get",
+    "title": "How I can *help*",
+    "getLabel": "What you get",
     "items": [
       {
         "title": "Product & UX design",
-        "body": "Complex workflows turned into flows people finish.",
-        "get": "Research-backed flows, wireframes, high-fidelity UI and interactive prototypes."
+        "body": "Turn a complicated workflow into a product people can finish without help.",
+        "get": "Research, user flows, wireframes, high-fidelity UI and a clickable prototype."
       },
       {
-        "title": "Design systems & multi-brand theming",
-        "body": "One system that adapts to any brand, theme or language.",
-        "get": "Tokens, components, documentation and a governance process your team can run."
+        "title": "Design systems",
+        "body": "One system that adapts to every brand, theme and language you need.",
+        "get": "Tokens, components, documentation and a review process your team can run."
       },
       {
-        "title": "Bilingual Arabic/English (RTL) products",
-        "body": "Arabic that is designed, not translated and flipped.",
+        "title": "Arabic & English products",
+        "body": "Arabic designed from the start, not translated and flipped at the end.",
         "get": "RTL layouts, Arabic type pairing and mirrored interactions across your product."
       },
       {
         "title": "Design + front-end build",
-        "body": "From concept to a working prototype, fast.",
-        "get": "React / React Native builds of the designed UI, ready for your engineers to pick up."
+        "body": "No handoff gap: I can build what I design.",
+        "get": "React or React Native code for the designed UI, ready for your engineers."
       }
-    ]
+    ],
+    "eyebrow": "Services",
+    "intro": "Bring me in for one piece or for the whole product. Every engagement ends with something your team can use."
   },
   "process": {
     "title": "From problem to *product*",
-    "intro": "Five steps, each with something real behind it.",
+    "intro": "A clear process, so you always know what happens next.",
     "steps": [
       {
         "name": "Discover",
-        "body": "Understand users, business rules and constraints before drawing anything.",
+        "body": "Understand your users, business rules and constraints before drawing anything.",
         "example": "SalesPoint: mapped KYC, activation and approval rules across roles and operators."
       },
       {
         "name": "Define",
-        "body": "Turn findings into a clear problem, flows and information architecture.",
+        "body": "Turn what we learn into a clear problem, user flows and structure.",
         "example": "Multi-stage, role-based approvals reduced to flows each role can follow."
       },
       {
         "name": "Design",
-        "body": "Wireframes to high-fidelity UI, built on the system, not around it.",
+        "body": "From wireframes to polished UI, built on a system so it stays consistent.",
         "example": "200+ screens on shared components and tokens."
       },
       {
         "name": "Test",
-        "body": "Compare options side by side and decide with evidence.",
+        "body": "Compare options side by side and choose with evidence, not opinion.",
         "example": "12 competing variants tested: 5 activation flows, 5 credit-limit patterns, 2 migration models."
       },
       {
-        "name": "Build / hand off",
-        "body": "Ship with specs, tokens and governance, or build the front end myself.",
+        "name": "Build & hand off",
+        "body": "Hand over specs, tokens and components, or build the front end myself.",
         "example": "Components reviewed and approved before they enter the library."
       }
-    ]
+    ],
+    "eyebrow": "Process"
   },
   "play": {
-    "title": "Independent *products*",
-    "intro": "Products I design and build myself, in React and React Native.",
+    "title": "Things I've *built*",
+    "intro": "Apps I designed and built on my own, in React and React Native.",
     "items": [
       {
         "name": "Shamat",
@@ -211,22 +215,23 @@
         "name": "Games app",
         "tag": "Released"
       }
-    ]
+    ],
+    "eyebrow": "Side projects"
   },
   "about": {
-    "title": "Designer who *ships*",
-    "body": "Senior UI/UX Designer at Leading Point Software since 2022. I own the UX and design system of SalesPoint, run design-system governance, and build what I design with React and AI tools.",
-    "cta": "More about me"
+    "title": "A designer who *ships*",
+    "body": "I'm Hamza, a senior product designer at Leading Point Software. I lead the UX and the design system behind SalesPoint, used by five telecom operators, and I build what I design in React.",
+    "cta": "Read my story"
   },
   "contact": {
     "title": "Let's build something *clear.*",
-    "body": "Have a project in mind, or hiring? Email is the fastest way to reach me.",
+    "body": "Tell me what you're building and I'll reply with clear next steps. Hiring for a design role? That's welcome too.",
     "email": "hamzatarakhan2000@gmail.com",
     "copy": "Copy email",
     "copied": "Copied",
     "cv": "Download CV",
     "linkedin": "LinkedIn",
-    "form": "Contact form"
+    "form": "Send a message"
   },
   "footer": {
     "built": "Designed and built by Hamza",
@@ -246,7 +251,7 @@
       "decisions": "Key decisions",
       "solution": "The solution",
       "impact": "Impact",
-      "next": "What I would do next"
+      "next": "What's next"
     },
     "options": "Options considered",
     "chose": "What I chose",
@@ -327,10 +332,10 @@
     }
   },
   "contactPage": {
-    "title": "Let's talk",
+    "title": "Let's work together",
     "intro": "Tell me what you need. I usually reply within {{TODO: reply time}}.",
     "f": {
-      "type": "I'm contacting you about",
+      "type": "What can I help with?",
       "types": [
         "A freelance project",
         "A job",
@@ -353,13 +358,13 @@
       ],
       "name": "Your name",
       "email": "Your email",
-      "message": "Message",
+      "message": "Tell me about your project",
       "send": "Send message",
       "sending": "Sending…",
-      "success": "Thanks. Your message is on its way, and I'll reply soon.",
-      "error": "Something went wrong. Please email me directly instead.",
+      "success": "Thanks! Your message is in, and I'll get back to you soon.",
+      "error": "That didn't send. Please email me directly instead.",
       "required": "Please fill this in.",
-      "invalid": "Please enter a valid email.",
+      "invalid": "That email doesn't look right. Please check it.",
       "select": "Select…"
     },
     "direct": "Or reach me directly",
@@ -422,54 +427,56 @@
         "Amman, Jordan"
       ],
       [
-        "Works",
-        "Remote, clients worldwide"
+        "Works with",
+        "Clients worldwide, remotely"
       ],
       [
         "Experience",
-        "4+ years · Senior since Oct 2022"
+        "4+ years · Senior since 2022"
       ],
       [
         "Languages",
         "Arabic (native), English (professional)"
       ],
       [
-        "Focus",
-        "Product UX, design systems, RTL"
+        "Best at",
+        "Complex flows, design systems, RTL"
       ],
       [
-        "Open to",
-        "Freelance projects, remote work"
+        "Available for",
+        "Freelance projects and remote roles"
       ]
     ]
   },
   "why": {
-    "title": "Why work *with me*",
+    "title": "Why teams work *with me*",
     "items": [
       {
-        "t": "I design systems that scale",
-        "b": "SalesPoint runs across five operators on one system: tokens for light/dark, Arabic/English RTL, multiple fonts and brand switching. Each new operator launched on existing components."
+        "t": "Systems that scale with you",
+        "b": "SalesPoint runs across five operators on one system, with light and dark themes, Arabic and English, and brand switching. Each new operator launched on existing components."
       },
       {
-        "t": "I make complex things simple",
-        "b": "KYC and identity verification, SIM activation (physical and eSIM), billing, ownership transfer, dealer wallets, commission engines and multi-stage approvals, turned into clear flows for daily use."
+        "t": "Complex made simple",
+        "b": "KYC, SIM activation (physical and eSIM), billing, ownership transfer, wallets, commissions and multi-stage approvals, turned into clear flows for daily use."
       },
       {
-        "t": "I decide with evidence",
-        "b": "12 competing UX variants tested side by side: 5 activation flows, 5 credit-limit patterns and 2 migration models."
+        "t": "Decisions backed by evidence",
+        "b": "I don't guess. I tested 12 competing variants side by side: 5 activation flows, 5 credit-limit patterns and 2 migration models."
       },
       {
-        "t": "I build what I design",
-        "b": "9+ personal apps shipped end to end in React and React Native, with AI tools (Claude, Cursor, Figma Make, Lovable, MCP) taking concepts to near-production prototypes fast."
+        "t": "Design that ships as code",
+        "b": "I've shipped 9+ apps end to end in React and React Native, and use AI tools to get from idea to a near-production prototype fast."
       },
       {
-        "t": "I lead",
-        "b": "I run design-system governance (components are reviewed and approved before entering the library), set standards other designers build against, and coordinate design priorities across the team."
+        "t": "Senior ownership",
+        "b": "I run design-system governance, set the standards other designers build on, and coordinate design priorities across the team."
       }
-    ]
+    ],
+    "eyebrow": "Why me",
+    "intro": "Five things you can expect, each backed by real work."
   },
   "skills": {
-    "title": "*Capabilities*",
+    "title": "Skills & *tools*",
     "groups": [
       {
         "name": "Research & strategy",
@@ -522,11 +529,13 @@
           "Lovable"
         ]
       }
-    ]
+    ],
+    "eyebrow": "Capabilities",
+    "intro": "Everything I use to take a product from research to release."
   },
   "testimonials": {
-    "title": "What clients *say*",
-    "intro": "Real words from real people, shown only with permission.",
+    "title": "What people *say*",
+    "intro": "Words from people I've worked with.",
     "items": [
       {
         "quote": "{{TODO: real testimonial, with permission}}",
@@ -543,6 +552,7 @@
         "name": "{{TODO: name}}",
         "role": "{{TODO: role, company}}"
       }
-    ]
+    ],
+    "eyebrow": "Testimonials"
   }
 }

@@ -3,7 +3,7 @@ import photo from "@/assets/hamza.webp";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDict, isLocale } from "@/lib/i18n";
-import { Divider, Footer, Header, Rich, plain, wrap } from "@/components/Chrome";
+import { Divider, Footer, Header, Rich, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
@@ -110,7 +110,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Selected work */}
         <section id="work" className={`${wrap} scroll-mt-20 sec`}>
-          <Head label={plain(t.work.title)} title={t.work.title} intro={t.work.intro} center />
+          <Head label={t.work.eyebrow} title={t.work.title} intro={t.work.intro} center />
           <div className="grid gap-6 md:grid-cols-2">
             {t.work.items.map((w, i) => (
               <Link key={w.slug} href={`/${lang}/work/${w.slug}`} className="glass reveal group block overflow-hidden p-4 hover:-translate-y-1" style={st(i % 2)}>
@@ -133,7 +133,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         {/* Services */}
         <section className={`${wrap} grid grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <Head label={plain(t.services.title)} title={t.services.title} intro={t.hero.sub} />
+            <Head label={t.services.eyebrow} title={t.services.title} intro={t.services.intro} />
           </div>
           <div className="space-y-4">
             {t.services.items.map((sv, i) => (
@@ -153,7 +153,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Why me */}
         <section className={`${wrap} sec`}>
-          <Head label={plain(t.why.title)} title={t.why.title} center />
+          <Head label={t.why.eyebrow} title={t.why.title} intro={t.why.intro} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
             {t.why.items.map((w, i) => (
               <article key={w.t} className={`glass reveal p-7 ${i > 2 ? "lg:col-span-3" : "lg:col-span-2"}`} style={st(i % 3)}>
@@ -168,7 +168,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Process */}
         <section className={`${wrap} sec`}>
-          <Head label={plain(t.process.title)} title={t.process.title} intro={t.process.intro} center />
+          <Head label={t.process.eyebrow} title={t.process.title} intro={t.process.intro} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
             {t.process.steps.map((p, i) => (
               <article key={p.name} className={`glass reveal p-7 ${processCols[i]}`} style={st(i % 3)}>
@@ -187,7 +187,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Independent products */}
         <section className={`${wrap} sec`}>
-          <Head label={plain(t.play.title)} title={t.play.title} intro={t.play.intro} center />
+          <Head label={t.play.eyebrow} title={t.play.title} intro={t.play.intro} center />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {t.play.items.map((p, i) => (
               <li key={p.name} className="glass reveal p-5" style={st(i % 5)}>
@@ -202,7 +202,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Capabilities */}
         <section className={`${wrap} sec`}>
-          <Head label={plain(t.skills.title)} title={t.skills.title} center />
+          <Head label={t.skills.eyebrow} title={t.skills.title} intro={t.skills.intro} center />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {t.skills.groups.map((g, i) => (
               <div key={g.name} className="glass reveal p-6" style={st(i % 3)}>
@@ -239,7 +239,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Divider />
         {/* Testimonials */}
         <section className={`${wrap} sec`}>
-          <Head label={plain(t.testimonials.title)} title={t.testimonials.title} intro={t.testimonials.intro} center />
+          <Head label={t.testimonials.eyebrow} title={t.testimonials.title} intro={t.testimonials.intro} center />
           <div className="grid gap-6 md:grid-cols-3">
             {t.testimonials.items.map((q, i) => (
               <figure key={i} className="glass reveal overflow-hidden p-3" style={st(i)}>
