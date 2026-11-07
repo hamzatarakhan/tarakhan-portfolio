@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C — Swiss System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1F1EC;--ink:#0D0D0D;--blue:#1B35FF;--mute:rgba(13,13,13,.56);--line:rgba(13,13,13,.14)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 "Hanken Grotesk",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--blue);color:#fff}
+.mono{font:500 11px/1.3 "JetBrains Mono",monospace;letter-spacing:.05em;text-transform:uppercase}
+.grid{position:fixed;inset:0;display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:0 48px;pointer-events:none;z-index:0}
+.grid i{border-inline:1px solid rgba(27,53,255,.06)}
+nav{position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:24px 48px;border-bottom:1px solid var(--ink)}
+nav b{grid-column:1/4;font-weight:800;letter-spacing:-.02em}nav .l{grid-column:6/10}nav .r{grid-column:10/13;text-align:right}
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:56px 48px 0;min-height:780px}
+.lab{grid-column:1/4}
+h1{grid-column:1/8;font:800 clamp(64px,8vw,130px)/.9 "Hanken Grotesk";letter-spacing:-.055em;margin-top:28px}
+h1 u{text-decoration:none;color:var(--blue)}
+.sub{grid-column:1/6;font-size:20px;line-height:1.4;margin-top:36px;max-width:520px}
+.cta{grid-column:1/6;display:flex;gap:10px;margin-top:32px}
+.btn{height:50px;padding:0 24px;display:inline-flex;align-items:center;font-weight:700;text-decoration:none;color:var(--ink);border:2px solid var(--ink)}
+.btn.p{background:var(--blue);border-color:var(--blue);color:#fff}
+.deck{grid-column:8/13;grid-row:1/5;position:relative;margin-top:20px}
+.card{position:absolute;width:400px;height:250px;padding:20px;color:#fff;box-shadow:0 30px 60px -28px rgba(0,0,0,.45)}
+.card .mono{opacity:.8}.card .v{font:800 56px/1 "Hanken Grotesk";letter-spacing:-.04em;margin-top:18px}.card .b{height:8px;margin-top:14px;background:rgba(255,255,255,.35)}
+.c1{background:#E2001A;left:0;top:0;transform:rotate(-5deg)}.c2{background:#00A3AD;left:40px;top:90px;transform:rotate(-1.5deg)}.c3{background:#1B35FF;left:80px;top:180px;transform:rotate(2deg)}.c4{background:#111;left:120px;top:270px;transform:rotate(4.5deg)}.c5{background:#FFB800;color:#111;left:160px;top:360px;transform:rotate(7deg)}
+.five{position:absolute;right:48px;bottom:24px;font:800 clamp(220px,30vw,460px)/.72 "Hanken Grotesk";letter-spacing:-.08em;color:var(--blue);opacity:.0}
+.strip{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:0 48px;border-top:1px solid var(--ink);margin-top:40px}
+.strip div{grid-column:span 3;padding:22px 0 28px;border-right:1px solid var(--line)}.strip div:last-child{border:0}
+.strip b{display:block;font:800 76px/1 "Hanken Grotesk";letter-spacing:-.05em;margin-bottom:6px}
+.work{position:relative;z-index:1;padding:110px 48px}
+.work h2{font:800 clamp(48px,5.4vw,88px)/.95 "Hanken Grotesk";letter-spacing:-.05em;max-width:900px}
+.wg{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:64px}
+.p{background:#fff;border:1px solid var(--ink)}
+.p .im{height:300px;background:repeating-linear-gradient(135deg,#e7e7e1 0 10px,#eeeee8 10px 20px);display:grid;place-items:center;color:var(--mute);border-bottom:1px solid var(--ink)}
+.p .tx{padding:20px;display:flex;justify-content:space-between;align-items:end}.p h3{font:800 34px/1 "Hanken Grotesk";letter-spacing:-.04em}
+.a{grid-column:1/8}.b{grid-column:8/13;margin-top:96px}.cc{grid-column:3/8}.d{grid-column:8/13;margin-top:-40px}
+.blue{background:var(--blue);color:#fff;border-color:var(--blue)}.blue .im{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#fff}
+footer{position:relative;z-index:1;background:var(--blue);color:#fff;padding:96px 48px 40px}footer h2{font:800 clamp(72px,11vw,190px)/.86 "Hanken Grotesk";letter-spacing:-.06em}
+</style></head><body>
+<div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<nav class="mono"><b style="font-size:15px;text-transform:none">Hamza Tarakhan</b><span class="l">Work · About · Contact</span><span class="r">EN / ع &nbsp; Ctrl K</span></nav>
+
+<section class="hero">
+  <span class="lab mono">Senior UI/UX &amp; Product Designer<br>Amman — Remote worldwide</span>
+  <h1>One system.<br><u>Five brands.</u><br>Zero rework.</h1>
+  <p class="sub">I design the products and the systems behind them. SalesPoint runs on Ooredoo, Awaser, Beyond, STC and Starlink from a single set of components.</p>
+  <div class="cta"><a class="btn p" href="#">View work</a><a class="btn" href="#">Work with me</a></div>
+  <div class="deck">
+    <div class="card c1"><div class="mono">Ooredoo · Wallet</div><div class="v">12,480</div><div class="b" style="width:70%"></div></div>
+    <div class="card c2"><div class="mono">Awaser · Wallet</div><div class="v">12,480</div><div class="b" style="width:70%"></div></div>
+    <div class="card c3"><div class="mono">Beyond · Wallet</div><div class="v">12,480</div><div class="b" style="width:70%"></div></div>
+    <div class="card c4"><div class="mono">STC · Wallet</div><div class="v">12,480</div><div class="b" style="width:70%"></div></div>
+    <div class="card c5"><div class="mono">Starlink · Wallet</div><div class="v">12,480</div><div class="b" style="width:70%;background:rgba(0,0,0,.3)"></div></div>
+  </div>
+</section>
+
+<section class="strip mono">
+  <div><b>4+</b>Years</div><div><b>5</b>Brands, one system</div><div><b>200+</b>Screens</div><div><b>9+</b>Apps shipped</div>
+</section>
+
+<section class="work">
+  <span class="mono">Selected work (04)</span>
+  <h2 style="margin-top:16px">Four problems. Four ways of thinking.</h2>
+  <div class="wg">
+    <div class="p a"><div class="im mono">Image — SalesPoint</div><div class="tx"><h3>SalesPoint</h3><span class="mono">Telecom · UX</span></div></div>
+    <div class="p b blue"><div class="im mono">Image — Tokens</div><div class="tx"><h3>Design system</h3><span class="mono">Tokens · RTL</span></div></div>
+    <div class="p cc"><div class="im mono">Image — Shamat</div><div class="tx"><h3>Shamat</h3><span class="mono">Arabic · Mobile</span></div></div>
+    <div class="p d"><div class="im mono">Image — Flowance</div><div class="tx"><h3>Flowance</h3><span class="mono">Fintech · React</span></div></div>
+  </div>
+</section>
+
+<footer><span class="mono">Contact</span><h2 style="margin-top:20px">Let’s build something clear.</h2><p class="mono" style="margin-top:36px">hamzatarakhan2000@gmail.com</p></footer>
+</body></html>

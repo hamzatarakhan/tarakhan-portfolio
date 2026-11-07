@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B — Dark Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=IBM+Plex+Sans+Arabic:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0A;--fg:#EDEAE2;--mute:rgba(237,234,226,.55);--line:rgba(237,234,226,.14);--acc:#C8FF2E}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.5 "Bricolage Grotesque",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:#0B0B0A}
+.mono{font:400 12px/1 "JetBrains Mono",monospace;letter-spacing:.04em;text-transform:uppercase}
+nav{position:sticky;top:0;display:flex;justify-content:space-between;padding:22px 40px;z-index:5;mix-blend-mode:difference}
+nav a{color:#fff;text-decoration:none;margin-left:28px}
+.hero{padding:80px 40px 0;min-height:860px;position:relative}
+.status{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:99px;padding:9px 16px}
+.status i{width:8px;height:8px;background:var(--acc);border-radius:50%}
+.name{font:800 clamp(90px,20.4vw,340px)/.84 "Bricolage Grotesque";letter-spacing:-.065em;margin:56px 0 0 -.04em;text-transform:uppercase}
+.name span{display:block}.name .o{color:rgba(237,234,226,.34)}
+.row{display:flex;justify-content:space-between;align-items:end;margin-top:56px;gap:40px}
+.row p{max-width:520px;font-size:22px;line-height:1.35;font-weight:300}
+.ar{font-family:"IBM Plex Sans Arabic";direction:rtl;font-weight:500;color:var(--mute);margin-top:14px;font-size:18px}
+.btn{display:inline-flex;height:56px;align-items:center;padding:0 30px;border-radius:99px;background:var(--acc);color:#0B0B0A;font-weight:500;text-decoration:none}
+.marquee{border-block:1px solid var(--line);margin-top:96px;padding:22px 0;white-space:nowrap;overflow:hidden;font:300 44px/1 "Bricolage Grotesque";letter-spacing:-.02em}
+.marquee span{margin-right:60px}.marquee b{color:var(--acc);font-weight:500}
+.idx{padding:120px 40px}
+.idx .h{display:flex;justify-content:space-between;margin-bottom:40px}
+.r{display:grid;grid-template-columns:70px 1fr 260px 60px;align-items:center;padding:34px 0;border-top:1px solid var(--line);position:relative}
+.r:last-child{border-bottom:1px solid var(--line)}
+.r h3{font:500 clamp(48px,6.2vw,104px)/1 "Bricolage Grotesque";letter-spacing:-.045em}
+.r.on h3{color:var(--acc);padding-left:28px}
+.r.on{background:linear-gradient(90deg,rgba(200,255,46,.06),transparent)}
+.r .t{color:var(--mute)}.r .go{font-size:30px;text-align:right}
+.peek{position:absolute;right:140px;top:-90px;width:330px;height:220px;border-radius:14px;transform:rotate(-4deg);background:#15150f;border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6);z-index:3}
+.peek div{height:100%;background:repeating-linear-gradient(135deg,#1c1c15 0 10px,#20201a 10px 20px);display:grid;place-items:center;color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin:0 40px}
+.stats div{background:var(--bg);padding:40px 28px 36px}.stats b{display:block;font:800 120px/1 "Bricolage Grotesque";letter-spacing:-.06em}
+.stats b em{font-style:normal;color:var(--acc)}
+footer{padding:140px 40px 40px}footer h2{font:800 clamp(80px,13vw,220px)/.86 "Bricolage Grotesque";letter-spacing:-.06em;text-transform:uppercase}footer h2 em{font-style:normal;color:var(--acc)}
+</style></head><body>
+<nav class="mono"><span>HT—2026</span><div><a href="#">Work</a><a href="#">About</a><a href="#">Contact</a><a href="#">EN / ع</a></div></nav>
+
+<section class="hero">
+  <span class="status mono"><i></i>Available for freelance projects</span>
+  <h1 class="name"><span>Hamza</span><span class="o">Tarakhan</span></h1>
+  <div class="row"><div><p>Senior UI/UX &amp; product designer. I build design systems that scale, and flows people actually finish.</p><p class="ar">أصمّم أنظمة تتّسع للنمو، وتجارب يُكملها المستخدمون فعلاً.</p></div><a class="btn" href="#">View work ↓</a></div>
+  <div class="marquee"><span>Design systems <b>●</b></span><span>Telecom <b>●</b></span><span>Arabic / RTL <b>●</b></span><span>React <b>●</b></span><span>Design systems <b>●</b></span><span>Telecom <b>●</b></span></div>
+</section>
+
+<section class="stats" style="margin-top:0">
+  <div><b>4<em>+</em></b><span class="mono">years</span></div><div><b>5</b><span class="mono">brands · one system</span></div><div><b>200<em>+</em></b><span class="mono">screens</span></div><div><b>9<em>+</em></b><span class="mono">apps shipped</span></div>
+</section>
+
+<section class="idx">
+  <div class="h mono"><span>(Selected work)</span><span>04 projects</span></div>
+  <div class="r on"><span class="mono">01</span><div style="position:relative"><h3>SalesPoint</h3><div class="peek"><div class="mono">Hover preview</div></div></div><span class="t mono">Telecom · Enterprise UX</span><span class="go">↗</span></div>
+  <div class="r"><span class="mono">02</span><h3>Design system</h3><span class="t mono">Tokens · Governance · RTL</span><span class="go">↗</span></div>
+  <div class="r"><span class="mono">03</span><h3>Shamat</h3><span class="t mono">Arabic type · Mobile</span><span class="go">↗</span></div>
+  <div class="r"><span class="mono">04</span><h3>Flowance</h3><span class="t mono">Fintech · React</span><span class="go">↗</span></div>
+</section>
+
+<footer><span class="mono" style="color:var(--mute)">Contact</span><h2 style="margin-top:24px">Let’s build<br>something <em>clear.</em></h2><p class="mono" style="margin-top:48px">hamzatarakhan2000@gmail.com</p></footer>
+</body></html>

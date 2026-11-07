@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A — Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#EFEBE3;--ink:#14110F;--mute:rgba(20,17,15,.58);--line:rgba(20,17,15,.16);--acc:#E4572E}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.55 Geist,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--acc);color:var(--paper)}
+.mono{font:500 12px/1 "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+nav{display:flex;justify-content:space-between;align-items:center;padding:28px 56px}
+nav a{color:var(--ink);text-decoration:none;margin-left:32px;font-size:14px}
+.logo{font-family:"Instrument Serif";font-size:26px;letter-spacing:-.01em}
+.hero{padding:40px 56px 96px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;position:relative;min-height:760px}
+.meta{grid-column:1/13;display:flex;justify-content:space-between;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:56px}
+h1{grid-column:1/10;font:400 clamp(72px,9.4vw,152px)/.92 "Instrument Serif";letter-spacing:-.035em}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{grid-column:1/6;margin-top:48px;font-size:19px;line-height:1.5;color:var(--mute)}
+.cta{grid-column:1/6;margin-top:32px;display:flex;gap:12px}
+.btn{display:inline-flex;align-items:center;height:52px;padding:0 28px;border-radius:999px;border:1px solid var(--ink);font-weight:500;color:var(--ink);text-decoration:none}
+.btn.p{background:var(--ink);color:var(--paper)}
+.fig{position:absolute;right:56px;top:150px;width:360px;transform:rotate(3.5deg);background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 40px 80px -30px rgba(20,17,15,.35)}
+.fig .bar{height:10px;border-radius:9px;background:#ece8df;margin-top:10px}
+.fig .k{font:400 56px/1 "Instrument Serif";margin-top:6px}
+.fig .chip{display:inline-block;margin-top:14px;padding:7px 12px;border-radius:999px;background:var(--acc);color:#fff;font-size:12px}
+.fig .row{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);font-size:13px;margin-top:12px}
+.skins{display:flex;gap:6px;margin-top:14px}.skins i{width:22px;height:22px;border-radius:50%}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:0 56px}
+.proof div{padding:34px 0 30px;border-right:1px solid var(--line);padding-left:24px}.proof div:first-child{padding-left:0}.proof div:last-child{border:0}
+.proof b{display:block;font:400 92px/1 "Instrument Serif";letter-spacing:-.03em}
+.work{padding:120px 56px}
+.work h2{font:400 clamp(56px,6vw,96px)/1 "Instrument Serif";letter-spacing:-.03em;max-width:900px}
+.item{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:44px 0;border-top:1px solid var(--ink);margin-top:0}
+.item:last-child{border-bottom:1px solid var(--ink)}
+.item .n{grid-column:1/2}.item h3{grid-column:2/8;font:400 clamp(44px,4.6vw,72px)/1 "Instrument Serif";letter-spacing:-.025em}
+.item p{grid-column:2/7;color:var(--mute);margin-top:14px}.item .tags{grid-column:8/13;text-align:right}
+.ph{background:repeating-linear-gradient(135deg,#e3ded3 0 10px,#ebe6dc 10px 20px);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;color:var(--mute)}
+.big{grid-column:1/13;margin:30px 0 0;height:420px}.big.s{grid-column:5/13;height:340px}
+footer{padding:80px 56px;background:var(--ink);color:var(--paper)}
+footer h2{font:400 clamp(64px,10vw,168px)/.92 "Instrument Serif";letter-spacing:-.04em}footer em{color:var(--acc)}
+</style></head><body>
+<nav><span class="logo">Hamza Tarakhan</span><div><a href="#">Work</a><a href="#">About</a><a href="#">Contact</a><a href="#" class="mono">EN / ع</a></div></nav>
+
+<section class="hero">
+  <div class="meta mono"><span>Senior UI/UX &amp; Product Designer</span><span>Amman, Jordan — 31.95°N</span><span>Available for freelance</span></div>
+  <h1>Systems that <em>scale.</em> Flows people <em>finish.</em></h1>
+  <p class="sub">Four years turning telecom complexity into products dealers use all day. One design system, five brands, two languages.</p>
+  <div class="cta"><a class="btn p" href="#">View work →</a><a class="btn" href="#">Work with me</a></div>
+  <div class="fig">
+    <div class="mono" style="color:var(--mute)">SalesPoint · Wallet</div>
+    <div class="k">12,480</div><div class="bar" style="width:70%"></div><div class="bar" style="width:46%"></div>
+    <span class="chip">Activate SIM</span>
+    <div class="row"><span>Ooredoo</span><span>+320</span></div><div class="row"><span>STC</span><span>+145</span></div>
+    <div class="skins"><i style="background:#E4572E"></i><i style="background:#1F6F5B"></i><i style="background:#2B3A8C"></i><i style="background:#14110F"></i><i style="background:#C9A227"></i></div>
+  </div>
+</section>
+
+<section class="proof">
+  <div><b>4+</b><span class="mono">Years</span></div><div><b>5</b><span class="mono">Brands, one system</span></div><div><b>200+</b><span class="mono">Screens</span></div><div><b>9+</b><span class="mono">Apps shipped</span></div>
+</section>
+
+<section class="work">
+  <h2>Selected work, four kinds of problem.</h2>
+  <div style="margin-top:72px">
+    <div class="item"><span class="n mono">01</span><div style="grid-column:2/8"><h3 style="grid-column:auto">SalesPoint</h3><p style="grid-column:auto">KYC, SIM activation, billing and wallets for high-volume daily use.</p></div><div class="tags mono">Telecom<br>Enterprise UX</div><div class="ph big mono">Image — SalesPoint dashboard</div></div>
+    <div class="item"><span class="n mono">02</span><div style="grid-column:2/8"><h3 style="grid-column:auto">One system, five brands</h3><p style="grid-column:auto">Tokens, governance and RTL across five operators.</p></div><div class="tags mono">Design system<br>Governance</div><div class="ph big s mono">Image — token architecture</div></div>
+    <div class="item"><span class="n mono">03</span><div style="grid-column:2/8"><h3 style="grid-column:auto">Shamat</h3><p style="grid-column:auto">An Arabic-first reading app built around a Mushaf.</p></div><div class="tags mono">Arabic type<br>RTL-first</div></div>
+    <div class="item"><span class="n mono">04</span><div style="grid-column:2/8"><h3 style="grid-column:auto">Flowance</h3><p style="grid-column:auto">A personal finance tracker, designed and built end to end.</p></div><div class="tags mono">Fintech<br>React</div></div>
+  </div>
+</section>
+
+<footer><div class="mono" style="margin-bottom:28px;opacity:.6">Contact</div><h2>Let’s build something <em>clear.</em></h2><p class="mono" style="margin-top:40px">hamzatarakhan2000@gmail.com</p></footer>
+</body></html>
