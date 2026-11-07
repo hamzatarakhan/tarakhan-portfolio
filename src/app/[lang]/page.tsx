@@ -255,7 +255,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
         <Divider />
         {/* Testimonials: real ones only; an invitation in the same card style until they arrive */}
-        <section className={`${wrap} sec`}>
+        <section id="testimonials" className={`${wrap} scroll-mt-20 sec`}>
           <Head label={t.testimonials.eyebrow} title={t.testimonials.title} intro={t.testimonials.intro} center />
           <Testimonials
             items={
