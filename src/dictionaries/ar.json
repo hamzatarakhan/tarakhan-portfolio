@@ -200,55 +200,69 @@
     "view": "شاهد الشاشات",
     "screen": "شاشة",
     "title": "أشياء *بنيتها*",
-    "intro": "تطبيقات صمّمتها وبنيتها بنفسي بـ React وReact Native.",
+    "intro": "منتجات بنيتها من الصفر، وأخرى أعدت تصميم تجربتها بالكامل، بـ React وReact Native.",
     "items": [
       {
-        "name": "شامات",
-        "tag": "تطبيق مصحف بالعربية والإنجليزية"
+        "name": "موقع شامات",
+        "tag": "موقع مصحف بالعربية والإنجليزية",
+        "kind": "redesign"
+      },
+      {
+        "name": "تطبيق شامات",
+        "tag": "تطبيق مصحف للجوال",
+        "kind": "new"
       },
       {
         "name": "Flowance",
-        "tag": "متتبّع المالية الشخصية"
+        "tag": "متتبّع المالية الشخصية",
+        "kind": "new"
       },
       {
         "name": "Activities App",
-        "tag": "صُمّم وبُرمج ونُشر"
+        "tag": "صُمّم وبُرمج ونُشر",
+        "kind": "new"
       },
       {
         "name": "U CAN",
         "lockup": "ucan",
         "shots": 11,
-        "tag": "تتبّع التمارين"
+        "tag": "تتبّع التمارين",
+        "kind": "redesign"
       },
       {
         "name": "Fit Band",
-        "tag": "تطبيق مرافق لسوار اللياقة"
+        "tag": "تطبيق مرافق لسوار اللياقة",
+        "kind": "new"
       },
       {
         "name": "ConfManage",
         "lockup": "confmanage",
-        "tag": "بوابة إدارة المؤتمرات"
+        "tag": "بوابة إدارة المؤتمرات",
+        "kind": "redesign"
       },
       {
         "name": "Virgin Bakery",
         "logo": "/clients/virgin",
-        "tag": "تطبيق طلبات"
+        "tag": "تطبيق طلبات",
+        "kind": "new"
       },
       {
         "name": "Health Care App",
-        "tag": "رعاية صحية"
+        "tag": "رعاية صحية",
+        "kind": "new"
       },
       {
         "name": "Masark",
         "logo": "/clients/masark",
-        "tag": "تطبيق جوال"
-      },
-      {
-        "name": "تطبيق ألعاب",
-        "tag": "تم إطلاقه"
+        "tag": "تطبيق جوال",
+        "kind": "redesign"
       }
     ],
-    "eyebrow": "مشاريع جانبية"
+    "eyebrow": "مشاريع جانبية",
+    "kinds": {
+      "redesign": "إعادة تصميم",
+      "new": "من الصفر"
+    }
   },
   "about": {
     "title": "مصمم *يُنجز ويُسلّم*",

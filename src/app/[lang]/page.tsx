@@ -209,7 +209,17 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {t.play.items.map((p, i) => (
               <li key={p.name} className="glass reveal relative p-5" style={st(i % 5)}>
-                <span className="label text-muted">{num(i)}</span>
+                <span className="flex items-center justify-between gap-2">
+                  <span className="label text-muted">{num(i)}</span>
+                  {/* Redesign of an existing product vs. designed and built from zero */}
+                  <span
+                    className={`rounded-full border px-2.5 py-1 text-[11px] font-medium leading-none ${
+                      p.kind === "redesign" ? "border-[var(--glass-line)] text-muted" : "border-accent/40 bg-accent-soft text-accent"
+                    }`}
+                  >
+                    {t.play.kinds[p.kind as "redesign" | "new"]}
+                  </span>
+                </span>
                 {"lockup" in p && p.lockup === "confmanage" && <ConfManageMark className="mt-4" />}
                 {"lockup" in p && p.lockup === "ucan" && (
                   // U CAN's own lockup (as on u-cangym.com): heavy red U, bold CAN, spaced FITNESS

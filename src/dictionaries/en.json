@@ -200,55 +200,69 @@
     "view": "View screens",
     "screen": "screen",
     "title": "Things I've *built*",
-    "intro": "Apps I designed and built on my own, in React and React Native.",
+    "intro": "Products I built from zero, and existing ones I redesigned end to end, in React and React Native.",
     "items": [
       {
-        "name": "Shamat",
-        "tag": "Arabic / English Mushaf app"
+        "name": "Shamat website",
+        "tag": "Mushaf website, Arabic / English",
+        "kind": "redesign"
+      },
+      {
+        "name": "Shamat app",
+        "tag": "Mushaf mobile app",
+        "kind": "new"
       },
       {
         "name": "Flowance",
-        "tag": "Personal finance tracker"
+        "tag": "Personal finance tracker",
+        "kind": "new"
       },
       {
         "name": "Activities App",
-        "tag": "Designed, coded, deployed"
+        "tag": "Designed, coded, deployed",
+        "kind": "new"
       },
       {
         "name": "U CAN",
         "lockup": "ucan",
         "shots": 11,
-        "tag": "Gym tracking"
+        "tag": "Gym tracking",
+        "kind": "redesign"
       },
       {
         "name": "Fit Band",
-        "tag": "Fitness wearable companion"
+        "tag": "Fitness wearable companion",
+        "kind": "new"
       },
       {
         "name": "ConfManage",
         "lockup": "confmanage",
-        "tag": "Conference management portal"
+        "tag": "Conference management portal",
+        "kind": "redesign"
       },
       {
         "name": "Virgin Bakery",
         "logo": "/clients/virgin",
-        "tag": "Ordering app"
+        "tag": "Ordering app",
+        "kind": "new"
       },
       {
         "name": "Health Care App",
-        "tag": "Healthcare"
+        "tag": "Healthcare",
+        "kind": "new"
       },
       {
         "name": "Masark",
         "logo": "/clients/masark",
-        "tag": "Mobile app"
-      },
-      {
-        "name": "Games app",
-        "tag": "Released"
+        "tag": "Mobile app",
+        "kind": "redesign"
       }
     ],
-    "eyebrow": "Side projects"
+    "eyebrow": "Side projects",
+    "kinds": {
+      "redesign": "Redesign",
+      "new": "Built from zero"
+    }
   },
   "about": {
     "title": "A designer who *ships*",
