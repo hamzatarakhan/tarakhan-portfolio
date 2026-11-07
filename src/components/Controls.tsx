@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-export const SKINS = ["calm", "ember", "moss", "violet"] as const;
+export const SKINS = ["acid", "ember", "mint", "violet"] as const;
 
 // Runs a change inside a View Transition when supported (smooth, no flash).
 function transition(run: () => void) {
@@ -43,7 +43,7 @@ export function usePrefs() {
 }
 
 export const btn =
-  "min-h-11 min-w-11 px-4 rounded-md border border-line bg-surface text-sm font-medium transition-[background,transform] duration-[var(--dur-fast)] active:scale-[0.97] hover:bg-surface-2 aria-pressed:bg-accent aria-pressed:text-on-accent aria-pressed:border-accent";
+  "min-h-11 min-w-11 px-4 rounded-full border border-line bg-surface text-sm font-medium transition-[background,transform] duration-[var(--dur-fast)] active:scale-[0.97] hover:bg-surface-2 aria-pressed:bg-accent aria-pressed:text-on-accent aria-pressed:border-accent";
 
 // Language lives in the URL: swap the locale segment and remember the choice.
 export function switchLang(next: string, path: string, push: (u: string) => void) {

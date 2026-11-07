@@ -53,14 +53,14 @@ export function ProcessTabs({ steps }: { steps: { name: string; body: string; ex
               setI(m);
               document.getElementById(`tab-${m}`)?.focus();
             }}
-            className="flex min-h-11 shrink-0 items-center gap-3 rounded-md border border-line bg-surface px-4 text-start text-sm font-medium transition-colors aria-selected:border-accent aria-selected:bg-accent-soft aria-selected:text-accent"
+            className="flex min-h-11 shrink-0 items-center gap-3 rounded-full border border-line bg-bg px-5 text-start text-sm font-medium transition-colors aria-selected:border-accent aria-selected:bg-accent-soft aria-selected:text-accent"
           >
             <span className="font-mono text-xs text-muted">{String(n + 1).padStart(2, "0")}</span>
             {st.name}
           </button>
         ))}
       </div>
-      <div id="process-panel" role="tabpanel" aria-labelledby={`tab-${i}`} key={i} className="rounded-lg border border-line bg-surface p-6 shadow-1 animate-[fade-in_var(--dur-base)_var(--ease-out)]">
+      <div id="process-panel" role="tabpanel" aria-labelledby={`tab-${i}`} key={i} className="rounded-lg border border-line bg-bg p-7 shadow-1 animate-[fade-in_var(--dur-base)_var(--ease-out)]">
         <h3 className="display text-xl font-semibold">{s.name}</h3>
         <p className="mt-2 max-w-prose text-muted">{s.body}</p>
         <p className="mt-5 border-s-2 border-accent ps-4 text-sm">{s.example}</p>

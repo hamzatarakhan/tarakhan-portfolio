@@ -4,7 +4,7 @@ import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
 import { cases } from "@/content/work";
 
-export const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6";
+export const wrap = "mx-auto w-full max-w-[1600px] px-5 sm:px-10";
 
 export function Header({ lang, t }: { lang: Locale; t: Dict }) {
   return (

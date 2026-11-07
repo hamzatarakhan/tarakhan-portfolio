@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {
   Geist,
-  Geist_Mono,
+  JetBrains_Mono,
   Inter_Tight,
   Bricolage_Grotesque,
   Space_Grotesk,
@@ -13,9 +13,9 @@ import { dirOf, getDict, isLocale, locales } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const jb = JetBrains_Mono({ variable: "--font-jb", subsets: ["latin"] });
 const interTight = Inter_Tight({ variable: "--font-inter-tight", subsets: ["latin"] });
-const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"] });
+const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"], axes: ["opsz"] });
 const space = Space_Grotesk({ variable: "--font-space", subsets: ["latin"] });
 const plexArabic = IBM_Plex_Sans_Arabic({
   variable: "--font-plex-arabic",
@@ -41,14 +41,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 // Runs before paint: restores theme + skin so there is no flash. Language comes from the URL.
 const prefsScript = `(()=>{try{var d=document.documentElement,g=k=>localStorage.getItem(k);
 d.dataset.theme=g('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-d.dataset.skin=g('skin')||'calm';}catch(e){}})()`;
+d.dataset.skin=g('skin')||'acid';}catch(e){}})()`;
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const fonts = [geist, geistMono, interTight, bricolage, space, plexArabic, quran].map((f) => f.variable).join(" ");
+  const fonts = [geist, jb, interTight, bricolage, space, plexArabic, quran].map((f) => f.variable).join(" ");
   return (
-    <html lang={lang} dir={dirOf(lang)} data-theme="light" data-skin="calm" className={`${fonts} antialiased`} suppressHydrationWarning>
+    <html lang={lang} dir={dirOf(lang)} data-theme="dark" data-skin="acid" className={`${fonts} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: prefsScript }} />
       </head>

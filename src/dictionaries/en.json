@@ -402,5 +402,123 @@
     "title": "This page wandered off.",
     "body": "The link may be wrong or the page may have moved.",
     "home": "Back to home"
+  },
+  "marquee": [
+    "Design systems",
+    "Telecom & enterprise UX",
+    "Arabic / RTL",
+    "Multi-brand theming",
+    "React & React Native",
+    "Interactive prototyping"
+  ],
+  "facts": {
+    "title": "At a glance",
+    "items": [
+      [
+        "Based in",
+        "Amman, Jordan"
+      ],
+      [
+        "Works",
+        "Remote, clients worldwide"
+      ],
+      [
+        "Experience",
+        "4+ years · Senior since Oct 2022"
+      ],
+      [
+        "Languages",
+        "Arabic (native), English (professional)"
+      ],
+      [
+        "Focus",
+        "Product UX, design systems, RTL"
+      ],
+      [
+        "Open to",
+        "Freelance projects, remote work"
+      ]
+    ]
+  },
+  "why": {
+    "title": "Why work with me",
+    "items": [
+      {
+        "t": "I design systems that scale",
+        "b": "SalesPoint runs across five operators on one system: tokens for light/dark, Arabic/English RTL, multiple fonts and brand switching. Each new operator launched on existing components."
+      },
+      {
+        "t": "I make complex things simple",
+        "b": "KYC and identity verification, SIM activation (physical and eSIM), billing, ownership transfer, dealer wallets, commission engines and multi-stage approvals, turned into clear flows for daily use."
+      },
+      {
+        "t": "I decide with evidence",
+        "b": "12 competing UX variants tested side by side: 5 activation flows, 5 credit-limit patterns and 2 migration models."
+      },
+      {
+        "t": "I build what I design",
+        "b": "9+ personal apps shipped end to end in React and React Native, with AI tools (Claude, Cursor, Figma Make, Lovable, MCP) taking concepts to near-production prototypes fast."
+      },
+      {
+        "t": "I lead",
+        "b": "I run design-system governance (components are reviewed and approved before entering the library), set standards other designers build against, and coordinate design priorities across the team."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Capabilities",
+    "groups": [
+      {
+        "name": "Research & strategy",
+        "items": [
+          "User research",
+          "Requirements analysis",
+          "User flows",
+          "Information architecture"
+        ]
+      },
+      {
+        "name": "Design",
+        "items": [
+          "Wireframing",
+          "Interaction design",
+          "High-fidelity UI",
+          "Interactive prototyping",
+          "UX writing",
+          "Dashboard & enterprise UX"
+        ]
+      },
+      {
+        "name": "Systems",
+        "items": [
+          "Design tokens",
+          "Multi-brand theming",
+          "RTL systems",
+          "Governance"
+        ]
+      },
+      {
+        "name": "Build",
+        "items": [
+          "HTML",
+          "CSS",
+          "Tailwind",
+          "React",
+          "React Native"
+        ]
+      },
+      {
+        "name": "Tools",
+        "items": [
+          "Figma",
+          "FigJam",
+          "Jira",
+          "Azure DevOps",
+          "Claude",
+          "Cursor",
+          "Lovable"
+        ]
+      }
+    ]
   }
 }
