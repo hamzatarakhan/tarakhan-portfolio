@@ -185,7 +185,7 @@ export function LedgerDemo({ lang }: { lang: Locale }) {
           <button type="button" className={btn} aria-pressed={type === "out"} onClick={() => setType("out")}>{c.expense}</button>
           <button type="button" className={btn} aria-pressed={type === "in"} onClick={() => setType("in")}>{c.income}</button>
         </div>
-        <input inputMode="decimal" aria-label={c.amount} aria-invalid={err} placeholder={c.amount} value={amt} onChange={(e) => setAmt(e.target.value)} className={`${field} ${err ? "border-accent" : ""}`} />
+        <input inputMode="decimal" aria-label={c.amount} aria-invalid={err} placeholder={lang === "ar" ? "مثال: 250" : "e.g. 250"} value={amt} onChange={(e) => setAmt(e.target.value)} className={`${field} ${err ? "border-accent" : ""}`} />
         <button className="min-h-11 rounded-md bg-accent px-5 text-sm font-medium text-on-accent transition-transform active:scale-[0.97]">{c.add}</button>
       </form>
       <div className="mt-3 flex flex-wrap gap-2" role="group">

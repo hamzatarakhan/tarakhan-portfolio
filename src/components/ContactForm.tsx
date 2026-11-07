@@ -6,7 +6,7 @@ import { btn } from "./Controls";
 
 // Web3Forms works on static hosting. Set NEXT_PUBLIC_WEB3FORMS_KEY (free key from web3forms.com).
 const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-const input = "min-h-11 w-full rounded-md border border-line bg-surface px-3 aria-[invalid=true]:border-accent aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-accent";
+const input = "min-h-11 w-full rounded-md border border-line bg-surface px-3 placeholder:text-muted/70 aria-[invalid=true]:border-accent aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-accent";
 
 export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
   const [type, setType] = useState(0);
@@ -60,15 +60,15 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
         </div>
       </fieldset>
       <div className="grid gap-5 sm:grid-cols-2">
-        {field("name", f.name, <input {...a11y("name")} autoComplete="name" className={input} />)}
-        {field("email", f.email, <input {...a11y("email")} type="email" autoComplete="email" className={input} />)}
+        {field("name", f.name, <input {...a11y("name")} autoComplete="name" placeholder={f.namePh} className={input} />)}
+        {field("email", f.email, <input {...a11y("email")} type="email" autoComplete="email" dir="ltr" placeholder={f.emailPh} className={input} />)}
       </div>
       {type === 0 && (
         <div className="sm:max-w-[calc(50%-0.625rem)]">
-          {field("timeline", f.timeline, <select {...a11y("timeline")} className={input}>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}
+          {field("timeline", f.timeline, <select {...a11y("timeline")} defaultValue="" className={`${input} has-[option[value='']:checked]:text-muted`}><option value="" disabled>{f.select}</option>{f.timelines.map((b) => <option key={b}>{b}</option>)}</select>)}
         </div>
       )}
-      {field("message", f.message, <textarea {...a11y("message")} rows={6} className={`${input} py-2`} />)}
+      {field("message", f.message, <textarea {...a11y("message")} rows={6} placeholder={f.messagePh} className={`${input} py-2`} />)}
       <input name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <div className="flex flex-wrap items-center gap-4">
         <button disabled={state === "sending"} className="min-h-11 rounded-md bg-accent px-6 font-medium text-on-accent transition-transform active:scale-[0.97] disabled:opacity-60">
