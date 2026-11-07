@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LangButton, ThemeButton } from "./Controls";
 import type { Dict, Locale } from "@/lib/i18n";
 import { CommandMenu } from "./CommandMenu";
+import { MobileMenu } from "./MobileMenu";
 import { cases } from "@/content/work";
 
 export const wrap = "mx-auto w-full max-w-[1440px] px-5 sm:px-10";
@@ -46,6 +47,13 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
           <Link href={`/${lang}/contact`} className="relative hidden h-9 items-center whitespace-nowrap rounded-full border border-accent px-4 text-[13px] font-medium text-accent transition-colors before:absolute before:-inset-1 before:content-[''] hover:bg-accent hover:text-on-accent sm:inline-flex">
             {t.hero.cta2}
           </Link>
+          <MobileMenu
+            name={t.hero.name}
+            links={links.map(([k, href]) => ({ label: t.nav[k], href }))}
+            cta={{ label: t.hero.ctaProject, href: `/${lang}/contact` }}
+            email={t.contact.email}
+            labels={{ menu: t.nav.menu, close: t.nav.close, theme: t.nav.theme as [string, string] }}
+          />
         </div>
       </div>
     </header>

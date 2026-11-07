@@ -11,7 +11,9 @@
     "theme": [
       "Light",
       "Dark"
-    ]
+    ],
+    "menu": "Menu",
+    "close": "Close menu"
   },
   "hero": {
     "status": "Available for freelance projects",
