@@ -4,13 +4,24 @@
   animation-duration: 45s;
 }
 .client-mark {
-  filter: brightness(0) invert(1); /* pure white on dark */
   transition:
     filter var(--dur-base) var(--ease-out),
     transform var(--dur-slow) var(--ease-spring);
 }
-:root[data-theme="light"] .client-mark {
-  filter: brightness(0); /* pure ink on light */
+/* Mouse users: solid marks at rest, real colours on hover (below) */
+@media (hover: hover) {
+  .client-mark {
+    filter: brightness(0) invert(1); /* pure white on dark */
+  }
+  :root[data-theme="light"] .client-mark {
+    filter: brightness(0); /* pure ink on light */
+  }
+}
+/* Touch screens have no hover: show the real colours from the start */
+@media (hover: none) {
+  :root:not([data-theme="light"]) .logo-mark[data-lift] .client-mark {
+    filter: brightness(var(--lift)) saturate(1.1);
+  }
 }
 /* Brands that ship separate artwork for dark and light backgrounds */
 :root[data-theme="light"] .logo-on-dark,
