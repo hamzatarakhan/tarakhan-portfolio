@@ -19,7 +19,7 @@ export const plain = (s: string) => s.replace(/\*/g, "");
 export function Header({ lang, t }: { lang: Locale; t: Dict }) {
   const links = [["work", `/${lang}#work`], ["about", `/${lang}/about`], ["contact", `/${lang}/contact`]] as const;
   return (
-    <header className="sticky top-0 z-20 bg-gradient-to-b from-bg/90 via-bg/60 to-transparent pt-3 pb-4 backdrop-blur-[2px]">
+    <header className="sticky top-0 z-20 bg-gradient-to-b from-bg via-bg/85 to-transparent pt-3 pb-5 backdrop-blur-sm">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-2 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent">
         {t.nav.skip}
       </a>

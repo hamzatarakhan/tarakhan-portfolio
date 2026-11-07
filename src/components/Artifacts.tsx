@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import { btn, SkinPicker, usePrefs } from "./Controls";
 
-const frame = "rounded-lg border border-line bg-surface p-5 shadow-1 sm:p-6";
+const frame = "glass p-5 sm:p-7";
 const field = "min-h-11 rounded-md border border-line bg-bg px-3";
 
 /* ───────── 1. SIM activation flow (illustrative) ───────── */
