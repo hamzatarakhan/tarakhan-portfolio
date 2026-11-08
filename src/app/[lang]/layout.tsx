@@ -43,9 +43,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-// Runs before paint: restores theme + skin so there is no flash. Language comes from the URL.
+// Runs before paint: restores theme + skin so there is no flash. Dark unless the visitor chose light;
+// language comes from the URL (English unless they chose Arabic, see proxy.ts).
 const prefsScript = `(()=>{try{var d=document.documentElement;d.classList.add('js');var g=k=>localStorage.getItem(k);
-d.dataset.theme=g('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+d.dataset.theme=g('theme')==='light'?'light':'dark';
 d.dataset.skin=g('skin')||'indigo';}catch(e){}})()`;
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
