@@ -11,7 +11,7 @@ const BRANDS = [
   { id: "starlink", name: "Starlink", src: "/clients/starlink.svg", h: "h-14", c: "#c7197d", lift: 1.45 },
 ] as const;
 
-// ConfManage's own header lockup: their icon + "CONF / MANAGE / HOST YOUR CONFERENCE" set as text (also used on its product card)
+// ConfManage's own header lockup: their icon + "CONF / MANAGE" set as text (tagline dropped: it overflowed the tile on phones) (also used on its product card)
 export function ConfManageMark({ className = "" }: { className?: string }) {
   return (
     <span className={`flex w-fit items-center gap-2 text-start text-fg ${className}`} dir="ltr">
@@ -20,7 +20,6 @@ export function ConfManageMark({ className = "" }: { className?: string }) {
       <span className="block font-[family-name:var(--font-outfit)] leading-none">
         <span className="block text-[15px] font-extrabold tracking-[0.08em]">CONF</span>
         <span className="block text-[15px] font-extrabold tracking-[0.08em]">MANAGE</span>
-        <span className="mt-1 block whitespace-nowrap text-[7px] font-semibold tracking-[0.14em] opacity-60">HOST YOUR CONFERENCE</span>
       </span>
     </span>
   );
