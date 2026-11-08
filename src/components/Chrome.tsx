@@ -97,13 +97,16 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
           </Link>
           <MobileMenu
             name={t.hero.name}
-            links={links.map(([k, href]) => ({ label: t.nav[k], href }))}
+            status={t.hero.status}
+            links={links.map(([k, href]) => ({ label: t.nav[k], href, icon: { work: "layers", testimonials: "chat", about: "user", contact: "send" }[k] }))}
             cta={{ label: t.hero.ctaProject, href: `/${lang}/contact` }}
             email={t.contact.email}
+            waText={t.contactPage.waText}
             labels={{
               menu: t.nav.menu,
               close: t.nav.close,
               theme: t.nav.theme as [string, string],
+              quick: t.nav.quick,
             }}
           />
         </div>

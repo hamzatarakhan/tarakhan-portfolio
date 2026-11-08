@@ -5,18 +5,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LangButton, ThemeButton } from "./Controls";
 import { SWITCHERS } from "@/lib/ui";
+import { CV_URL, whatsappLink } from "@/lib/contact";
+import { Icon } from "./Mock";
 import { Logo } from "./Logo";
 
 type Props = {
   name: string;
-  links: { label: string; href: string }[];
+  status: string;
+  links: { label: string; href: string; icon: string }[];
   cta: { label: string; href: string };
   email: string;
-  labels: { menu: string; close: string; theme: [string, string] };
+  waText: string;
+  labels: { menu: string; close: string; theme: [string, string]; quick: { whatsapp: string; email: string; cv: string } };
 };
 
-// Phone-only full-screen menu. Native <dialog> gives focus trapping, Esc to close and an inert page behind.
-export function MobileMenu({ name, links, cta, email, labels }: Props) {
+// Phone/tablet menu. Native <dialog> gives focus trapping, Esc to close and an inert page behind.
+// Layout: availability status, the pages as a 2×2 grid of glass tiles (current page highlighted),
+// quick ways to reach me, then the main call to action.
+export function MobileMenu({ name, status, links, cta, email, waText, labels }: Props) {
   const dlg = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
   const path = usePathname();
@@ -32,6 +38,13 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
     dlg.current?.close();
   }, [path]);
 
+  const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
+  const quick = [
+    { label: labels.quick.whatsapp, icon: "chat", href: whatsappLink(waText), ext: true },
+    { label: labels.quick.email, icon: "mail", href: `mailto:${email}`, ext: false },
+    { label: labels.quick.cv, icon: "download", href: CV_URL, ext: true },
+  ];
+
   return (
     <>
       <button
@@ -40,15 +53,7 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
         aria-expanded={open}
         className="relative grid size-9 place-items-center rounded-full border border-line bg-surface before:absolute before:-inset-1 before:content-[''] md:hidden"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          className="size-[18px]"
-          aria-hidden
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="size-[18px]" aria-hidden>
           <path d="M4 8h16M4 16h10" />
         </svg>
       </button>
@@ -57,11 +62,14 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
         ref={dlg}
         onClose={() => setOpen(false)}
         aria-label={labels.menu}
-        className="m-0 h-dvh max-h-none w-full max-w-none bg-bg/95 p-0 text-fg backdrop-blur-xl backdrop:bg-transparent"
+        className="m-0 h-dvh max-h-none w-full max-w-none overflow-hidden bg-bg/95 p-0 text-fg backdrop-blur-xl backdrop:bg-transparent"
       >
         {open && (
-          <div className="flex h-full flex-col px-5 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-            <div className="flex items-center justify-between">
+          <div className="relative flex h-full flex-col overflow-y-auto px-5 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+            {/* Soft accent glow behind the menu */}
+            <div aria-hidden className="pointer-events-none absolute -top-24 start-1/2 size-80 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl rtl:translate-x-1/2" />
+
+            <div className="relative flex items-center justify-between">
               <span className="display flex items-center gap-2.5 text-base font-semibold">
                 <Logo className="size-7" />
                 {name}
@@ -69,73 +77,77 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
               <button
                 onClick={hide}
                 aria-label={labels.close}
-                className="relative grid size-9 place-items-center rounded-full border border-line bg-surface before:absolute before:-inset-1 before:content-['']"
+                className="relative grid size-9 place-items-center rounded-full border border-line bg-surface transition-transform before:absolute before:-inset-1 before:content-[''] active:scale-90"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  className="size-[18px]"
-                  aria-hidden
-                >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="size-[18px]" aria-hidden>
                   <path d="M6 6l12 12M18 6 6 18" />
                 </svg>
               </button>
             </div>
 
-            <nav className="mt-12" aria-label={labels.menu}>
-              <ul className="space-y-1">
-                {links.map((l, i) => (
-                  <li
-                    key={l.href}
-                    className="rise"
-                    style={{ "--i": i } as React.CSSProperties}
-                  >
-                    <Link
-                      href={l.href}
-                      onClick={hide}
-                      className="flex min-h-16 items-baseline gap-4 border-b border-[var(--glass-line)] py-3"
-                    >
-                      <span className="label text-muted">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="display text-4xl font-medium">
-                        {l.label}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+            <p className="rise label relative mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-3 py-1.5 normal-case text-fg" style={st(0)}>
+              <span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />
+              {status}
+            </p>
+
+            <nav className="relative mt-5" aria-label={labels.menu}>
+              <ul className="grid grid-cols-2 gap-3">
+                {links.map((l, i) => {
+                  const current = !l.href.includes("#") && path === l.href;
+                  return (
+                    <li key={l.href} className="rise" style={st(i + 1)}>
+                      <Link
+                        href={l.href}
+                        onClick={hide}
+                        aria-current={current ? "page" : undefined}
+                        className="glass group flex aspect-[5/4] flex-col justify-between !rounded-3xl p-4 transition-[transform,border-color] active:scale-[0.97] aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
+                      >
+                        <span className="flex items-start justify-between">
+                          <span className="grid size-10 place-items-center rounded-2xl bg-accent-soft text-accent">
+                            <Icon name={l.icon} className="size-5" />
+                          </span>
+                          <Icon name="arrow" className="flip-rtl size-4 text-muted transition-colors group-active:text-accent" />
+                        </span>
+                        <span>
+                          <span className="label block text-muted">{String(i + 1).padStart(2, "0")}</span>
+                          <span className="display mt-1 block text-xl font-medium leading-tight">{l.label}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 
-            <div
-              className="rise mt-auto space-y-5"
-              style={{ "--i": links.length } as React.CSSProperties}
-            >
+            <div className="rise relative mt-auto pt-8" style={st(links.length + 1)}>
+              <ul className="grid grid-cols-3 gap-2">
+                {quick.map((q) => (
+                  <li key={q.label}>
+                    <a
+                      href={q.href}
+                      {...(q.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="flex min-h-16 flex-col items-center justify-center gap-1.5 rounded-2xl border border-[var(--glass-line)] bg-[var(--glass)] px-2 text-xs font-medium transition-transform active:scale-95"
+                    >
+                      <Icon name={q.icon} className="size-5 text-accent" />
+                      {q.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
               <Link
                 href={cta.href}
                 onClick={hide}
-                className="flex min-h-13 w-full items-center justify-center rounded-full bg-accent py-3.5 font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent)]"
+                className="mt-3 flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-accent py-3.5 font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent)] transition-transform active:scale-[0.98]"
               >
                 {cta.label}
+                <Icon name="arrow" className="flip-rtl size-4" />
               </Link>
-              <div className="flex items-center justify-between">
-                <a
-                  href={`mailto:${email}`}
-                  dir="ltr"
-                  className="truncate text-sm text-muted underline decoration-accent underline-offset-4"
-                >
-                  {email}
-                </a>
-                {SWITCHERS && (
-                  <div className="flex gap-2">
-                    <ThemeButton labels={labels.theme} />
-                    <LangButton />
-                  </div>
-                )}
-              </div>
+              {SWITCHERS && (
+                <div className="mt-4 flex justify-center gap-2">
+                  <ThemeButton labels={labels.theme} />
+                  <LangButton />
+                </div>
+              )}
             </div>
           </div>
         )}

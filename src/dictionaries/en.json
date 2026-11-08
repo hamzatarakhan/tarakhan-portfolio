@@ -14,7 +14,12 @@
       "Dark"
     ],
     "menu": "Menu",
-    "close": "Close menu"
+    "close": "Close menu",
+    "quick": {
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "cv": "CV"
+    }
   },
   "hero": {
     "status": "Open for freelance projects",
