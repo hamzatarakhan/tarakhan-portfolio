@@ -43,11 +43,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-// Runs before paint: restores theme + skin so there is no flash. Dark unless the visitor chose light;
+// Runs before paint. While the switchers are hidden (SWITCHERS in src/lib/ui.ts) everyone gets dark + indigo,
+// ignoring older saved choices. To restore: theme=g('theme')==='light'?'light':'dark', skin=g('skin')||'indigo'.
 // language comes from the URL (English unless they chose Arabic, see proxy.ts).
 const prefsScript = `(()=>{try{var d=document.documentElement;d.classList.add('js');var g=k=>localStorage.getItem(k);
-d.dataset.theme=g('theme')==='light'?'light':'dark';
-d.dataset.skin=g('skin')||'indigo';}catch(e){}})()`;
+d.dataset.theme='dark';d.dataset.skin='indigo';}catch(e){}})()`;
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;

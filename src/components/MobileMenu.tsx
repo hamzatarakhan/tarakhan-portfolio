@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LangButton, ThemeButton } from "./Controls";
+import { SWITCHERS } from "@/lib/ui";
 import { Logo } from "./Logo";
 
 type Props = {
@@ -39,7 +40,15 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
         aria-expanded={open}
         className="relative grid size-9 place-items-center rounded-full border border-line bg-surface before:absolute before:-inset-1 before:content-[''] md:hidden"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="size-[18px]" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          className="size-[18px]"
+          aria-hidden
+        >
           <path d="M4 8h16M4 16h10" />
         </svg>
       </button>
@@ -53,13 +62,24 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
         {open && (
           <div className="flex h-full flex-col px-5 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             <div className="flex items-center justify-between">
-              <span className="display flex items-center gap-2.5 text-base font-semibold"><Logo className="size-7" />{name}</span>
+              <span className="display flex items-center gap-2.5 text-base font-semibold">
+                <Logo className="size-7" />
+                {name}
+              </span>
               <button
                 onClick={hide}
                 aria-label={labels.close}
                 className="relative grid size-9 place-items-center rounded-full border border-line bg-surface before:absolute before:-inset-1 before:content-['']"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="size-[18px]" aria-hidden>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  className="size-[18px]"
+                  aria-hidden
+                >
                   <path d="M6 6l12 12M18 6 6 18" />
                 </svg>
               </button>
@@ -68,17 +88,32 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
             <nav className="mt-12" aria-label={labels.menu}>
               <ul className="space-y-1">
                 {links.map((l, i) => (
-                  <li key={l.href} className="rise" style={{ "--i": i } as React.CSSProperties}>
-                    <Link href={l.href} onClick={hide} className="flex min-h-16 items-baseline gap-4 border-b border-[var(--glass-line)] py-3">
-                      <span className="label text-muted">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="display text-4xl font-medium">{l.label}</span>
+                  <li
+                    key={l.href}
+                    className="rise"
+                    style={{ "--i": i } as React.CSSProperties}
+                  >
+                    <Link
+                      href={l.href}
+                      onClick={hide}
+                      className="flex min-h-16 items-baseline gap-4 border-b border-[var(--glass-line)] py-3"
+                    >
+                      <span className="label text-muted">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="display text-4xl font-medium">
+                        {l.label}
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            <div className="rise mt-auto space-y-5" style={{ "--i": links.length } as React.CSSProperties}>
+            <div
+              className="rise mt-auto space-y-5"
+              style={{ "--i": links.length } as React.CSSProperties}
+            >
               <Link
                 href={cta.href}
                 onClick={hide}
@@ -87,13 +122,19 @@ export function MobileMenu({ name, links, cta, email, labels }: Props) {
                 {cta.label}
               </Link>
               <div className="flex items-center justify-between">
-                <a href={`mailto:${email}`} dir="ltr" className="truncate text-sm text-muted underline decoration-accent underline-offset-4">
+                <a
+                  href={`mailto:${email}`}
+                  dir="ltr"
+                  className="truncate text-sm text-muted underline decoration-accent underline-offset-4"
+                >
                   {email}
                 </a>
-                <div className="flex gap-2">
-                  <ThemeButton labels={labels.theme} />
-                  <LangButton />
-                </div>
+                {SWITCHERS && (
+                  <div className="flex gap-2">
+                    <ThemeButton labels={labels.theme} />
+                    <LangButton />
+                  </div>
+                )}
               </div>
             </div>
           </div>
