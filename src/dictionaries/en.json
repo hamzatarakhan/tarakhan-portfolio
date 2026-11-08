@@ -414,7 +414,17 @@
       "phoneCode": "Country code",
       "phonePh": "79 123 4567",
       "phoneInvalid": "That number looks too short or long. Please check it.",
-      "messagePh": "What are you building, who is it for, and where do you need help?"
+      "messagePh": "What are you building, who is it for, and where do you need help?",
+      "interests": "Interested in… (pick any)",
+      "interestOpts": [
+        "Mobile app design",
+        "Website design",
+        "Dashboard / SaaS",
+        "Design system",
+        "Interactive prototype",
+        "Front-end build",
+        "UX audit & consulting"
+      ]
     },
     "direct": "Or reach me directly",
     "whatsapp": "Chat on WhatsApp",

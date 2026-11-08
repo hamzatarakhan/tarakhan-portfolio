@@ -26,6 +26,7 @@ export async function POST(req: Request) {
     `Name: ${name}`,
     `Email: ${email}`,
     s("phone", 25) ? `Phone: ${s("phone", 25)}` : null,
+    s("interests", 300) ? `Interested in: ${s("interests", 300)}` : null,
     s("timeline", 60) ? `Timeline: ${s("timeline", 60)}` : null,
     "",
     message,

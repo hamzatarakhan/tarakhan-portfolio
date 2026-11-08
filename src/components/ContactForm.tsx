@@ -63,6 +63,7 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
       name: v("name"),
       email: v("email"),
       phone: tel ? `+${v("code").split("-")[1]} ${tel}` : "",
+      interests: type === 0 ? fd.getAll("interest").join(", ") : "",
       timeline: v("timeline"),
       message: v("message"),
     };
@@ -140,6 +141,22 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
           ))}
         </div>
       </fieldset>
+      {type === 0 && (
+        // Multi-select chips: native checkboxes, styled like the type buttons above
+        <fieldset>
+          <legend className="mb-2 text-sm font-medium">{f.interests}</legend>
+          <div className="flex flex-wrap gap-2">
+            {f.interestOpts.map((o) => (
+              <label key={o} className="cursor-pointer">
+                <input type="checkbox" name="interest" value={o} className="peer sr-only" />
+                <span className="inline-flex min-h-10 items-center rounded-full border border-line bg-surface px-4 text-sm font-medium transition-colors hover:bg-surface-2 peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:text-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent">
+                  {o}
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      )}
       <div className="grid gap-5 sm:grid-cols-2">
         {field(
           "name",
