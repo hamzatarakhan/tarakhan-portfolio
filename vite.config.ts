@@ -7,5 +7,5 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
-  server: { host: "::", port: 8080 },
+  server: { port: 8080, strictPort: true },
 });
