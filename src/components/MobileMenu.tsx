@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { LangButton, ThemeButton } from "./Controls";
 import { SWITCHERS } from "@/lib/ui";
 import { CV_URL, whatsappLink } from "@/lib/contact";
@@ -25,7 +23,7 @@ type Props = {
 export function MobileMenu({ name, status, links, cta, email, waText, labels }: Props) {
   const dlg = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
-  const path = usePathname();
+  const path = useLocation().pathname;
 
   const show = () => {
     dlg.current?.showModal();
@@ -97,7 +95,7 @@ export function MobileMenu({ name, status, links, cta, email, waText, labels }: 
                   return (
                     <li key={l.href} className="rise" style={st(i + 1)}>
                       <Link
-                        href={l.href}
+                        to={l.href}
                         onClick={hide}
                         aria-current={current ? "page" : undefined}
                         className="glass group flex aspect-[5/4] flex-col justify-between !rounded-3xl p-4 transition-[transform,border-color] active:scale-[0.97] aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
@@ -135,7 +133,7 @@ export function MobileMenu({ name, status, links, cta, email, waText, labels }: 
                 ))}
               </ul>
               <Link
-                href={cta.href}
+                to={cta.href}
                 onClick={hide}
                 className="mt-3 flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-accent py-3.5 font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent)] transition-transform active:scale-[0.98]"
               >

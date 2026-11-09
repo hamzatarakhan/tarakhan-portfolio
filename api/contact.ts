@@ -1,7 +1,7 @@
-import { WHATSAPP } from "@/lib/contact";
+import { WHATSAPP } from "../src/lib/contact.js";
 
 // Sends each contact-form message to Hamza's WhatsApp through CallMeBot (free).
-// Needs CALLMEBOT_KEY on the server (Vercel env). The email copy is sent by the form itself via Web3Forms.
+// Vercel Function (api/contact.ts). Needs CALLMEBOT_KEY on the server (Vercel env). The email copy is sent by the form itself via Web3Forms.
 // ponytail: no rate limit; add one (e.g. Vercel Firewall rule on /api/contact) if spam shows up.
 export async function POST(req: Request) {
   const key = process.env.CALLMEBOT_KEY;

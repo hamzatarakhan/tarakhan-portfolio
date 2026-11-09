@@ -1,12 +1,10 @@
-"use client";
-
 import { useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { btn } from "./Controls";
 import "@/styles/forms.css";
 
-// Email: Web3Forms (NEXT_PUBLIC_WEB3FORMS_KEY, free from web3forms.com). WhatsApp: /api/contact (CALLMEBOT_KEY).
-const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+// Email: Web3Forms (VITE_WEB3FORMS_KEY, free from web3forms.com). WhatsApp: /api/contact (CALLMEBOT_KEY).
+const KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 // Country codes for the phone field; Jordan first and selected by default.
 const CODES = [
   ["JO", "962"],

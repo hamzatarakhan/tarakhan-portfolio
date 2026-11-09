@@ -1,8 +1,6 @@
-import Image from "next/image";
 import cutout from "@/assets/hamza-cutout.webp";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getDict, isLocale } from "@/lib/i18n";
+import { Link } from "react-router-dom";
+import { getDict, useLang } from "@/lib/i18n";
 import { Divider, Footer, Header, Rich, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
 import { Icon, Mock } from "@/components/Mock";
@@ -32,9 +30,8 @@ function Head({ label, title, intro, center }: { label: string; title: string; i
   );
 }
 
-export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+export default function Home() {
+  const lang = useLang();
   const t = getDict(lang);
   const cards = [...t.work.items.map((w) => w.title), ...t.play.items.map((p) => p.name)];
   const row1 = cards.slice(0, 7);
@@ -58,7 +55,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </h1>
             <p className="rise mt-6 max-w-xl text-lg text-muted" style={st(2)}>{t.hero.sub}</p>
             <div className="rise mt-9 flex flex-wrap gap-3" style={st(3)}>
-              <Link href={`/${lang}/contact`} className={btnPrimary}>{t.hero.ctaProject}</Link>
+              <Link to={`/${lang}/contact`} className={btnPrimary}>{t.hero.ctaProject}</Link>
               <a href="#work" className={btnGhost}>{t.hero.cta1} <Icon name="arrow" className="flip-rtl size-4" /></a>
             </div>
             <p className="label rise mt-8 text-muted" style={st(4)}>{t.hero.eyebrow}</p>
@@ -69,7 +66,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-accent/40 blur-3xl" />
             <div aria-hidden className="absolute start-1/2 top-[6%] aspect-square w-[92%] -translate-x-1/2 rounded-full border border-[var(--glass-line)] rtl:translate-x-1/2" />
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
-              <Image src={cutout} placeholder="blur" alt={t.hero.name} sizes="(min-width: 1024px) 28rem, 90vw" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" priority />
+              <img src={cutout} alt={t.hero.name} width={900} height={984} fetchPriority="high" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" />
             </div>
             {/* What I do, in five tags. Placed on the background and the jacket, never over the face. */}
             {(
@@ -124,7 +121,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Head label={t.work.eyebrow} title={t.work.title} intro={t.work.intro} center />
           <div className="grid gap-6 md:grid-cols-2">
             {t.work.items.map((w, i) => (
-              <Link key={w.slug} href={`/${lang}/work/${w.slug}`} className="glass reveal group block overflow-hidden p-4 hover:-translate-y-1" style={st(i % 2)}>
+              <Link key={w.slug} to={`/${lang}/work/${w.slug}`} className="glass reveal group block overflow-hidden p-4 hover:-translate-y-1" style={st(i % 2)}>
                 <Mock v={i} className="!rounded-2xl h-56 sm:h-64 transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]" />
                 <div className="p-3 pt-6">
                   <p className="label text-accent">{w.role}</p>
@@ -223,9 +220,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 {"lockup" in p && p.lockup === "confmanage" && <ConfManageMark className="mt-4" />}
                 {"logo" in p && p.logo && (
                   <>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
                     <img src={`${p.logo}-light.svg`} alt="" className={`logo-on-light mt-4 w-auto ${"tall" in p ? "h-24" : "h-10"}`} />
-                    {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
                     <img src={`${p.logo}-dark.svg`} alt="" className={`logo-on-dark mt-4 w-auto ${"tall" in p ? "h-24" : "h-10"}`} />
                   </>
                 )}
@@ -267,7 +262,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <div>
               <Head label={t.aboutPage.title} title={t.about.title} />
               <p className="-mt-4 max-w-prose text-lg text-muted">{t.about.body}</p>
-              <Link href={`/${lang}/about`} className={`${btnGhost} mt-8`}>{t.about.cta}</Link>
+              <Link to={`/${lang}/about`} className={`${btnGhost} mt-8`}>{t.about.cta}</Link>
             </div>
             <div className="space-y-8 lg:pt-14">
               <div>
@@ -291,7 +286,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             items={
               (t.testimonials.items as Testimonial[]).length
                 ? (t.testimonials.items as Testimonial[])
-                : process.env.NODE_ENV === "production"
+                : import.meta.env.PROD
                   ? []
                   : (t.testimonials.samples as Testimonial[])
             }

@@ -1,14 +1,12 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getDict, isLocale } from "@/lib/i18n";
+import { Link } from "react-router-dom";
+import { getDict, useLang } from "@/lib/i18n";
 import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
-export default async function Colophon({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+export default function Colophon() {
+  const lang = useLang();
   const t = getDict(lang);
   const c = t.colophon;
   return (
@@ -25,7 +23,7 @@ export default async function Colophon({ params }: { params: Promise<{ lang: str
             </div>
           ))}
         </dl>
-        <Link href={`/${lang}/system`} className="mt-10 inline-flex min-h-12 items-center rounded-full border border-accent px-7 font-medium text-accent transition-colors hover:bg-accent hover:text-on-accent">{c.system}</Link>
+        <Link to={`/${lang}/system`} className="mt-10 inline-flex min-h-12 items-center rounded-full border border-accent px-7 font-medium text-accent transition-colors hover:bg-accent hover:text-on-accent">{c.system}</Link>
       </main>
       <Footer lang={lang} t={t} />
     </>

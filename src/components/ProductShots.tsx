@@ -12,7 +12,6 @@ export function ProductShots({ id, name, count, before = 0, l }: { id: string; n
     <ul data-set={set} aria-label={label} className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-6 sm:px-10">
       {Array.from({ length: n }, (_, i) => (
         <li key={i} className="shrink-0 snap-center">
-          {/* eslint-disable-next-line @next/next/no-img-element -- app screenshots, already sized webp */}
           <img
             src={`/work/${dir}${i + 1}.webp`}
             alt={`${name}, ${label}, ${l.screen} ${i + 1}/${n}`}

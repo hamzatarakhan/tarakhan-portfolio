@@ -1,5 +1,4 @@
-import { notFound } from "next/navigation";
-import { getDict, isLocale } from "@/lib/i18n";
+import { getDict, useLang } from "@/lib/i18n";
 import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
@@ -9,9 +8,8 @@ import { CV_URL, whatsappLink } from "@/lib/contact";
 
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
-export default async function Contact({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+export default function Contact() {
+  const lang = useLang();
   const t = getDict(lang);
   const c = t.contactPage;
   return (

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import { btn, SkinPicker, usePrefs } from "./Controls";

@@ -1,14 +1,12 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // The header logo: from another page it goes home; on the home page it smooth-scrolls back to the top.
 export function HomeLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
-  const path = usePathname();
+  const path = useLocation().pathname;
   return (
     <Link
-      href={href}
+      to={href}
       className={className}
       onClick={(e) => {
         if (path !== href) return;

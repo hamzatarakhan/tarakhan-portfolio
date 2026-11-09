@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { Controls } from "@/components/Controls";
-
-export const metadata = { title: "Design system — Hamza Tarakhan", robots: { index: false } };
+import { setMeta } from "@/lib/meta";
 
 const colors = ["bg", "surface", "surface-2", "fg", "muted", "line", "accent", "on-accent", "accent-soft"];
 const type = [
@@ -31,6 +31,10 @@ function Section({ id, title, note, children }: { id: string; title: string; not
 }
 
 export default function System() {
+  useEffect(() => {
+    setMeta("Design system — Hamza Tarakhan", undefined, true);
+    return () => setMeta(document.title); // drop noindex when leaving
+  }, []);
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-line bg-bg/85 backdrop-blur">

@@ -1,9 +1,11 @@
-<!-- BEGIN:nextjs-agent-rules -->
+## Stack (Lovable-compatible)
 
-## This is NOT the Next.js you know
+Vite + React 19 + TypeScript + Tailwind CSS v4 (`@tailwindcss/vite`) + React Router + shadcn/ui conventions
+(`components.json`, `cn()` in `src/lib/utils.ts`, `@/` → `src/`).
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
+- Pages: `src/pages/*`, routes in `src/App.tsx` (everything under `/en` or `/ar`), shared shell in `src/components/Layout.tsx`.
+- Text: `src/dictionaries/{en,ar}.json`; current language via `useLang()` from `src/lib/i18n.ts`.
+- Page titles: `setMeta()` from `src/lib/meta.ts`.
+- Styles and tokens: `src/index.css` (+ `src/styles/*.css`). Fonts load in `index.html`.
+- Contact WhatsApp relay: Vercel Function `api/contact.ts` (needs `CALLMEBOT_KEY`); email via Web3Forms (`VITE_WEB3FORMS_KEY`).
+- Dev: `npm run dev` (port 8080). Build: `npm run build` → `dist/`. Hosting: Vercel (`vercel.json`, SPA rewrites).

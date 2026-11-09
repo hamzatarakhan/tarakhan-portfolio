@@ -1,30 +1,26 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import { getDict, isLocale, locales } from "@/lib/i18n";
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getDict, useLang } from "@/lib/i18n";
+import { setMeta } from "@/lib/meta";
+import NotFound from "./NotFound";
 import { cases } from "@/content/work";
 import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { Icon } from "@/components/Mock";
 import { ActivationDemo, LedgerDemo, ReaderDemo, TokenDiagram } from "@/components/Artifacts";
 
-export const generateStaticParams = () => locales.flatMap((lang) => cases.map((c) => ({ lang, slug: c.slug })));
-
-export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
-  const { lang, slug } = await params;
-  const c = cases.find((x) => x.slug === slug);
-  return c && isLocale(lang) ? { title: `${c[lang].title} — Hamza Tarakhan`, description: c[lang].tldr.problem } : {};
-}
-
 const h2 = "display text-2xl font-medium scroll-mt-28 sm:text-4xl";
 const chip = "label inline-flex rounded-full border border-[var(--glass-line)] bg-[var(--glass)] px-3 py-1.5 text-muted";
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
-export default async function CaseStudy({ params }: { params: Promise<{ lang: string; slug: string }> }) {
-  const { lang, slug } = await params;
-  if (!isLocale(lang)) notFound();
+export default function CaseStudy() {
+  const lang = useLang();
+  const { slug = "" } = useParams();
   const idx = cases.findIndex((x) => x.slug === slug);
-  if (idx < 0) notFound();
+  useEffect(() => {
+    if (idx >= 0) setMeta(`${cases[idx][lang].title} — Hamza Tarakhan`, cases[idx][lang].tldr.problem);
+  }, [idx, lang]);
+  if (idx < 0) return <NotFound />;
   const t = getDict(lang);
   const k = t.case;
   const c = cases[idx][lang];
@@ -44,7 +40,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ lang: st
       <div className="progress fixed inset-x-0 top-0 z-40 h-0.5 origin-left bg-accent rtl:origin-right" aria-hidden />
       <Header lang={lang} t={t} />
       <main id="main" className={`${wrap} pt-6 pb-14`}>
-        <Link href={`/${lang}#work`} className="rise inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg" style={st(0)}>
+        <Link to={`/${lang}#work`} className="rise inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg" style={st(0)}>
           <span aria-hidden className="flip-rtl">←</span> {k.back}
         </Link>
         <h1 className="display rise mt-4 max-w-4xl text-4xl font-medium sm:text-6xl lg:text-7xl" style={st(1)}>{c.title}</h1>
@@ -109,7 +105,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ lang: st
               <div className="max-w-prose space-y-4 text-lg text-muted">{c.next.map((p, i) => <p key={i}><Txt>{p}</Txt></p>)}</div>
             </section>
 
-            <Link href={`/${lang}/work/${nextCase.slug}`} className="glass reveal group flex items-center justify-between gap-6 !rounded-[2rem] p-8 hover:-translate-y-1 sm:p-12">
+            <Link to={`/${lang}/work/${nextCase.slug}`} className="glass reveal group flex items-center justify-between gap-6 !rounded-[2rem] p-8 hover:-translate-y-1 sm:p-12">
               <div>
                 <p className="label text-accent">{k.next}</p>
                 <p className="display mt-3 text-3xl font-medium sm:text-5xl">{nextCase[lang].title}</p>

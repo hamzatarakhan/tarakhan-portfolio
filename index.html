@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark" data-skin="indigo" class="antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamza Tarakhan — Senior UI/UX & Product Designer</title>
+    <meta name="description" content="Senior product designer for telecom, fintech and enterprise teams. I turn complex products into clear experiences, build the design system behind them, and ship them in English and Arabic." />
+    <meta property="og:title" content="Hamza Tarakhan — Senior UI/UX & Product Designer" />
+    <meta property="og:description" content="Senior product designer for telecom, fintech and enterprise teams, in English and Arabic." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" hreflang="en" href="/en" />
+    <link rel="alternate" hreflang="ar" href="/ar" />
+
+    <!-- Same nine families the Next.js build loaded through next/font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist:wght@100..900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Inter+Tight:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap"
+    />
+
+    <!-- Runs before paint: no theme flash. While the switchers are hidden (SWITCHERS in src/lib/ui.ts)
+         everyone gets dark + indigo. To restore saved choices: theme=g('theme')==='light'?'light':'dark', skin=g('skin')||'indigo'. -->
+    <script>
+      (() => {
+        try {
+          var d = document.documentElement;
+          d.classList.add("js");
+          var ar = location.pathname.split("/")[1] === "ar";
+          d.lang = ar ? "ar" : "en";
+          d.dir = ar ? "rtl" : "ltr";
+          d.dataset.theme = "dark";
+          d.dataset.skin = "indigo";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="aura" aria-hidden="true"><i></i><i></i></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

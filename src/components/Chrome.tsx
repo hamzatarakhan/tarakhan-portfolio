@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { LangButton, ThemeButton } from "./Controls";
 import { SWITCHERS } from "@/lib/ui";
 import type { Dict, Locale } from "@/lib/i18n";
@@ -90,7 +90,7 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
             </div>
           )}
           <Link
-            href={`/${lang}/contact`}
+            to={`/${lang}/contact`}
             className="relative inline-flex h-9 items-center whitespace-nowrap rounded-full border border-accent px-4 text-[13px] font-medium text-accent transition-colors before:absolute before:-inset-1 before:content-[''] hover:bg-accent hover:text-on-accent"
           >
             {t.hero.cta2}
@@ -125,7 +125,7 @@ export function Footer({ lang, t }: { lang: Locale; t: Dict }) {
         <span>
           {t.footer.built} ·{" "}
           <Link
-            href={`/${lang}/colophon`}
+            to={`/${lang}/colophon`}
             className="underline underline-offset-4 hover:text-fg"
           >
             {t.footer.colophon}

@@ -1,7 +1,5 @@
-"use client";
-
 import { useSyncExternalStore } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const SKINS = ["indigo", "acid", "ember", "mint"] as const;
 
@@ -77,13 +75,13 @@ export function ThemeButton({ labels }: { labels?: [string, string] }) {
 }
 
 export function LangButton() {
-  const path = usePathname();
-  const router = useRouter();
+  const path = useLocation().pathname;
+  const navigate = useNavigate();
   const p = usePrefs();
   const next = p?.lang === "ar" ? "en" : "ar";
   const label = next === "ar" ? "العربية" : "English";
   return (
-    <button className={iconBtn} lang={next} aria-label={label} title={label} onClick={() => switchLang(next, path, router.push)}>
+    <button className={iconBtn} lang={next} aria-label={label} title={label} onClick={() => switchLang(next, path, navigate)}>
       {next === "ar" ? <span className="font-[family-name:var(--font-plex-arabic)] text-[15px] leading-none">ع</span> : "EN"}
     </button>
   );

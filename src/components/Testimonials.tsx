@@ -41,7 +41,6 @@ export function Testimonials({ items, invite, badge }: { items: Testimonial[]; i
         {items.map((q, i) => (
           <figure key={q.name} className={`glass ${card}`} style={{ "--i": i } as React.CSSProperties}>
             {q.photo && (
-              // eslint-disable-next-line @next/next/no-img-element -- client-supplied portrait
               <img src={q.photo} alt="" className="absolute inset-0 h-full w-full object-cover object-top" />
             )}
             <Shade />

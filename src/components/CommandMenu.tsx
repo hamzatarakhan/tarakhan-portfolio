@@ -1,7 +1,5 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 import type { Dict, Locale } from "@/lib/i18n";
 import { CV_URL } from "@/lib/contact";
 import { SWITCHERS } from "@/lib/ui";
@@ -18,8 +16,8 @@ export function CommandMenu({
   d: Dict["cmd"];
   cases: { slug: string; title: string }[];
 }) {
-  const router = useRouter();
-  const path = usePathname();
+  const navigate = useNavigate();
+  const path = useLocation().pathname;
   const prefs = usePrefs();
   const dlg = useRef<HTMLDialogElement>(null);
   const [q, setQ] = useState("");
@@ -44,7 +42,7 @@ export function CommandMenu({
     return () => removeEventListener("keydown", onKey);
   }, []);
 
-  const go = (p: string) => () => router.push(`/${lang}${p}`);
+  const go = (p: string) => () => navigate(`/${lang}${p}`);
   const other = lang === "ar" ? "en" : "ar";
   const all: Cmd[] = [
     { group: d.pages, label: d.home, run: go("") },
@@ -66,7 +64,7 @@ export function CommandMenu({
           {
             group: d.actions,
             label: d.lang,
-            run: () => switchLang(other, path, router.push),
+            run: () => switchLang(other, path, navigate),
           },
           ...SKINS.map((s) => ({
             group: d.actions,

@@ -15,7 +15,6 @@ const BRANDS = [
 export function ConfManageMark({ className = "" }: { className?: string }) {
   return (
     <span className={`flex w-fit items-center gap-2 text-start text-fg ${className}`} dir="ltr">
-      {/* eslint-disable-next-line @next/next/no-img-element -- small brand artwork */}
       <img src="/clients/confmanage-icon.png" alt="" className="h-10 w-auto" />
       <span className="block font-[family-name:var(--font-outfit)] leading-none">
         <span className="block text-[15px] font-extrabold tracking-[0.08em]">CONF</span>
@@ -49,11 +48,9 @@ export function ClientLogos({ label, hint }: { label: string; hint: string }) {
               {"lockup" in b ? (
                 <ConfManageMark className="client-mark" />
               ) : (
-                // eslint-disable-next-line @next/next/no-img-element -- small brand artwork, no optimisation needed
                 <img src={b.src} alt="" className={`client-mark ${b.h} w-auto max-w-full object-contain ${"dark" in b ? "logo-on-light" : ""}`} />
               )}
               {"dark" in b && (
-                // eslint-disable-next-line @next/next/no-img-element -- the brand's own artwork for dark backgrounds
                 <img src={b.dark} alt="" className={`client-mark logo-on-dark ${b.h} w-auto max-w-full object-contain`} />
               )}
             </div>

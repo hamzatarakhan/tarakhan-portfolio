@@ -1,5 +1,4 @@
-import { notFound } from "next/navigation";
-import { getDict, isLocale } from "@/lib/i18n";
+import { getDict, useLang } from "@/lib/i18n";
 import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { OrbitPortrait } from "@/components/OrbitPortrait";
@@ -9,13 +8,8 @@ const h2 = "display text-2xl font-medium sm:text-3xl";
 // Hover: lift slightly and pick up the accent border
 const lift = "lift hover:-translate-y-0.5 hover:border-accent/50";
 
-export default async function About({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+export default function About() {
+  const lang = useLang();
   const t = getDict(lang);
   const a = t.aboutPage;
   return (

@@ -1,13 +1,11 @@
-"use client";
-
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 
 // Global effects: pointer spotlight on .glass cards and scroll-reveal for .reveal elements.
 // Both write only things React does not render (a data-in attribute; style vars after hydration),
 // so parts of the page that hydrate later (partial prerendering) never see a mismatch.
 export function FxProvider() {
-  const path = usePathname();
+  const path = useLocation().pathname;
 
   useEffect(() => {
     const move = (e: PointerEvent) => {
