@@ -98,7 +98,7 @@ export function MobileMenu({ name, status, links, cta, email, waText, labels }: 
                         to={l.href}
                         onClick={hide}
                         aria-current={current ? "page" : undefined}
-                        className="glass group flex aspect-[5/4] flex-col justify-between !rounded-3xl p-4 transition-[transform,border-color] active:scale-[0.97] aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
+                        className="glass group flex min-h-32 flex-col gap-6 justify-between !rounded-3xl p-4 transition-[transform,border-color] active:scale-[0.97] aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
                       >
                         <span className="flex items-start justify-between">
                           <span className="grid size-10 place-items-center rounded-2xl bg-accent-soft text-accent">
