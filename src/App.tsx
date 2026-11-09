@@ -8,12 +8,15 @@ import System from "@/pages/System";
 import CaseStudy from "@/pages/CaseStudy";
 import NotFound from "@/pages/NotFound";
 
-// Same URLs as the Next.js build: everything lives under /en or /ar; "/" opens English.
+// Same URLs as the Next.js build: everything lives under /en or /ar.
+// "/" opens English, or Arabic if the visitor chose it with the language button (lang cookie).
+const home = () => (/(^|;\s*)lang=ar\b/.test(document.cookie) ? "/ar" : "/en");
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/en" replace />} />
+        <Route path="/" element={<Navigate to={home()} replace />} />
         <Route path="/:lang" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
