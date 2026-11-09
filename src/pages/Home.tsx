@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cutout from "@/assets/hamza-cutout.webp";
 import { Link } from "react-router-dom";
 import { getDict, useLang } from "@/lib/i18n";
@@ -10,6 +11,7 @@ import { ClientLogos, ConfManageMark } from "@/components/ClientLogos";
 import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { Testimonials, type Testimonial } from "@/components/Testimonials";
 import { ProductShots } from "@/components/ProductShots";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -33,6 +35,10 @@ function Head({ label, title, intro, center }: { label: string; title: string; i
 export default function Home() {
   const lang = useLang();
   const t = getDict(lang);
+  // "Things I've built" tabs: redesigns of existing products vs. products built from zero
+  const kinds = ["redesign", "new"] as const;
+  const [kind, setKind] = useState<(typeof kinds)[number]>("redesign");
+  const built = t.play.items.filter((p) => p.kind === kind);
   const cards = [...t.work.items.map((w) => w.title), ...t.play.items.map((p) => p.name)];
   const row1 = cards.slice(0, 7);
   const row2 = cards.slice(7).concat(cards.slice(0, 4));
@@ -42,6 +48,7 @@ export default function Home() {
 
   return (
     <>
+      <ScrollProgress />
       <Header lang={lang} t={t} />
       <main id="main">
         {/* Hero */}
@@ -203,20 +210,42 @@ export default function Home() {
         {/* Independent products */}
         <section className={`${wrap} sec`}>
           <Head label={t.play.eyebrow} title={t.play.title} intro={t.play.intro} center />
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {t.play.items.map((p, i) => (
-              <li key={p.name} className="glass reveal relative p-5" style={st(i % 5)}>
-                <span className="flex items-center justify-between gap-2">
-                  <span className="label text-muted">{num(i)}</span>
-                  {/* Redesign of an existing product vs. designed and built from zero */}
-                  <span
-                    className={`rounded-full border px-2.5 py-1 text-[11px] font-medium leading-none ${
-                      p.kind === "redesign" ? "border-[var(--glass-line)] text-muted" : "border-accent/40 bg-accent-soft text-accent"
-                    }`}
-                  >
-                    {t.play.kinds[p.kind as "redesign" | "new"]}
-                  </span>
+          {/* Tabs (ARIA tabs pattern: arrow keys move between them) */}
+          <div
+            role="tablist"
+            aria-label={t.play.eyebrow}
+            className="reveal mx-auto -mt-2 mb-8 flex w-fit rounded-full border border-[var(--glass-line)] bg-[var(--glass)] p-1 backdrop-blur"
+            onKeyDown={(e) => {
+              if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+              const next = kind === "redesign" ? "new" : "redesign";
+              setKind(next);
+              document.getElementById(`tab-${next}`)?.focus();
+            }}
+          >
+            {kinds.map((k) => (
+              <button
+                key={k}
+                id={`tab-${k}`}
+                role="tab"
+                type="button"
+                aria-selected={kind === k}
+                aria-controls="built-panel"
+                tabIndex={kind === k ? 0 : -1}
+                onClick={() => setKind(k)}
+                className="inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-sm font-medium text-muted transition-colors hover:text-fg aria-selected:bg-accent aria-selected:text-on-accent"
+              >
+                {t.play.kinds[k]}
+                <span className="label rounded-full bg-[var(--glass)] px-2 py-0.5 text-[11px] leading-none">
+                  {t.play.items.filter((p) => p.kind === k).length}
                 </span>
+              </button>
+            ))}
+          </div>
+          <ul id="built-panel" role="tabpanel" aria-labelledby={`tab-${kind}`} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {built.map((p, i) => (
+              // key includes the tab, so switching tabs replays the staggered rise
+              <li key={kind + p.name} className="glass rise relative p-5" style={st(i)}>
+                <span className="label text-muted">{num(i)}</span>
                 {"lockup" in p && p.lockup === "confmanage" && <ConfManageMark className="mt-4" />}
                 {"logo" in p && p.logo && (
                   <>
