@@ -204,8 +204,8 @@
   "play": {
     "view": "View screens",
     "screen": "screen",
-    "title": "Things I've *built*",
-    "intro": "Products I built from zero, and existing ones I redesigned end to end, in React and React Native.",
+    "title": "Products I *shipped*",
+    "intro": "Designed from zero or fully redesigned, then shipped as working products: fully interactive, with the front-end code built by me in React and React Native.",
     "items": [
       {
         "name": "Shamat website",
@@ -273,7 +273,7 @@
         "kind": "redesign"
       }
     ],
-    "eyebrow": "Side projects",
+    "eyebrow": "Designed + coded",
     "kinds": {
       "redesign": "Redesign",
       "new": "Built from zero"
