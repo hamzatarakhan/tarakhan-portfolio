@@ -210,12 +210,18 @@
       {
         "name": "موقع شامات",
         "tag": "موقع مصحف بالعربية والإنجليزية",
-        "kind": "redesign"
+        "kind": "redesign",
+        "logo": "/clients/shamat-logo",
+        "tall": true,
+        "showName": true
       },
       {
         "name": "تطبيق شامات",
         "tag": "تطبيق مصحف للجوال",
-        "kind": "new"
+        "kind": "new",
+        "logo": "/clients/shamat-logo",
+        "tall": true,
+        "showName": true
       },
       {
         "name": "Flowance",
@@ -229,16 +235,19 @@
       },
       {
         "name": "U CAN",
-        "lockup": "ucan",
         "shots": 11,
         "tag": "تتبّع التمارين",
         "kind": "redesign",
-        "before": 6
+        "before": 6,
+        "shotsId": "ucan",
+        "logo": "/clients/ucan-logo-original",
+        "tall": true
       },
       {
         "name": "Fit Band",
         "tag": "تطبيق مرافق لسوار اللياقة",
-        "kind": "new"
+        "kind": "new",
+        "logo": "/clients/fitband-logo"
       },
       {
         "name": "ConfManage",

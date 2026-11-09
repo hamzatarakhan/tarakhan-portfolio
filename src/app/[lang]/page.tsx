@@ -221,30 +221,20 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   </span>
                 </span>
                 {"lockup" in p && p.lockup === "confmanage" && <ConfManageMark className="mt-4" />}
-                {"lockup" in p && p.lockup === "ucan" && (
-                  // U CAN's own lockup (as on u-cangym.com): heavy red U, bold CAN, spaced FITNESS
-                  <span aria-hidden className="mt-4 block w-fit font-[family-name:var(--font-inter-tight)] leading-none" dir="ltr">
-                    <span className="flex items-baseline gap-1">
-                      <span className="text-[2rem] font-black text-[#ef4343]">U</span>
-                      <span className="text-2xl font-bold">CAN</span>
-                    </span>
-                    <span className="mt-1 block text-[10px] tracking-[0.3em] text-muted">FITNESS</span>
-                  </span>
-                )}
                 {"logo" in p && p.logo && (
                   <>
                     {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
-                    <img src={`${p.logo}-light.svg`} alt="" className="logo-on-light mt-4 h-10 w-auto" />
+                    <img src={`${p.logo}-light.svg`} alt="" className={`logo-on-light mt-4 w-auto ${"tall" in p ? "h-24" : "h-10"}`} />
                     {/* eslint-disable-next-line @next/next/no-img-element -- small project logo, light/dark artwork */}
-                    <img src={`${p.logo}-dark.svg`} alt="" className="logo-on-dark mt-4 h-10 w-auto" />
+                    <img src={`${p.logo}-dark.svg`} alt="" className={`logo-on-dark mt-4 w-auto ${"tall" in p ? "h-24" : "h-10"}`} />
                   </>
                 )}
-                {/* The logo already shows the name; keep it for screen readers only */}
-                <p className={("logo" in p && p.logo) || "lockup" in p ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
+                {/* The logo already shows the name: keep it for screen readers only, unless two cards share a logo (Shamat) */}
+                <p className={"showName" in p ? "display mt-3 text-xl font-medium" : ("logo" in p && p.logo) || "lockup" in p ? "sr-only" : "display mt-6 text-xl font-medium"}>{p.name}</p>
                 <p className="mt-1 text-sm text-muted">{p.tag}</p>
-                {"shots" in p && p.shots && "lockup" in p && (
+                {"shots" in p && p.shots && "shotsId" in p && (
                   <ProductShots
-                    id={p.lockup}
+                    id={p.shotsId}
                     name={p.name}
                     count={p.shots}
                     before={"before" in p ? p.before : 0}

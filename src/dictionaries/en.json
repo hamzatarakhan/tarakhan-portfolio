@@ -210,12 +210,18 @@
       {
         "name": "Shamat website",
         "tag": "Mushaf website, Arabic / English",
-        "kind": "redesign"
+        "kind": "redesign",
+        "logo": "/clients/shamat-logo",
+        "tall": true,
+        "showName": true
       },
       {
         "name": "Shamat app",
         "tag": "Mushaf mobile app",
-        "kind": "new"
+        "kind": "new",
+        "logo": "/clients/shamat-logo",
+        "tall": true,
+        "showName": true
       },
       {
         "name": "Flowance",
@@ -229,16 +235,19 @@
       },
       {
         "name": "U CAN",
-        "lockup": "ucan",
         "shots": 11,
         "tag": "Gym tracking",
         "kind": "redesign",
-        "before": 6
+        "before": 6,
+        "shotsId": "ucan",
+        "logo": "/clients/ucan-logo-original",
+        "tall": true
       },
       {
         "name": "Fit Band",
         "tag": "Fitness wearable companion",
-        "kind": "new"
+        "kind": "new",
+        "logo": "/clients/fitband-logo"
       },
       {
         "name": "ConfManage",
