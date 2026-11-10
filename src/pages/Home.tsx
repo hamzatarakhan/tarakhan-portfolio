@@ -12,6 +12,7 @@ import { OrbitPortrait } from "@/components/OrbitPortrait";
 import { Testimonials, type Testimonial } from "@/components/Testimonials";
 import { ProductShots } from "@/components/ProductShots";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { CaseCover } from "@/components/CaseCover";
 import { CV_URL, whatsappLink } from "@/lib/contact";
 import "@/styles/steps.css";
 
@@ -129,7 +130,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {t.work.items.map((w, i) => (
               <Link key={w.slug} to={`/${lang}/work/${w.slug}`} className="glass reveal group block overflow-hidden p-4 hover:-translate-y-1" style={st(i % 2)}>
-                <Mock v={i} className="!rounded-2xl h-56 sm:h-64 transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]" />
+                <CaseCover slug={w.slug} className="h-56 sm:h-64 transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]" />
                 <div className="p-3 pt-6">
                   <p className="label text-accent">{w.role}</p>
                   <h3 className="display mt-2 flex items-center justify-between gap-4 text-2xl font-medium lg:text-3xl">
@@ -274,7 +275,7 @@ export default function Home() {
         {/* Capabilities */}
         <section className={`${wrap} sec`}>
           <Head label={t.skills.eyebrow} title={t.skills.title} intro={t.skills.intro} center />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {t.skills.groups.map((g, i) => (
               <div key={g.name} className="glass reveal p-6" style={st(i % 3)}>
                 <h3 className="label text-accent">{g.name}</h3>

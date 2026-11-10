@@ -26,11 +26,11 @@
     "eyebrow": "Based in Amman · Working remotely worldwide",
     "name": "Hamza Tarakhan",
     "headline": "I turn complex products into *clear* experiences people *actually finish.*",
-    "sub": "Senior product designer for telecom, fintech and enterprise teams. I design the UX, build the design system, and can ship the front end, in English and Arabic.",
+    "sub": "Senior product designer and design team lead. I design your product, build the design system behind it and code the front end, from first idea to a working app, in English and Arabic.",
     "cta1": "See case studies",
     "cta2": "Work with me",
     "skinsLabel": "Try the system",
-    "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs on five.",
+    "skinsCaption": "This is how I build systems: one set of components, many brands. My telecom platform runs five operators on one.",
     "ctaProject": "Start a project",
     "tags": [
       "Idea → live product",
@@ -50,17 +50,17 @@
       {
         "n": 5,
         "suffix": "",
-        "label": "telecom brands on one design system"
+        "label": "telecom operators on one design system"
       },
       {
-        "n": 200,
-        "suffix": "+",
-        "label": "screens designed for SalesPoint"
+        "n": 10,
+        "suffix": "",
+        "label": "products designed and shipped as working code"
       },
       {
-        "n": 9,
-        "suffix": "+",
-        "label": "products shipped end to end"
+        "n": 2,
+        "suffix": "",
+        "label": "languages in every product: Arabic and English"
       }
     ],
     "brandsLabel": "Designed for",
@@ -80,35 +80,35 @@
     "items": [
       {
         "slug": "salespoint",
-        "title": "SalesPoint: dealer platform",
-        "outcome": "Turned KYC, SIM activation, billing and wallets into clear flows that dealers use all day.",
+        "title": "Telecom dealer platform",
+        "outcome": "KYC, SIM activation, billing, wallets and a full commission engine, turned into clear flows that dealers of Ooredoo, stc, Omantel and more use all day.",
         "role": "UX lead",
         "tags": [
           "Telecom",
           "Enterprise UX",
-          "A/B testing"
+          "Commission engine"
         ]
       },
       {
         "slug": "salespoint-design-system",
-        "title": "SalesPoint design system",
-        "outcome": "One design system behind five telecom brands. New operators launch on existing components, not new designs.",
-        "role": "Design system owner",
+        "title": "Multi-brand design system",
+        "outcome": "One system for five operators, and two brands in one app (FRiENDi mobile and Virgin Mobile): light and dark, Arabic and English, per-brand fonts.",
+        "role": "Design system owner · team lead",
         "tags": [
           "Tokens",
-          "Governance",
+          "Multi-brand",
           "RTL"
         ]
       },
       {
         "slug": "shamat",
         "title": "Shamat",
-        "outcome": "An Arabic-first Mushaf reading app, designed to feel natural in both languages. In development.",
-        "role": "Product designer",
+        "outcome": "Arabic-first Quran reading. The website redesigned and live, the mobile app built from zero, both with my own front-end code.",
+        "role": "Designer + developer",
         "tags": [
           "Arabic typography",
           "RTL-first",
-          "Mobile"
+          "React Native"
         ]
       },
       {
@@ -176,27 +176,27 @@
       {
         "name": "Discover",
         "body": "Understand your users, business rules and constraints before drawing anything.",
-        "example": "SalesPoint: mapped KYC, activation and approval rules across roles and operators."
+        "example": "Telecom platform: workshops with each operator to map KYC, activation and approval rules."
       },
       {
         "name": "Define",
         "body": "Turn what we learn into a clear problem, user flows and structure.",
-        "example": "Multi-stage, role-based approvals reduced to flows each role can follow."
+        "example": "Flowance: one question, 'how much do I have left?', shaped the whole home screen."
       },
       {
         "name": "Design",
         "body": "From wireframes to polished UI, built on a system so it stays consistent.",
-        "example": "200+ screens on shared components and tokens."
+        "example": "Shamat: an Arabic-first reading layout with a dedicated Quran typeface."
       },
       {
         "name": "Test",
         "body": "Compare options side by side and choose with evidence, not opinion.",
-        "example": "12 competing variants tested: 5 activation flows, 5 credit-limit patterns, 2 migration models."
+        "example": "Telecom platform: competing activation flows compared side by side before building."
       },
       {
         "name": "Build & hand off",
         "body": "Hand over specs, tokens and components, or build the front end myself.",
-        "example": "Components reviewed and approved before they enter the library."
+        "example": "U CAN: redesigned and shipped as a working app with my own front-end code."
       }
     ],
     "eyebrow": "Process"
@@ -284,7 +284,7 @@
   },
   "about": {
     "title": "A designer who *ships*",
-    "body": "I'm Hamza, a senior product designer at Leading Point Software. I lead the UX and the design system behind SalesPoint, used by five telecom operators, and I build what I design in React.",
+    "body": "I'm Hamza, a senior product designer and design team lead at Leading Point Software in Amman. I lead the UX and the design system behind a dealer platform used by five telecom operators, freelance on products like ConfManage, and build what I design in React.",
     "cta": "Read my story"
   },
   "contact": {
@@ -347,17 +347,19 @@
   "aboutPage": {
     "title": "About",
     "intro": [
-      "I'm Hamza, a senior UI/UX and product designer in Amman, Jordan. I've spent four years making complex telecom platforms simple enough for daily, high-volume use.",
-      "I own the UX and the design system of SalesPoint, one dealer platform running across five operators. I also build what I design, in React and React Native, and use AI tools to get from concept to a near-production prototype quickly."
+      "I'm Hamza, a senior UI/UX and product designer and design team lead in Amman, Jordan. For four years I've turned complex business, like telecom KYC, approvals and a full commission engine, into products people use every day.",
+      "I own a design system that runs five operators and two brands in one app, in light and dark, Arabic and English. I also build what I design: fully interactive prototypes in Figma and Claude Code, and web and mobile apps from zero to deployment in React and React Native."
     ],
-    "photo": "{{TODO: photo}}",
+    "photo": "Portrait of Hamza Tarakhan",
     "how": {
       "title": "How I think",
       "items": [
-        "Systems before screens: one set of components that adapts to many brands.",
-        "Make the complex simple: clear flows for KYC, activation, billing and approvals.",
-        "Decide with evidence: I compare variants side by side.",
-        "Lead through standards: design-system governance and review before components enter the library."
+        "Systems before screens: one set of components that adapts to many brands, modes and languages.",
+        "Business first: I write clear requirements and agree them with the client before drawing a screen.",
+        "Decide with evidence: I compare options side by side and test before building.",
+        "Close to the client: meetings, feature presentations, follow-up and feedback until users are happy with the flows.",
+        "Lead through standards: I manage the design team and resources, and review components before they enter the library.",
+        "Ship it for real: interactive prototypes, then working front-end code, not only Figma files."
       ]
     },
     "timeline": {
@@ -365,15 +367,21 @@
       "items": [
         {
           "when": "Oct 2022 – now",
-          "role": "Senior UI/UX Designer",
+          "role": "Senior UI/UX Designer & Design Team Lead",
           "org": "Leading Point Software",
-          "body": "Promoted from UI/UX Designer. UX and design system owner for SalesPoint; design-system governance; coordinating design priorities across the team."
+          "body": "Lead the design team and its resources. Design system owner for a dealer platform used by five telecom operators, including Beyond ONE's two brands (FRiENDi mobile and Virgin Mobile) in light and dark, Arabic and English, with per-brand fonts. UX for complex business like the commission engine, KYC and approvals. Client meetings, feature presentations and feedback follow-up, including on-site visits."
         },
         {
-          "when": "{{TODO: dates}}",
+          "when": "Freelance · alongside",
+          "role": "Product Designer & Developer",
+          "org": "ConfManage",
+          "body": "Designed and built the conference management platform end to end: the attendee portal and the admin back end, from first wireframes to deployment."
+        },
+        {
+          "when": "2021 – Oct 2022",
           "role": "UI/UX Designer",
           "org": "Leading Point Software",
-          "body": "{{TODO: what you worked on before promotion}}"
+          "body": "Designed core dealer flows (KYC, SIM activation, billing) and built the first shared component library that grew into the design system. Promoted to senior in October 2022."
         }
       ]
     },
@@ -390,7 +398,7 @@
       "items": [
         "Figma, FigJam, Jira, Azure DevOps",
         "HTML, CSS, Tailwind, React, React Native",
-        "Claude, Cursor, Figma Make, Lovable, MCP",
+        "Claude, Claude Code, Cursor, Figma Make, Lovable, MCP",
         "Arabic (native), English (professional)"
       ]
     }
@@ -451,7 +459,7 @@
     "items": [
       [
         "Framework",
-        "Next.js (App Router) and TypeScript"
+        "Vite, React, TypeScript and React Router, with shadcn/ui conventions"
       ],
       [
         "Styling",
@@ -475,7 +483,7 @@
       ],
       [
         "Hosting",
-        "{{TODO: Vercel}}"
+        "Vercel, deployed automatically from GitHub"
       ]
     ],
     "system": "See the design system"
@@ -502,11 +510,11 @@
       ],
       [
         "Works with",
-        "Clients worldwide, remotely"
+        "Clients worldwide, remotely and on site"
       ],
       [
         "Experience",
-        "4+ years · Senior since 2022"
+        "4+ years · Senior & team lead since 2022"
       ],
       [
         "Languages",
@@ -514,7 +522,7 @@
       ],
       [
         "Best at",
-        "Complex flows, design systems, RTL"
+        "Complex business flows, design systems, Arabic/RTL, design + code"
       ],
       [
         "Available for",
@@ -527,23 +535,23 @@
     "items": [
       {
         "t": "Systems that scale with you",
-        "b": "SalesPoint runs across five operators on one system, with light and dark themes, Arabic and English, and brand switching. Each new operator launched on existing components."
+        "b": "My telecom design system runs five operators and two brands in one app, in light and dark, Arabic and English. Every new brand launched on existing components."
       },
       {
-        "t": "Complex made simple",
-        "b": "KYC, SIM activation (physical and eSIM), billing, ownership transfer, wallets, commissions and multi-stage approvals, turned into clear flows for daily use."
+        "t": "Complex business made clear",
+        "b": "From a telecom commission engine to multi-stage approvals and KYC, I turn complex business into flows people finish without help."
       },
       {
         "t": "Decisions backed by evidence",
-        "b": "I don't guess. I tested 12 competing variants side by side: 5 activation flows, 5 credit-limit patterns and 2 migration models."
+        "b": "I don't guess. I compare options side by side with the business and with users, and test before anything is built."
       },
       {
         "t": "Design that ships as code",
-        "b": "I've shipped 9+ apps end to end in React and React Native, and use AI tools to get from idea to a near-production prototype fast."
+        "b": "10 products designed and shipped with my own front-end code in React and React Native. I prototype in Figma and Claude Code, so you click through the real thing before it's built."
       },
       {
-        "t": "Senior ownership",
-        "b": "I run design-system governance, set the standards other designers build on, and coordinate design priorities across the team."
+        "t": "Senior ownership, close to the client",
+        "b": "I lead a design team, own the design system, run client meetings and feature presentations, follow up on feedback and make sure what we ship meets the customer's needs."
       }
     ],
     "eyebrow": "Why me",
@@ -553,10 +561,11 @@
     "title": "Skills & *tools*",
     "groups": [
       {
-        "name": "Research & strategy",
+        "name": "Business & strategy",
         "items": [
+          "Business understanding",
+          "Writing clear requirements",
           "User research",
-          "Requirements analysis",
           "User flows",
           "Information architecture"
         ]
@@ -564,20 +573,35 @@
       {
         "name": "Design",
         "items": [
+          "Sketching",
           "Wireframing",
-          "Interaction design",
           "High-fidelity UI",
-          "Interactive prototyping",
+          "Interaction design",
           "UX writing",
-          "Dashboard & enterprise UX"
+          "Motion & animation",
+          "3D icons"
         ]
       },
       {
-        "name": "Systems",
+        "name": "Prototyping & AI",
         "items": [
-          "Design tokens",
+          "Fully interactive prototypes",
+          "Figma + Claude Code",
+          "AI-powered workflows",
+          "Claude",
+          "Cursor",
+          "Lovable",
+          "MCP"
+        ]
+      },
+      {
+        "name": "Design systems",
+        "items": [
+          "Design system ownership",
           "Multi-brand theming",
-          "RTL systems",
+          "Light & dark modes",
+          "Arabic & English (RTL)",
+          "Multiple type systems",
           "Governance"
         ]
       },
@@ -588,24 +612,24 @@
           "CSS",
           "Tailwind",
           "React",
-          "React Native"
+          "React Native",
+          "Zero-to-deploy web apps"
         ]
       },
       {
-        "name": "Tools",
+        "name": "Leadership & clients",
         "items": [
-          "Figma",
-          "FigJam",
-          "Jira",
-          "Azure DevOps",
-          "Claude",
-          "Cursor",
-          "Lovable"
+          "Design team leadership",
+          "Resource management",
+          "Client meetings",
+          "Feature presentations",
+          "Feedback follow-up",
+          "On-site client visits"
         ]
       }
     ],
     "eyebrow": "Capabilities",
-    "intro": "Everything I use to take a product from research to release."
+    "intro": "Everything I use to take a product from a business idea to a shipped release."
   },
   "testimonials": {
     "eyebrow": "Testimonials",
