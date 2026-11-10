@@ -107,7 +107,7 @@
   }
 }
 .orbit {
-  animation: orbit-spin 60s linear infinite;
+  animation: orbit-spin 140s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .orbit {
