@@ -23,7 +23,7 @@ export const cases: Case[] = [
     en: {
       title: "SalesPoint: dealer app & portal for five telecom operators",
       tldr: {
-        problem: "Dealers of Ooredoo, stc, Omantel, Awasr and Beyond ONE run complex telecom operations all day, and every operator and brand needed the product to feel like its own.",
+        problem: "SalesPoint is the core dealer product, cloned and branded for each operator. Dealers of Ooredoo, stc, Beyond ONE, Awasr and Starlink run complex telecom operations on it all day, and every operator and brand needed it to feel like its own.",
         role: "UX lead, design system owner and design team lead",
         team: "Product owner, business analysts, the design team I lead, front-end, back-end and QA",
         timeline: "2022 – today, shipping in releases",
@@ -31,7 +31,7 @@ export const cases: Case[] = [
         outcome: "Complex telecom operations, including a full commission engine, turned into clear daily flows on one design system that switches brand, mode, language and fonts.",
       },
       problem: [
-        "SalesPoint is the dealer app and web portal that dealers of five telecom operators use every day: KYC and identity checks, SIM activation (physical and eSIM), billing, ownership transfer, wallets, and the commission engine that pays them.",
+        "SalesPoint is the core: one dealer app and web portal. From it we built a branded clone for each operator: stc, Beyond ONE (with two brands, FRiENDi mobile and Virgin Mobile), Awasr and Starlink, alongside Ooredoo. Dealers use it every day for KYC and identity checks, SIM activation (physical and eSIM), billing, ownership transfer, wallets, and the commission engine that pays them.",
         "Many of these flows go through multi-stage, role-based approvals, and every operator has its own rules. The job: make all of it clear enough for people who do it hundreds of times a day, often at a busy counter with a customer waiting.",
         "And one product had to look native for every brand. Beyond ONE alone runs two brands, FRiENDi mobile and Virgin Mobile, in the same app. Every screen works in light and dark, Arabic and English, and each brand has its own Arabic font and its own English font.",
         "Constraints: telecom regulation and KYC rules, existing back-end systems we had to design around, and dealers on everything from desktop browsers to mid-range phones.",
@@ -71,7 +71,7 @@ export const cases: Case[] = [
       solution: "Two illustrative rebuilds. First, the SIM activation flow with its physical and eSIM paths. Then the token system behind the brands, built the same way as this site: primitive values, semantic roles, components. Switch the brand skin and watch the values change while the components stay the same. Simplified demos, not real data or the production screens.",
       impact: [
         "Dealers complete KYC, activation, billing, wallet and commission tasks through one consistent set of flows, in the app and the portal.",
-        "Every new operator and brand launched on existing components instead of a new design.",
+        "Every operator's clone, from stc and Beyond ONE to Awasr and Starlink, launched from the SalesPoint core on existing components instead of a new design.",
         "Brand, mode, language and fonts switch through tokens, so one change reaches every brand.",
         "Key flows were chosen through side-by-side testing with the business, not opinion, and I followed each release with client feedback sessions to check the flows worked for real users.",
       ],
@@ -84,7 +84,7 @@ export const cases: Case[] = [
     ar: {
       title: "SalesPoint: تطبيق وبوابة الموزّعين لخمس شركات اتصالات",
       tldr: {
-        problem: "يُنجز موزّعو Ooredoo وstc وOmantel وAwasr وBeyond ONE عمليات اتصالات معقّدة طوال اليوم، وكانت كل شركة وعلامة تحتاج أن يبدو المنتج منتجها هي.",
+        problem: "SalesPoint هو المنتج الأساسي للموزّعين، ومنه نسخة بعلامة كل شركة. يُنجز عليه موزّعو Ooredoo وstc وBeyond ONE وAwasr وStarlink عمليات اتصالات معقّدة طوال اليوم، وكانت كل شركة وعلامة تحتاج أن يبدو منتجها هي.",
         role: "قيادة تجربة المستخدم، ومالك نظام التصميم، وقائد فريق التصميم",
         team: "مالك المنتج، ومحللو الأعمال، وفريق التصميم الذي أقوده، وفرق الواجهة الأمامية والخلفية والجودة",
         timeline: "من 2022 حتى اليوم، بإصدارات متتالية",
@@ -92,7 +92,7 @@ export const cases: Case[] = [
         outcome: "عمليات اتصالات معقّدة، منها محرّك عمولات كامل، تحولت إلى مسارات يومية واضحة على نظام تصميم واحد يبدّل العلامة والوضع واللغة والخطوط.",
       },
       problem: [
-        "SalesPoint هو تطبيق وبوابة الويب التي يستخدمها موزّعو خمس شركات اتصالات يومياً: التحقق من الهوية، وتفعيل الشرائح (المادية وeSIM)، والفوترة، ونقل الملكية، والمحافظ، ومحرّك العمولات الذي يحسب مستحقاتهم.",
+        "SalesPoint هو الأساس: تطبيق وبوابة ويب واحدة للموزّعين. ومنه بنينا نسخة بعلامة كل شركة: stc، وBeyond ONE (بعلامتين: FRiENDi mobile وVirgin Mobile)، وAwasr، وStarlink، إلى جانب Ooredoo. يستخدمه الموزّعون يومياً في التحقق من الهوية، وتفعيل الشرائح (المادية وeSIM)، والفوترة، ونقل الملكية، والمحافظ، ومحرّك العمولات الذي يحسب مستحقاتهم.",
         "تمر كثير من هذه المسارات بموافقات متعددة المراحل حسب الدور، ولكل شركة قواعدها. المطلوب: جعل كل ذلك واضحاً لأشخاص يكررونه مئات المرات يومياً، غالباً على كاونتر مزدحم والعميل ينتظر.",
         "وكان على منتج واحد أن يبدو أصيلاً لكل علامة. Beyond ONE وحدها تشغّل علامتين، FRiENDi mobile وVirgin Mobile، على التطبيق نفسه. كل شاشة تعمل بالوضعين الفاتح والداكن، وبالعربية والإنجليزية، ولكل علامة خطها العربي وخطها الإنجليزي الخاص.",
         "القيود: تنظيمات الاتصالات وقواعد التحقق من الهوية، وأنظمة خلفية قائمة صمّمنا حولها، وموزّعون يعملون من متصفحات الكمبيوتر حتى الهواتف المتوسطة.",
@@ -132,7 +132,7 @@ export const cases: Case[] = [
       solution: "إعادتا بناء توضيحيتان. أولاً مسار تفعيل الشريحة بمساريه المادي وeSIM. ثم نظام الرموز خلف العلامات، مبني بالطريقة نفسها التي بُني بها هذا الموقع: قيم أولية، ثم أدوار دلالية، ثم مكوّنات. بدّل علامة السمة وراقب القيم تتغير بينما تبقى المكوّنات كما هي. نماذج مبسّطة، وليست بيانات حقيقية ولا شاشات الإنتاج.",
       impact: [
         "يُنجز الموزّعون التحقق من الهوية والتفعيل والفوترة والمحافظ والعمولات عبر مجموعة مسارات واحدة ومتسقة، في التطبيق والبوابة.",
-        "أُطلقت كل شركة وعلامة جديدة على مكوّنات قائمة بدل تصميم جديد.",
+        "أُطلقت نسخة كل شركة، من stc وBeyond ONE إلى Awasr وStarlink، من أساس SalesPoint على مكوّنات قائمة بدل تصميم جديد.",
         "تتبدّل العلامة والوضع واللغة والخطوط عبر الرموز، فيصل أي تعديل إلى كل العلامات.",
         "اختيرت المسارات الأساسية بالاختبار جنباً إلى جنب مع العميل لا بالرأي، وتابعت كل إصدار بجلسات ملاحظات مع العميل للتأكد أن المسارات تعمل للمستخدمين الحقيقيين.",
       ],

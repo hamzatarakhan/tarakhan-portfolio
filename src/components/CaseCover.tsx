@@ -4,7 +4,7 @@ const frame = "glass relative overflow-hidden !rounded-2xl";
 const operators = [
   { src: "/clients/ooredoo.svg", c: "#ed1c24", h: "h-5" },
   { src: "/clients/stc.svg", c: "#8a3ffc", h: "h-7", lift: true },
-  { src: "/clients/omantel.svg", c: "#5b4bff", h: "h-5", lift: true },
+  { src: "/clients/starlink.svg", c: "#c7197d", h: "h-9", lift: true },
   { src: "/clients/awasr.webp", c: "#17a39c", h: "h-7" },
   { src: "/clients/beyond-dark.svg", c: "#0076bf", h: "h-6" },
 ];

@@ -81,7 +81,7 @@
       {
         "slug": "salespoint",
         "title": "SalesPoint: dealer app & portal",
-        "outcome": "One product for dealers of Ooredoo, stc, Omantel, Awasr and Beyond ONE: KYC, SIM activation, billing, wallets and a full commission engine, on a multi-brand design system with light and dark, Arabic and English, and an Arabic + English font pair per brand.",
+        "outcome": "The core dealer product, cloned for each operator: Ooredoo, stc, Beyond ONE (FRiENDi mobile and Virgin Mobile), Awasr and Starlink. KYC, SIM activation, billing, wallets and a full commission engine, on a multi-brand design system with light and dark, Arabic and English, and an Arabic + English font pair per brand.",
         "role": "UX lead · design system owner · team lead",
         "tags": [
           "Telecom",
@@ -525,7 +525,7 @@
     "items": [
       {
         "t": "Systems that scale with you",
-        "b": "The SalesPoint design system runs five operators and two brands in one app, in light and dark, Arabic and English. Every new brand launched on existing components."
+        "b": "SalesPoint is the core behind every operator's clone: stc, Beyond ONE (two brands in one app), Awasr and Starlink, in light and dark, Arabic and English. Each clone launched on existing components."
       },
       {
         "t": "Complex business made clear",
