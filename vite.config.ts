@@ -7,5 +7,7 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
-  server: { port: 8080, strictPort: true },
+  // Tools that assign a port (e.g. the Claude preview) pass it in PORT and get exactly that port.
+  // Otherwise 8080, or the next free port if another app already uses it (Vite prints the URL).
+  server: { port: Number(process.env.PORT) || 8080, strictPort: !!process.env.PORT },
 });
