@@ -129,8 +129,8 @@ export default function Home() {
           <Head label={t.work.eyebrow} title={t.work.title} intro={t.work.intro} center />
           <div className="grid gap-6 md:grid-cols-2">
             {t.work.items.map((w, i) => (
-              <Link key={w.slug} to={`/${lang}/work/${w.slug}`} className="glass reveal group block overflow-hidden p-4 hover:-translate-y-1" style={st(i % 2)}>
-                <CaseCover slug={w.slug} className="h-56 sm:h-64 transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]" />
+              <Link key={w.slug} to={`/${lang}/work/${w.slug}`} className={`glass reveal group block overflow-hidden p-4 hover:-translate-y-1 ${i === 0 ? "md:col-span-2" : ""}`} style={st(i % 2)}>
+                <CaseCover slug={w.slug} className={`${i === 0 ? "h-60 sm:h-72" : "h-56 sm:h-64"} transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] group-hover:scale-[1.02]`} />
                 <div className="p-3 pt-6">
                   <p className="label text-accent">{w.role}</p>
                   <h3 className="display mt-2 flex items-center justify-between gap-4 text-2xl font-medium lg:text-3xl">

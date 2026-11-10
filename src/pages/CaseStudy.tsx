@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { getDict, useLang } from "@/lib/i18n";
 import { setMeta } from "@/lib/meta";
 import NotFound from "./NotFound";
@@ -17,16 +17,20 @@ export default function CaseStudy() {
   const lang = useLang();
   const { slug = "" } = useParams();
   const idx = cases.findIndex((x) => x.slug === slug);
+  // The design system used to be its own case; it is part of SalesPoint now.
+  const moved = slug === "salespoint-design-system";
   useEffect(() => {
     if (idx >= 0) setMeta(`${cases[idx][lang].title} — Hamza Tarakhan`, cases[idx][lang].tldr.problem);
   }, [idx, lang]);
+  if (moved) return <Navigate to={`/${lang}/work/salespoint`} replace />;
   if (idx < 0) return <NotFound />;
   const t = getDict(lang);
   const k = t.case;
   const c = cases[idx][lang];
   const nextCase = cases[(idx + 1) % cases.length];
   const toc = (["problem", "found", "decisions", "solution", "impact", "next"] as const).map((id, n) => [id, k.sections[id], n] as const);
-  const Demo = { activation: ActivationDemo, tokens: TokenDiagram, reader: ReaderDemo, ledger: LedgerDemo }[cases[idx].artifact];
+  const demoOf = { activation: ActivationDemo, tokens: TokenDiagram, reader: ReaderDemo, ledger: LedgerDemo };
+  const demos = [cases[idx].artifact].flat().map((a) => [a, demoOf[a]] as const);
   const tl = [["role", c.tldr.role], ["team", c.tldr.team], ["timeline", c.tldr.timeline], ["platform", c.tldr.platform]] as const;
   const sec = (id: (typeof toc)[number][0], n: number) => (
     <div className="mb-6 flex items-center gap-3">
@@ -92,7 +96,11 @@ export default function CaseStudy() {
               {sec("solution", 3)}
               <p className="mb-6 max-w-prose text-lg text-muted">{c.solution}</p>
               <p className="label mb-3 inline-flex items-center gap-2 text-accent"><span className="pulse relative size-2 rounded-full bg-accent" aria-hidden />{k.demo}</p>
-              <Demo lang={lang} />
+              <div className="space-y-8">
+                {demos.map(([a, Demo]) => (
+                  <Demo key={a} lang={lang} />
+                ))}
+              </div>
             </section>
 
             <section className="reveal">

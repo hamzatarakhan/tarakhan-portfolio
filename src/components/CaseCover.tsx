@@ -76,9 +76,9 @@ function Shamat() {
   return (
     <div className="relative grid h-full grid-cols-[auto_1fr] items-center gap-5 px-2">
       <div aria-hidden className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#8b1d1c]/40 via-transparent to-[#caa34c]/25" />
-      <img src="/clients/shamat-logo-dark.svg" alt="" className="relative h-40 w-auto" />
-      <div className="relative rounded-xl border border-[#caa34c]/30 bg-bg/60 p-4 text-center" dir="rtl" lang="ar">
-        <p className="text-xl leading-loose" style={{ fontFamily: "var(--font-quran), var(--font-plex-arabic), serif" }}>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</p>
+      <img src="/clients/shamat-logo-dark.svg" alt="" className="relative h-28 w-auto sm:h-36" />
+      <div className="relative min-w-0 rounded-xl border border-[#caa34c]/30 bg-bg/60 p-3 text-center" dir="rtl" lang="ar">
+        <p className="whitespace-nowrap text-base leading-loose sm:text-lg" style={{ fontFamily: "var(--font-quran), var(--font-plex-arabic), serif" }}>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</p>
         <div className="mt-3 flex justify-center gap-1.5">
           {["Aa", "A+", "۞"].map((k) => (
             <span key={k} className="rounded-md border border-[#caa34c]/40 px-2 py-0.5 text-[10px] text-[#e2b655]">{k}</span>
@@ -91,10 +91,10 @@ function Shamat() {
 
 function Flowance() {
   return (
-    <div className="grid h-full grid-cols-[1fr_1fr] gap-3">
+    <div className="grid h-full grid-cols-[1fr_1.1fr] gap-2.5">
       <div className="flex flex-col justify-between rounded-xl bg-gradient-to-br from-[#34d399]/30 to-[#60a5fa]/10 p-4">
         <p className="label text-muted">Left this month</p>
-        <p className="display text-3xl font-semibold tabular-nums">$1,240</p>
+        <p className="display text-2xl font-semibold tabular-nums">$1,240</p>
         <div className="flex h-12 items-end gap-1">
           {[45, 70, 55, 90, 60, 80, 65].map((h, i) => (
             <span key={i} className="flex-1 rounded-sm bg-[#34d399]" style={{ height: `${h}%`, opacity: 0.45 + i * 0.07 }} />
@@ -103,9 +103,9 @@ function Flowance() {
       </div>
       <ul className="flex flex-col justify-center gap-2 text-xs">
         {[["Salary", "+2,400", "#34d399"], ["Groceries", "−86", "#f472b6"], ["Transport", "−24", "#f5a524"], ["Coffee", "−4", "#a78bfa"]].map(([k, v, c]) => (
-          <li key={k} className="flex items-center gap-2 rounded-lg border border-[var(--glass-line)] bg-bg/50 px-2.5 py-2">
+          <li key={k} className="flex min-w-0 items-center gap-1.5 rounded-lg border border-[var(--glass-line)] bg-bg/50 px-2 py-1.5 text-[11px]">
             <span className="size-2 rounded-full" style={{ background: c }} />
-            <span className="flex-1">{k}</span>
+            <span className="min-w-0 flex-1 truncate">{k}</span>
             <span className="tabular-nums" style={{ color: c }}>{v}</span>
           </li>
         ))}
@@ -114,9 +114,20 @@ function Flowance() {
   );
 }
 
+// SalesPoint: the operators and commission engine, next to the multi-brand system (from md up)
+function SalesPoint() {
+  return (
+    <div className="grid h-full gap-3 md:grid-cols-[1.25fr_1fr]">
+      <Telecom />
+      <div className="hidden md:block">
+        <System />
+      </div>
+    </div>
+  );
+}
+
 const covers: Record<string, () => React.ReactElement> = {
-  salespoint: Telecom,
-  "salespoint-design-system": System,
+  salespoint: SalesPoint,
   shamat: Shamat,
   flowance: Flowance,
 };

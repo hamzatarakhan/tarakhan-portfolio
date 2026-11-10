@@ -12,33 +12,35 @@ export type CaseBody = {
   impact: string[];
   next: string[];
 };
-export type Case = { slug: string; artifact: Artifact } & Record<Locale, CaseBody>;
+export type Case = { slug: string; artifact: Artifact | Artifact[] } & Record<Locale, CaseBody>;
 
-export const slugs = ["salespoint", "salespoint-design-system", "shamat", "flowance"] as const;
+export const slugs = ["salespoint", "shamat", "flowance"] as const;
 
 export const cases: Case[] = [
   {
     slug: "salespoint",
-    artifact: "activation",
+    artifact: ["activation", "tokens"],
     en: {
-      title: "Telecom dealer platform for five operators",
+      title: "SalesPoint: dealer app & portal for five telecom operators",
       tldr: {
-        problem: "Dealers for Ooredoo, stc, Omantel, Awasr and Beyond ONE run complex telecom operations all day, at high volume.",
-        role: "UX lead and design system owner",
+        problem: "Dealers of Ooredoo, stc, Omantel, Awasr and Beyond ONE run complex telecom operations all day, and every operator and brand needed the product to feel like its own.",
+        role: "UX lead, design system owner and design team lead",
         team: "Product owner, business analysts, the design team I lead, front-end, back-end and QA",
         timeline: "2022 – today, shipping in releases",
-        platform: "Web (responsive) and mobile app · 200+ screens",
-        outcome: "Complex telecom operations, including a full commission engine, turned into clear daily flows on one shared system.",
+        platform: "Dealer mobile app + web portal · one multi-brand design system · 200+ screens",
+        outcome: "Complex telecom operations, including a full commission engine, turned into clear daily flows on one design system that switches brand, mode, language and fonts.",
       },
       problem: [
-        "SalesPoint (the product's internal name) is the platform dealers of five telecom operators use every day: KYC and identity checks, SIM activation (physical and eSIM), billing, ownership transfer, wallets, and the commission engine that pays them.",
+        "SalesPoint is the dealer app and web portal that dealers of five telecom operators use every day: KYC and identity checks, SIM activation (physical and eSIM), billing, ownership transfer, wallets, and the commission engine that pays them.",
         "Many of these flows go through multi-stage, role-based approvals, and every operator has its own rules. The job: make all of it clear enough for people who do it hundreds of times a day, often at a busy counter with a customer waiting.",
+        "And one product had to look native for every brand. Beyond ONE alone runs two brands, FRiENDi mobile and Virgin Mobile, in the same app. Every screen works in light and dark, Arabic and English, and each brand has its own Arabic font and its own English font.",
         "Constraints: telecom regulation and KYC rules, existing back-end systems we had to design around, and dealers on everything from desktop browsers to mid-range phones.",
       ],
       found: [
         "Business rules change by role and by operator, so the flows had to carry those rules without showing them as complexity.",
         "I ran the discovery directly with the business: workshops and client meetings with each operator, walk-throughs of the existing processes, and requirements I wrote and agreed with them before any screen was drawn.",
-        "Three things stood out: dealers lose the most time on re-entering data after a rejection, commissions were the most disputed area because dealers couldn't see how they were calculated, and approval steps were invisible, so dealers didn't know who was holding a request.",
+        "Three things stood out: dealers lose the most time re-entering data after a rejection, commissions were the most disputed area because dealers couldn't see how they were calculated, and approval steps were invisible, so dealers didn't know who was holding a request.",
+        "On the design side, an audit showed the same components rebuilt with small differences per brand, colours hard-coded inside components, and RTL fixed screen by screen instead of in the system.",
       ],
       decisions: [
         {
@@ -59,37 +61,47 @@ export const cases: Case[] = [
           chose: "A visible approval timeline on every request (who has it, what's next), and credit limits shown as a live meter at the point of sale.",
           why: "Dealers and supervisors could see status without calling anyone, and the meter prevented sales that would have been rejected later.",
         },
+        {
+          title: "Brands, modes, languages and fonts through tokens",
+          options: "A separate Figma library per brand, a shared library with per-brand overrides, or one component set driven entirely by tokens.",
+          chose: "One shared component set where brand, light/dark, direction and each brand's Arabic + English type pair are all switched by tokens, with components reviewed before they enter the library.",
+          why: "One fix reaches every brand at once, it matches how engineers build themes in code, and Arabic is right from the first draft instead of mirrored at the end.",
+        },
       ],
-      solution: "Below is an illustrative rebuild of the SIM activation flow with the physical and eSIM paths. It is a simplified demo, not real data or the production screens.",
+      solution: "Two illustrative rebuilds. First, the SIM activation flow with its physical and eSIM paths. Then the token system behind the brands, built the same way as this site: primitive values, semantic roles, components. Switch the brand skin and watch the values change while the components stay the same. Simplified demos, not real data or the production screens.",
       impact: [
-        "Dealers complete KYC, activation, billing, wallet and commission tasks through one consistent set of flows.",
-        "Every new operator launched on the shared system instead of a new design.",
+        "Dealers complete KYC, activation, billing, wallet and commission tasks through one consistent set of flows, in the app and the portal.",
+        "Every new operator and brand launched on existing components instead of a new design.",
+        "Brand, mode, language and fonts switch through tokens, so one change reaches every brand.",
         "Key flows were chosen through side-by-side testing with the business, not opinion, and I followed each release with client feedback sessions to check the flows worked for real users.",
       ],
       next: [
         "Instrument the main flows with analytics so improvements can be measured release by release.",
         "Bring dealers into regular usability sessions, not only operator stakeholders.",
+        "Publish the tokens as a shared package so design and code update from one source automatically.",
       ],
     },
     ar: {
-      title: "منصة موزّعين لخمس شركات اتصالات",
+      title: "SalesPoint: تطبيق وبوابة الموزّعين لخمس شركات اتصالات",
       tldr: {
-        problem: "يُنجز موزّعو Ooredoo وstc وOmantel وAwasr وBeyond ONE عمليات اتصالات معقّدة طوال اليوم وبحجم كبير.",
-        role: "قيادة تجربة المستخدم ومالك نظام التصميم",
+        problem: "يُنجز موزّعو Ooredoo وstc وOmantel وAwasr وBeyond ONE عمليات اتصالات معقّدة طوال اليوم، وكانت كل شركة وعلامة تحتاج أن يبدو المنتج منتجها هي.",
+        role: "قيادة تجربة المستخدم، ومالك نظام التصميم، وقائد فريق التصميم",
         team: "مالك المنتج، ومحللو الأعمال، وفريق التصميم الذي أقوده، وفرق الواجهة الأمامية والخلفية والجودة",
         timeline: "من 2022 حتى اليوم، بإصدارات متتالية",
-        platform: "ويب متجاوب وتطبيق جوال · أكثر من 200 شاشة",
-        outcome: "عمليات اتصالات معقّدة، منها محرّك عمولات كامل، تحولت إلى مسارات يومية واضحة على نظام واحد مشترك.",
+        platform: "تطبيق جوال للموزّعين + بوابة ويب · نظام تصميم واحد متعدد العلامات · أكثر من 200 شاشة",
+        outcome: "عمليات اتصالات معقّدة، منها محرّك عمولات كامل، تحولت إلى مسارات يومية واضحة على نظام تصميم واحد يبدّل العلامة والوضع واللغة والخطوط.",
       },
       problem: [
-        "SalesPoint (الاسم الداخلي للمنتج) هي المنصة التي يستخدمها موزّعو خمس شركات اتصالات يومياً: التحقق من الهوية، وتفعيل الشرائح (المادية وeSIM)، والفوترة، ونقل الملكية، والمحافظ، ومحرّك العمولات الذي يحسب مستحقاتهم.",
+        "SalesPoint هو تطبيق وبوابة الويب التي يستخدمها موزّعو خمس شركات اتصالات يومياً: التحقق من الهوية، وتفعيل الشرائح (المادية وeSIM)، والفوترة، ونقل الملكية، والمحافظ، ومحرّك العمولات الذي يحسب مستحقاتهم.",
         "تمر كثير من هذه المسارات بموافقات متعددة المراحل حسب الدور، ولكل شركة قواعدها. المطلوب: جعل كل ذلك واضحاً لأشخاص يكررونه مئات المرات يومياً، غالباً على كاونتر مزدحم والعميل ينتظر.",
+        "وكان على منتج واحد أن يبدو أصيلاً لكل علامة. Beyond ONE وحدها تشغّل علامتين، FRiENDi mobile وVirgin Mobile، على التطبيق نفسه. كل شاشة تعمل بالوضعين الفاتح والداكن، وبالعربية والإنجليزية، ولكل علامة خطها العربي وخطها الإنجليزي الخاص.",
         "القيود: تنظيمات الاتصالات وقواعد التحقق من الهوية، وأنظمة خلفية قائمة صمّمنا حولها، وموزّعون يعملون من متصفحات الكمبيوتر حتى الهواتف المتوسطة.",
       ],
       found: [
         "تختلف قواعد العمل باختلاف الدور والشركة، فكان على المسارات أن تحمل هذه القواعد دون أن تُظهرها كتعقيد.",
         "أدرت مرحلة الاكتشاف مباشرة مع العميل: ورش عمل واجتماعات مع كل شركة، ومراجعة العمليات القائمة خطوة بخطوة، ومتطلبات كتبتها واتفقنا عليها قبل رسم أي شاشة.",
         "برزت ثلاث نقاط: أكثر وقت يضيع في إعادة إدخال البيانات بعد الرفض، والعمولات أكثر منطقة عليها اعتراضات لأن الموزّع لا يرى كيف حُسبت، وخطوات الموافقة كانت غير ظاهرة فلا يعرف الموزّع عند من يقف طلبه.",
+        "ومن جهة التصميم، أظهر التدقيق المكوّنات نفسها مُعاد بناؤها بفروقات صغيرة لكل علامة، وألواناً مثبّتة داخل المكوّنات، واتجاه RTL يُصلَح شاشة بشاشة بدل أن يكون في النظام.",
       ],
       decisions: [
         {
@@ -110,110 +122,25 @@ export const cases: Case[] = [
           chose: "خط زمني ظاهر للموافقة على كل طلب (عند من، وما الخطوة التالية)، والحد الائتماني كمؤشر حي في لحظة البيع.",
           why: "صار الموزّع والمشرف يريان الحالة دون اتصال بأحد، ومنع المؤشر عمليات بيع كانت سترفض لاحقاً.",
         },
+        {
+          title: "العلامات والأوضاع واللغات والخطوط عبر الرموز",
+          options: "مكتبة Figma منفصلة لكل علامة، أو مكتبة مشتركة مع تعديلات لكل علامة، أو مجموعة مكوّنات واحدة تحرّكها الرموز بالكامل.",
+          chose: "مجموعة مكوّنات واحدة تتبدّل فيها العلامة والوضع الفاتح/الداكن والاتجاه وزوج الخطوط العربي والإنجليزي لكل علامة عبر الرموز، مع مراجعة المكوّنات قبل دخولها المكتبة.",
+          why: "أي إصلاح يصل إلى كل العلامات دفعة واحدة، ويطابق طريقة بناء المطوّرين للثيمات في الكود، والعربية صحيحة من أول مسودة بدل أن تُعكس في النهاية.",
+        },
       ],
-      solution: "فيما يلي إعادة بناء توضيحية لمسار تفعيل شريحة بمساريه المادي وeSIM. هذا نموذج مبسّط، وليس بيانات حقيقية ولا شاشات الإنتاج.",
+      solution: "إعادتا بناء توضيحيتان. أولاً مسار تفعيل الشريحة بمساريه المادي وeSIM. ثم نظام الرموز خلف العلامات، مبني بالطريقة نفسها التي بُني بها هذا الموقع: قيم أولية، ثم أدوار دلالية، ثم مكوّنات. بدّل علامة السمة وراقب القيم تتغير بينما تبقى المكوّنات كما هي. نماذج مبسّطة، وليست بيانات حقيقية ولا شاشات الإنتاج.",
       impact: [
-        "يُنجز الموزّعون التحقق من الهوية والتفعيل والفوترة والمحافظ والعمولات عبر مجموعة مسارات واحدة ومتسقة.",
-        "أُطلقت كل شركة جديدة على النظام المشترك بدل تصميم جديد.",
+        "يُنجز الموزّعون التحقق من الهوية والتفعيل والفوترة والمحافظ والعمولات عبر مجموعة مسارات واحدة ومتسقة، في التطبيق والبوابة.",
+        "أُطلقت كل شركة وعلامة جديدة على مكوّنات قائمة بدل تصميم جديد.",
+        "تتبدّل العلامة والوضع واللغة والخطوط عبر الرموز، فيصل أي تعديل إلى كل العلامات.",
         "اختيرت المسارات الأساسية بالاختبار جنباً إلى جنب مع العميل لا بالرأي، وتابعت كل إصدار بجلسات ملاحظات مع العميل للتأكد أن المسارات تعمل للمستخدمين الحقيقيين.",
       ],
-      next: ["إضافة قياس للاستخدام على المسارات الأساسية حتى يُقاس كل تحسين من إصدار لإصدار.", "إشراك الموزّعين أنفسهم في جلسات اختبار دورية، لا ممثلي الشركات فقط."],
-    },
-  },
-  {
-    slug: "salespoint-design-system",
-    artifact: "tokens",
-    en: {
-      title: "Multi-brand design system: brands, modes and languages in one app",
-      tldr: {
-        problem: "One product had to look native for every brand, in light and dark, Arabic and English, with different fonts, without separate designs.",
-        role: "Design system owner and design team lead",
-        team: "The design team I lead, with front-end engineers implementing the tokens and components",
-        timeline: "2022 – today, evolving with each release",
-        platform: "Figma library with tokens · web and mobile components",
-        outcome: "Each new operator and brand launched on existing components instead of a new design.",
-      },
-      problem: [
-        "The platform serves Ooredoo, Awasr, Beyond ONE, stc and Omantel. Beyond ONE alone runs two brands, FRiENDi mobile and Virgin Mobile, on the same app, each with its own colours and fonts.",
-        "Every screen had to work in light and dark, Arabic and English (RTL), with different type families per brand. Designing each combination by hand would have meant dozens of versions of every screen.",
+      next: [
+        "إضافة قياس للاستخدام على المسارات الأساسية حتى يُقاس كل تحسين من إصدار لإصدار.",
+        "إشراك الموزّعين أنفسهم في جلسات اختبار دورية، لا ممثلي الشركات فقط.",
+        "نشر الرموز كحزمة مشتركة حتى يتحدّث التصميم والكود من مصدر واحد تلقائياً.",
       ],
-      found: [
-        "An audit of the existing screens showed the same components rebuilt with small differences per brand, colours hard-coded inside components, and RTL fixed screen by screen instead of in the system.",
-        "Engineers were re-implementing the same patterns for each brand because there was no single source of truth they could trust.",
-      ],
-      decisions: [
-        {
-          title: "Brand switching through tokens",
-          options: "A separate Figma library per brand, a shared library with per-brand overrides, or one component set driven entirely by tokens.",
-          chose: "One shared component set, with theme, brand, font and direction all switched by tokens.",
-          why: "It's the only option where one fix reaches every brand at once, and it matches how engineers build themes in code.",
-        },
-        {
-          title: "Governance before the library",
-          options: "Open contribution, a single gatekeeper, or a review step with clear acceptance criteria.",
-          chose: "Components are reviewed and approved against written criteria before they enter the library.",
-          why: "As more designers contributed, review kept the system consistent without slowing the team down, and gave engineers confidence that what's in the library is final.",
-        },
-        {
-          title: "RTL and fonts inside the system",
-          options: "Mirror screens at the end, maintain separate Arabic files, or build direction and type into the components.",
-          chose: "Arabic/English mirroring and per-brand fonts are built into the components, not patched per screen.",
-          why: "Arabic stops being an afterthought: every new screen is right in both languages from the first draft.",
-        },
-      ],
-      solution: "The diagram below uses this site's own token system, built the same way: primitive values, then semantic roles, then components. Switch the brand skin and watch the values change while the components stay the same.",
-      impact: [
-        "Each new operator and brand launched on existing components instead of a new design.",
-        "Themes, languages, fonts and brands switch through tokens, so one change reaches every brand.",
-        "Components are reviewed before they enter the library, which keeps the system consistent as the team grows.",
-      ],
-      next: ["Publish the tokens as a shared package so design and code update from one source automatically.", "Add usage documentation and do's and don'ts for each component, for new designers joining the team."],
-    },
-    ar: {
-      title: "نظام تصميم متعدد العلامات: علامات ووضعان ولغتان في تطبيق واحد",
-      tldr: {
-        problem: "كان على منتج واحد أن يبدو أصيلاً لكل علامة، بالوضعين الفاتح والداكن، وبالعربية والإنجليزية، وبخطوط مختلفة، دون تصاميم منفصلة.",
-        role: "مالك نظام التصميم وقائد فريق التصميم",
-        team: "فريق التصميم الذي أقوده، مع مطوري الواجهة الذين نفّذوا الرموز والمكوّنات",
-        timeline: "من 2022 حتى اليوم، يتطور مع كل إصدار",
-        platform: "مكتبة Figma برموز التصميم · مكوّنات للويب والجوال",
-        outcome: "أُطلقت كل شركة وعلامة جديدة على مكوّنات قائمة بدل تصميم جديد.",
-      },
-      problem: [
-        "تخدم المنصة Ooredoo وAwasr وBeyond ONE وstc وOmantel. وBeyond ONE وحدها تشغّل علامتين، FRiENDi mobile وVirgin Mobile، على التطبيق نفسه، لكل منهما ألوانها وخطوطها.",
-        "كان على كل شاشة أن تعمل بالوضعين الفاتح والداكن، وبالعربية والإنجليزية (RTL)، وبعائلة خطوط مختلفة لكل علامة. تصميم كل تركيبة يدوياً كان يعني عشرات النسخ من كل شاشة.",
-      ],
-      found: [
-        "أظهر تدقيق الشاشات القائمة المكوّنات نفسها مُعاد بناؤها بفروقات صغيرة لكل علامة، وألواناً مثبّتة داخل المكوّنات، واتجاه RTL يُصلَح شاشة بشاشة بدل أن يكون في النظام.",
-        "كان المطوّرون يعيدون بناء الأنماط نفسها لكل علامة، لأنه لا يوجد مصدر واحد موثوق يعتمدون عليه.",
-      ],
-      decisions: [
-        {
-          title: "تبديل العلامة عبر الرموز",
-          options: "مكتبة Figma منفصلة لكل علامة، أو مكتبة مشتركة مع تعديلات لكل علامة، أو مجموعة مكوّنات واحدة تحرّكها الرموز بالكامل.",
-          chose: "مجموعة مكوّنات واحدة، يتبدّل فيها الثيم والعلامة والخط والاتجاه عبر الرموز.",
-          why: "هو الخيار الوحيد الذي يصل فيه أي إصلاح إلى كل العلامات دفعة واحدة، ويطابق طريقة بناء المطوّرين للثيمات في الكود.",
-        },
-        {
-          title: "الحوكمة قبل دخول المكتبة",
-          options: "مساهمة مفتوحة، أو شخص واحد يقرر، أو خطوة مراجعة بمعايير قبول واضحة.",
-          chose: "تُراجَع المكوّنات وتُعتمد وفق معايير مكتوبة قبل دخولها المكتبة.",
-          why: "مع زيادة عدد المصممين، حافظت المراجعة على اتساق النظام دون إبطاء الفريق، وأعطت المطوّرين ثقة بأن ما في المكتبة نهائي.",
-        },
-        {
-          title: "RTL والخطوط داخل النظام",
-          options: "عكس الشاشات في النهاية، أو ملفات عربية منفصلة، أو بناء الاتجاه والخط داخل المكوّنات.",
-          chose: "عكس الاتجاه بين العربية والإنجليزية وخطوط كل علامة مبنية في المكوّنات، لا مرقّعة في كل شاشة.",
-          why: "لم تعد العربية فكرة لاحقة: كل شاشة جديدة صحيحة باللغتين من أول مسودة.",
-        },
-      ],
-      solution: "يستخدم المخطط أدناه نظام الرموز في هذا الموقع نفسه، وهو مبني بالطريقة ذاتها: قيم أولية، ثم أدوار دلالية، ثم مكوّنات. بدّل علامة السمة وراقب القيم تتغير بينما تبقى المكوّنات كما هي.",
-      impact: [
-        "أُطلقت كل شركة وعلامة جديدة على مكوّنات قائمة بدل تصميم جديد.",
-        "تتبدّل الثيمات واللغات والخطوط والعلامات عبر الرموز، فيصل أي تعديل إلى كل العلامات.",
-        "تُراجَع المكوّنات قبل دخولها المكتبة، فيبقى النظام متسقاً كلما كبر الفريق.",
-      ],
-      next: ["نشر الرموز كحزمة مشتركة حتى يتحدّث التصميم والكود من مصدر واحد تلقائياً.", "إضافة توثيق استخدام وأمثلة «افعل ولا تفعل» لكل مكوّن، للمصممين الجدد في الفريق."],
     },
   },
   {

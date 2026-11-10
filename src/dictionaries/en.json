@@ -30,7 +30,7 @@
     "cta1": "See case studies",
     "cta2": "Work with me",
     "skinsLabel": "Try the system",
-    "skinsCaption": "This is how I build systems: one set of components, many brands. My telecom platform runs five operators on one.",
+    "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs five operators on one.",
     "ctaProject": "Start a project",
     "tags": [
       "Idea → live product",
@@ -80,23 +80,13 @@
     "items": [
       {
         "slug": "salespoint",
-        "title": "Telecom dealer platform",
-        "outcome": "KYC, SIM activation, billing, wallets and a full commission engine, turned into clear flows that dealers of Ooredoo, stc, Omantel and more use all day.",
-        "role": "UX lead",
+        "title": "SalesPoint: dealer app & portal",
+        "outcome": "One product for dealers of Ooredoo, stc, Omantel, Awasr and Beyond ONE: KYC, SIM activation, billing, wallets and a full commission engine, on a multi-brand design system with light and dark, Arabic and English, and an Arabic + English font pair per brand.",
+        "role": "UX lead · design system owner · team lead",
         "tags": [
           "Telecom",
-          "Enterprise UX",
-          "Commission engine"
-        ]
-      },
-      {
-        "slug": "salespoint-design-system",
-        "title": "Multi-brand design system",
-        "outcome": "One system for five operators, and two brands in one app (FRiENDi mobile and Virgin Mobile): light and dark, Arabic and English, per-brand fonts.",
-        "role": "Design system owner · team lead",
-        "tags": [
-          "Tokens",
-          "Multi-brand",
+          "Commission engine",
+          "Multi-brand design system",
           "RTL"
         ]
       },
@@ -176,7 +166,7 @@
       {
         "name": "Discover",
         "body": "Understand your users, business rules and constraints before drawing anything.",
-        "example": "Telecom platform: workshops with each operator to map KYC, activation and approval rules."
+        "example": "SalesPoint: workshops with each operator to map KYC, activation and approval rules."
       },
       {
         "name": "Define",
@@ -191,7 +181,7 @@
       {
         "name": "Test",
         "body": "Compare options side by side and choose with evidence, not opinion.",
-        "example": "Telecom platform: competing activation flows compared side by side before building."
+        "example": "SalesPoint: competing activation flows compared side by side before building."
       },
       {
         "name": "Build & hand off",
@@ -535,7 +525,7 @@
     "items": [
       {
         "t": "Systems that scale with you",
-        "b": "My telecom design system runs five operators and two brands in one app, in light and dark, Arabic and English. Every new brand launched on existing components."
+        "b": "The SalesPoint design system runs five operators and two brands in one app, in light and dark, Arabic and English. Every new brand launched on existing components."
       },
       {
         "t": "Complex business made clear",
