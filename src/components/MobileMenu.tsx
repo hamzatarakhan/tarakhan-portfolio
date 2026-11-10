@@ -98,7 +98,7 @@ export function MobileMenu({ name, status, links, cta, email, waText, labels }: 
                         to={l.href}
                         onClick={hide}
                         aria-current={current ? "page" : undefined}
-                        className="glass group flex min-h-32 flex-col gap-6 justify-between !rounded-3xl p-4 transition-[transform,border-color] active:scale-[0.97] aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
+                        className="group flex min-h-32 flex-col justify-between gap-6 rounded-3xl border border-[var(--glass-line)] bg-surface p-4 transition-[transform,border-color,background-color] active:scale-[0.97] active:border-accent/60 aria-[current=page]:border-accent/60 aria-[current=page]:bg-accent-soft"
                       >
                         <span className="flex items-start justify-between">
                           <span className="grid size-10 place-items-center rounded-2xl bg-accent-soft text-accent">
@@ -124,7 +124,7 @@ export function MobileMenu({ name, status, links, cta, email, waText, labels }: 
                     <a
                       href={q.href}
                       {...(q.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="flex min-h-16 flex-col items-center justify-center gap-1.5 rounded-2xl border border-[var(--glass-line)] bg-[var(--glass)] px-2 text-xs font-medium transition-transform active:scale-95"
+                      className="flex min-h-16 flex-col items-center justify-center gap-1.5 rounded-2xl border border-[var(--glass-line)] bg-surface px-2 text-xs font-medium transition-transform active:scale-95"
                     >
                       <Icon name={q.icon} className="size-5 text-accent" />
                       {q.label}
