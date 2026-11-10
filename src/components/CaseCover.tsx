@@ -11,7 +11,7 @@ const operators = [
 
 function Telecom() {
   return (
-    <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-3">
+    <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-[1.1fr_0.9fr]">
       <div className="grid grid-cols-2 gap-2">
         {operators.map((o, i) => (
           <div
@@ -24,7 +24,7 @@ function Telecom() {
         ))}
       </div>
       {/* A commission line item, like the engine's breakdown view */}
-      <div className="flex flex-col justify-center gap-2 rounded-xl border border-[var(--glass-line)] bg-bg/60 p-3 text-xs">
+      <div className="hidden flex-col justify-center gap-2 rounded-xl border border-[var(--glass-line)] bg-bg/60 p-3 text-xs sm:flex">
         <p className="label text-muted">Commission</p>
         <p className="display whitespace-nowrap text-xl font-semibold tabular-nums">JOD 128.40</p>
         {[["eSIM activation", "#34d399"], ["Postpaid plan", "#60a5fa"], ["Device bundle", "#f5a524"]].map(([k, c]) => (
