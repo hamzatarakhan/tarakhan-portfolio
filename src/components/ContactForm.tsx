@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { btn } from "./Controls";
+import { CV_URL } from "@/lib/contact";
 import "@/styles/forms.css";
 
 // Email: Web3Forms (VITE_WEB3FORMS_KEY, free from web3forms.com). WhatsApp: /api/contact (CALLMEBOT_KEY).
@@ -93,12 +94,15 @@ export function ContactForm({ f }: { f: Dict["contactPage"]["f"] }) {
 
   if (state === "ok")
     return (
-      <p
+      <div
         role="status"
         className="rounded-lg border border-accent bg-accent-soft p-6 text-lg animate-[fade-in_var(--dur-slow)_var(--ease-out)]"
       >
-        ✓ {f.success}
-      </p>
+        <p>✓ {f.success}</p>
+        <a href={CV_URL} download className="mt-4 inline-flex min-h-11 items-center rounded-full border border-accent px-5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-on-accent">
+          {f.cv}
+        </a>
+      </div>
     );
 
   const field = (name: string, label: string, el: React.ReactNode) => (

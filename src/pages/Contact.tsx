@@ -25,6 +25,15 @@ export default function Contact() {
           <div className="glass rise p-6 sm:p-10" style={st(3)}><ContactForm f={c.f} /></div>
           <aside className="glass rise h-fit space-y-5 p-6 sm:p-8" style={st(4)}>
             <OrbitPortrait alt={t.hero.name} status={t.hero.status} className="mb-8 max-w-[15rem]" tags={[{ label: t.hero.tags[0], icon: "rocket" }, { label: t.hero.tags[1], icon: "sparkle" }, { label: t.hero.tags[2], icon: "cursor" }]} />
+            {/* Freelance clients often prefer a quick call to a form */}
+            <a
+              href={whatsappLink(t.services.callText)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 font-medium text-gold transition-colors hover:bg-gold/20"
+            >
+              {t.services.call}
+            </a>
             <h2 className="display text-xl font-medium">{c.direct}</h2>
             <p dir="ltr" className="break-all font-mono text-sm"><a className="underline decoration-accent underline-offset-4" href={`mailto:${t.contact.email}`}>{t.contact.email}</a></p>
             <CopyEmail email={t.contact.email} copy={t.contact.copy} copied={t.contact.copied} />

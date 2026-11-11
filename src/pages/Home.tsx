@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getDict, useLang } from "@/lib/i18n";
 import { Divider, Footer, Header, Rich, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
-import { Icon, Mock } from "@/components/Mock";
+import { Icon } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { ClientLogos, ConfManageMark } from "@/components/ClientLogos";
@@ -22,6 +22,8 @@ const btnPrimary = `${pill} bg-accent text-on-accent shadow-[0_10px_40px_-10px_v
 const btnGhost = `${pill} border border-[var(--glass-line)] bg-[var(--glass)] backdrop-blur hover:border-accent`;
 const num = (n: number) => String(n + 1).padStart(2, "0");
 const st = (i: number) => ({ "--i": i }) as React.CSSProperties;
+// Service icon hues: violet, champagne, teal, rose, sky, amber
+const serviceHues = ["#a78bfa", "#d9b77e", "#2dd4bf", "#f472b6", "#60a5fa", "#f5a524"];
 
 function Head({ label, title, intro, center }: { label: string; title: string; intro?: string; center?: boolean }) {
   return (
@@ -40,9 +42,7 @@ export default function Home() {
   const kinds = ["redesign", "new"] as const;
   const [kind, setKind] = useState<(typeof kinds)[number]>("redesign");
   const built = t.play.items.filter((p) => p.kind === kind);
-  const cards = [...t.work.items.map((w) => w.title), ...t.play.items.map((p) => p.name)];
-  const row1 = cards.slice(0, 7);
-  const row2 = cards.slice(7).concat(cards.slice(0, 4));
+  const reel = [1, 3, 4, 7, 2, 8, 5, 9, 6, 10, 11]; // U CAN screens, in a pleasing order
   const icons = ["search", "target", "pen", "flask", "code"];
   // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
   const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
@@ -63,51 +63,55 @@ export default function Home() {
             </h1>
             <p className="rise mt-6 max-w-xl text-lg text-muted" style={st(2)}>{t.hero.sub}</p>
             <div className="rise mt-9 flex flex-wrap gap-3" style={st(3)}>
-              <Link to={`/${lang}/contact`} className={btnPrimary}>{t.hero.ctaProject}</Link>
+              <Link to={`/${lang}/contact`} data-magnetic className={btnPrimary}>{t.hero.ctaProject}</Link>
               <a href="#work" className={btnGhost}>{t.hero.cta1} <Icon name="arrow" className="flip-rtl size-4" /></a>
             </div>
-            <p className="label rise mt-8 text-muted" style={st(4)}>{t.hero.eyebrow}</p>
+            {/* Proof in the first seconds: the operators whose dealers use what I designed */}
+            <div className="rise mt-9 flex flex-wrap items-center gap-x-5 gap-y-3" style={st(4)}>
+              <span className="label text-muted">{t.hero.trust}</span>
+              <span className="flex flex-wrap items-center gap-x-5 gap-y-2" dir="ltr">
+                {[["ooredoo.svg", "h-3.5"], ["stc.svg", "h-5"], ["beyond-dark.svg", "h-4"], ["awasr.webp", "h-5"], ["starlink.svg", "h-6"]].map(([f, h]) => (
+                  <img key={f} src={`/clients/${f}`} alt="" className={`${h} w-auto opacity-75 [filter:brightness(0)_invert(1)] [:root[data-theme=light]_&]:[filter:brightness(0)]`} />
+                ))}
+              </span>
+            </div>
+            <p className="label rise mt-6 text-muted" style={st(5)}>{t.hero.eyebrow}</p>
           </div>
 
           <div className="rise relative mx-auto mt-10 w-full max-w-md lg:mt-0" style={st(2)}>
             {/* Floating cut-out portrait: accent glow and a thin orbit ring behind, soft fade at the bottom */}
-            <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-accent/40 blur-3xl" />
+            <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-gradient-to-b from-accent/35 via-accent/20 to-gold/30 blur-3xl" />
             <div aria-hidden className="absolute start-1/2 top-[6%] aspect-square w-[92%] -translate-x-1/2 rounded-full border border-[var(--glass-line)] rtl:translate-x-1/2" />
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
               <img src={cutout} alt={t.hero.name} width={900} height={984} fetchPriority="high" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" />
             </div>
-            {/* What I do, in five tags. Placed on the background and the jacket, never over the face. */}
+            {/* Two tags only (calmer than five), on the background and the jacket, never over the face. */}
             {(
               [
-                [t.hero.tags[0], "rocket", "-top-9 start-0 sm:-start-10", 0],
-                [t.hero.tags[1], "sparkle", "top-[57%] end-0 sm:-end-12", 0.9],
-                [t.hero.tags[2], "cursor", "top-[69%] start-0 sm:-start-14", 1.8],
-                [t.hero.tags[3], "code", "top-[81%] end-0 sm:-end-8", 2.7],
-                [t.hero.tags[4], "layers", "-bottom-4 start-2 sm:-start-6", 3.6],
+                [t.hero.tags[0], "rocket", "top-[57%] end-0 sm:-end-12", 0],
+                [t.hero.tags[3], "code", "top-[76%] start-0 sm:-start-12", 2],
               ] as const
             ).map(([label, icon, pos, d]) => (
               <span key={label} className={`glass float label absolute flex items-center gap-2 whitespace-nowrap !rounded-full bg-bg/90 px-3.5 py-2.5 text-fg normal-case shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
-                <Icon name={icon} className="size-4 text-accent" />
+                <Icon name={icon} className="size-4 text-gold" />
                 {label}
               </span>
             ))}
           </div>
         </section>
 
-        {/* Auto-scrolling project rows */}
-        <section aria-hidden className="space-y-5 py-6">
-          {[row1, row2].map((row, r) => (
-            <div key={r} className={`mq ${r ? "rev" : ""}`} dir="ltr">
-              <div className="mq-track">
-                {[...row, ...row].map((name, i) => (
-                  <div key={i} className="w-72 shrink-0">
-                    <Mock v={i + r * 2} className="h-44" />
-                    <p className="label mt-3 truncate text-muted">{name}</p>
-                  </div>
-                ))}
-              </div>
+        {/* Real shipped screens drifting by (U CAN, designed and coded by me), in phone frames */}
+        <section aria-hidden className="py-6">
+          <div className="mq" dir="ltr">
+            <div className="mq-track">
+              {[...reel, ...reel].map((n, i) => (
+                <div key={i} className="w-40 shrink-0 rounded-[1.6rem] border border-[var(--glass-line)] bg-surface p-1.5 shadow-2 sm:w-44">
+                  <img src={`/work/ucan/${n}.webp`} alt="" loading="lazy" width={600} height={1301} className="h-auto w-full rounded-[1.25rem]" />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <p className="label mt-5 text-center text-muted">{t.hero.reel}</p>
         </section>
 
         {/* Proof */}
@@ -115,7 +119,7 @@ export default function Home() {
           <dl className="glass reveal grid grid-cols-2 !rounded-[2rem] lg:grid-cols-4">
             {t.proof.items.map((it, i) => (
               <div key={it.label} className={`p-7 text-center sm:p-9 ${i < 3 ? "lg:border-e lg:border-[var(--glass-line)]" : ""} ${i % 2 === 0 ? "border-e border-[var(--glass-line)] lg:border-e" : ""}`}>
-                <dd className="display shine text-5xl font-semibold tabular-nums sm:text-6xl"><CountUp to={it.n} suffix={it.suffix} /></dd>
+                <dd className="display shine text-5xl font-light tabular-nums sm:text-7xl"><CountUp to={it.n} suffix={it.suffix} /></dd>
                 <dt className="label mt-3 text-muted">{it.label}</dt>
               </div>
             ))}
@@ -147,7 +151,7 @@ export default function Home() {
 
         <Divider />
         {/* Services */}
-        <section className={`${wrap} grid grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
+        <section id="services" className={`${wrap} grid scroll-mt-20 grid-cols-1 gap-8 sec lg:grid-cols-[0.8fr_1.2fr]`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Head label={t.services.eyebrow} title={t.services.title} intro={t.services.intro} />
             <OrbitPortrait alt={t.hero.name} className="mt-6 hidden lg:block" tags={[{ label: t.hero.tags[2], icon: "cursor" }, { label: t.hero.tags[3], icon: "code" }, { label: t.hero.tags[4], icon: "layers" }]} />
@@ -155,7 +159,13 @@ export default function Home() {
           <div className="space-y-4">
             {t.services.items.map((sv, i) => (
               <article key={sv.title} className="glass reveal group flex flex-col gap-4 p-6 sm:flex-row sm:items-start sm:gap-5 sm:p-7" style={st(i)}>
-                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent"><Icon name={sv.icon} /></span>
+                {/* each service gets its own hue, so the list isn't one colour */}
+                <span
+                  className="grid size-12 shrink-0 place-items-center rounded-2xl"
+                  style={{ color: serviceHues[i % serviceHues.length], background: `color-mix(in srgb, ${serviceHues[i % serviceHues.length]} 14%, transparent)` }}
+                >
+                  <Icon name={sv.icon} />
+                </span>
                 <div className="flex-1">
                   <span className="label text-muted">{num(i)}</span>
                   <h3 className="display mt-1 text-xl font-medium sm:text-2xl">{sv.title}</h3>
@@ -165,6 +175,27 @@ export default function Home() {
                 <span className="hidden size-10 shrink-0 place-items-center rounded-full sm:grid border border-[var(--glass-line)] transition-colors group-hover:bg-accent group-hover:text-on-accent"><Icon name="arrow" className="flip-rtl size-4" /></span>
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* Ways to work together: clear scopes and timings, a fixed quote, a free call */}
+        <section className={`${wrap} pb-4`}>
+          <h3 className="display reveal text-center text-2xl font-medium sm:text-3xl">{t.services.packagesTitle}</h3>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {t.services.packages.map((pk, i) => (
+              <li key={pk.name} className="glass reveal flex flex-col p-6" style={st(i)}>
+                <span className="label w-fit rounded-full border border-gold/40 px-2.5 py-1 text-gold">{pk.time}</span>
+                <p className="display mt-4 text-xl font-medium">{pk.name}</p>
+                <p className="mt-2 text-sm text-muted">{pk.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
+            <p className="w-full text-muted sm:w-auto">{t.services.note}</p>
+            <Link to={`/${lang}/contact`} data-magnetic className={btnPrimary}>{t.hero.ctaProject}</Link>
+            <a href={whatsappLink(t.services.callText)} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+              <Icon name="chat" className="size-4" /> {t.services.call}
+            </a>
           </div>
         </section>
 
@@ -269,20 +300,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <Divider />
-        {/* Capabilities */}
-        <section className={`${wrap} sec`}>
-          <Head label={t.skills.eyebrow} title={t.skills.title} intro={t.skills.intro} center />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {t.skills.groups.map((g, i) => (
-              <div key={g.name} className="glass reveal p-6" style={st(i % 3)}>
-                <h3 className="label text-accent">{g.name}</h3>
-                <ul className="mt-4 flex flex-wrap gap-2">{g.items.map((it) => <li key={it} className="rounded-full border border-[var(--glass-line)] px-3 py-1.5 text-sm">{it}</li>)}</ul>
-              </div>
-            ))}
-          </div>
         </section>
 
         <Divider />

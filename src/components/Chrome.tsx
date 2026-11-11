@@ -42,7 +42,7 @@ export const plain = (s: string) => s.replace(/\*/g, "");
 export function Header({ lang, t }: { lang: Locale; t: Dict }) {
   const links = [
     ["work", `/${lang}#work`],
-    ["testimonials", `/${lang}#testimonials`],
+    ["services", `/${lang}#services`],
     ["about", `/${lang}/about`],
     ["contact", `/${lang}/contact`],
   ] as const;
@@ -98,7 +98,7 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
           <MobileMenu
             name={t.hero.name}
             status={t.hero.status}
-            links={links.map(([k, href]) => ({ label: t.nav[k], href, icon: { work: "layers", testimonials: "chat", about: "user", contact: "send" }[k] }))}
+            links={links.map(([k, href]) => ({ label: t.nav[k], href, icon: { work: "layers", services: "sparkle", about: "user", contact: "send" }[k] }))}
             cta={{ label: t.hero.ctaProject, href: `/${lang}/contact` }}
             email={t.contact.email}
             waText={t.contactPage.waText}
@@ -117,7 +117,14 @@ export function Header({ lang, t }: { lang: Locale; t: Dict }) {
 
 export function Footer({ lang, t }: { lang: Locale; t: Dict }) {
   return (
-    <footer className="border-t border-line py-8 text-sm text-muted">
+    <footer className="overflow-hidden border-t border-line pt-10 pb-8 text-sm text-muted">
+      {/* Signature: the name as a large wordmark, fading into the page */}
+      <p
+        aria-hidden
+        className={`${wrap} display select-none whitespace-nowrap bg-gradient-to-b from-fg/25 to-transparent bg-clip-text pb-6 text-center text-[clamp(2.25rem,10.5vw,12rem)] font-medium leading-none text-transparent`}
+      >
+        {t.hero.name}
+      </p>
       <div
         className={`${wrap} flex flex-wrap items-center justify-between gap-3`}
       >

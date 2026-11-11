@@ -19,16 +19,17 @@
       "whatsapp": "WhatsApp",
       "email": "Email",
       "cv": "CV"
-    }
+    },
+    "services": "Services"
   },
   "hero": {
     "status": "Open for freelance projects",
     "eyebrow": "Based in Amman · Working remotely worldwide",
     "name": "Hamza Tarakhan",
     "headline": "I turn complex products into *clear* experiences people *actually finish.*",
-    "sub": "Senior product designer and design team lead. I design your product, build the design system behind it and code the front end, from first idea to a working app, in English and Arabic.",
-    "cta1": "See case studies",
-    "cta2": "Work with me",
+    "sub": "Senior product designer and design team lead. Design, design system and front-end code, from first idea to a live app, in Arabic and English.",
+    "cta1": "See my work",
+    "cta2": "Start a project",
     "skinsLabel": "Try the system",
     "skinsCaption": "This is how I build systems: one set of components, many brands. SalesPoint runs five operators on one.",
     "ctaProject": "Start a project",
@@ -38,7 +39,9 @@
       "Interactive prototypes",
       "Design + code",
       "Figma design systems"
-    ]
+    ],
+    "trust": "Built for dealers of",
+    "reel": "U CAN · designed, coded and shipped by me"
   },
   "proof": {
     "items": [
@@ -116,7 +119,7 @@
     "eyebrow": "Case studies"
   },
   "services": {
-    "title": "How I can *help*",
+    "title": "What I can *build* for you",
     "getLabel": "What you get",
     "items": [
       {
@@ -157,7 +160,33 @@
       }
     ],
     "eyebrow": "Services",
-    "intro": "Bring me in for one piece or for the whole product. Every engagement ends with something your team can use."
+    "intro": "Bring me in for one piece or the whole product. Every engagement ends with something your team can use.",
+    "packagesTitle": "Ways to work together",
+    "packages": [
+      {
+        "name": "Interactive prototype",
+        "time": "2 weeks",
+        "body": "Your key flows as a clickable prototype on real devices, ready for users, stakeholders or investors."
+      },
+      {
+        "name": "Design + front-end build",
+        "time": "From 4 weeks",
+        "body": "Full UX and UI, plus a working React or React Native front end your engineers connect."
+      },
+      {
+        "name": "Design system",
+        "time": "From 3 weeks",
+        "body": "Tokens, components and a Figma library for light and dark, Arabic and English, and more than one brand."
+      },
+      {
+        "name": "UX audit",
+        "time": "1 week",
+        "body": "A clear review of your product with a prioritised list of fixes and the key screens redesigned."
+      }
+    ],
+    "note": "Every project gets a fixed quote within 24 hours.",
+    "call": "Book a free 20-min call",
+    "callText": "Hi Hamza, I'd like to book a 20-minute call about a project."
   },
   "process": {
     "title": "From problem to *product*",
@@ -313,7 +342,12 @@
     "next": "Next case study",
     "back": "All work",
     "contents": "On this page",
-    "demo": "Interactive demo"
+    "demo": "Interactive demo",
+    "readTime": "{n} min read",
+    "similar": {
+      "title": "Building something similar?",
+      "body": "Tell me about it. You'll get clear next steps and a fixed quote within 24 hours."
+    }
   },
   "cmd": {
     "open": "Search",
@@ -415,7 +449,7 @@
       "message": "Tell me about your project",
       "send": "Send message",
       "sending": "Sending…",
-      "success": "Thanks! Your message is in, and I'll get back to you soon.",
+      "success": "Got it. I'll reply within 24 hours with clear next steps. Meanwhile, here's my CV.",
       "error": "That didn't send. Please email me directly instead.",
       "required": "Please fill this in.",
       "invalid": "That email doesn't look right. Please check it.",
@@ -436,7 +470,8 @@
         "Interactive prototype",
         "Front-end build",
         "UX audit & consulting"
-      ]
+      ],
+      "cv": "Download my CV"
     },
     "direct": "Or reach me directly",
     "whatsapp": "Chat on WhatsApp",
@@ -521,7 +556,7 @@
     ]
   },
   "why": {
-    "title": "Why teams work *with me*",
+    "title": "Proof, not *promises*",
     "items": [
       {
         "t": "Systems that scale with you",
@@ -623,7 +658,7 @@
   },
   "testimonials": {
     "eyebrow": "Testimonials",
-    "title": "What people *say*",
+    "title": "In their *words*",
     "intro": "Words from clients and teammates, shown with their permission.",
     "invite": {
       "title": "Worked with me?",

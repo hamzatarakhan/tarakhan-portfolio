@@ -7,6 +7,7 @@ import { cases } from "@/content/work";
 import { Footer, Header, wrap } from "@/components/Chrome";
 import { Txt } from "@/components/Txt";
 import { Icon } from "@/components/Mock";
+import { whatsappLink } from "@/lib/contact";
 import { ActivationDemo, LedgerDemo, ReaderDemo, TokenDiagram } from "@/components/Artifacts";
 
 const h2 = "display text-2xl font-medium scroll-mt-28 sm:text-4xl";
@@ -28,6 +29,9 @@ export default function CaseStudy() {
   const k = t.case;
   const c = cases[idx][lang];
   const nextCase = cases[(idx + 1) % cases.length];
+  // ~200 words a minute over every string in the case
+  const words = JSON.stringify(c).replace(/[{}[\]",:]/g, " ").split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(2, Math.round(words / 200));
   const toc = (["problem", "found", "decisions", "solution", "impact", "next"] as const).map((id, n) => [id, k.sections[id], n] as const);
   const demoOf = { activation: ActivationDemo, tokens: TokenDiagram, reader: ReaderDemo, ledger: LedgerDemo };
   const demos = [cases[idx].artifact].flat().map((a) => [a, demoOf[a]] as const);
@@ -49,6 +53,9 @@ export default function CaseStudy() {
         </Link>
         <h1 className="display rise mt-4 max-w-4xl text-4xl font-medium sm:text-6xl lg:text-7xl" style={st(1)}>{c.title}</h1>
         <p className="rise mt-5 max-w-2xl text-lg text-muted" style={st(2)}><Txt>{c.tldr.problem}</Txt></p>
+        <p className="label rise mt-4 inline-flex items-center gap-2 text-gold" style={st(2)}>
+          <span aria-hidden className="size-1.5 rounded-full bg-gold" /> {k.readTime.replace("{n}", String(minutes))}
+        </p>
 
         <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_14rem]">
           <div className="min-w-0 space-y-12">
@@ -111,6 +118,20 @@ export default function CaseStudy() {
             <section className="reveal">
               {sec("next", 5)}
               <div className="max-w-prose space-y-4 text-lg text-muted">{c.next.map((p, i) => <p key={i}><Txt>{p}</Txt></p>)}</div>
+            </section>
+
+            {/* Don't end on a dead end: invite the reader to start something similar */}
+            <section className="reveal rounded-[2rem] border border-gold/30 bg-gradient-to-br from-gold/10 via-transparent to-accent/10 p-8 text-center sm:p-12">
+              <p className="display text-3xl font-medium sm:text-4xl">{k.similar.title}</p>
+              <p className="mx-auto mt-3 max-w-xl text-muted">{k.similar.body}</p>
+              <div className="mt-7 flex flex-wrap justify-center gap-3">
+                <Link to={`/${lang}/contact`} data-magnetic className="inline-flex min-h-12 items-center rounded-full bg-accent px-7 font-medium text-on-accent shadow-[0_10px_40px_-10px_var(--accent)] transition-transform active:scale-[0.97]">
+                  {t.hero.ctaProject}
+                </Link>
+                <a href={whatsappLink(t.services.callText)} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[var(--glass-line)] px-7 font-medium transition-colors hover:border-gold">
+                  {t.services.call}
+                </a>
+              </div>
             </section>
 
             <Link to={`/${lang}/work/${nextCase.slug}`} className="glass reveal group flex items-center justify-between gap-6 !rounded-[2rem] p-8 hover:-translate-y-1 sm:p-12">

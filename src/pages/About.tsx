@@ -156,6 +156,25 @@ export default function About() {
             </ul>
           </section>
         </div>
+
+        {/* Skills moved here from the home page: recruiters look for them on About */}
+        <section className="mt-14">
+          <h2 className={`${h2} reveal`}>{t.skills.eyebrow}</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {t.skills.groups.map((g, i) => (
+              <div key={g.name} className={`glass reveal p-6 ${lift}`} style={st(i % 3)}>
+                <h3 className="label text-gold">{g.name}</h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {g.items.map((it) => (
+                    <li key={it} className="rounded-full border border-[var(--glass-line)] px-3 py-1.5 text-sm">
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
       <Footer lang={lang} t={t} />
     </>
