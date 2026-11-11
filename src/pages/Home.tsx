@@ -79,14 +79,19 @@ export default function Home() {
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
               <img src={cutout} alt={t.hero.name} width={900} height={984} fetchPriority="high" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" />
             </div>
-            {/* Two tags only (calmer than five), on the background and the jacket, never over the face. */}
+            {/* Skill tags around the portrait, on the background and the jacket, never over the face.
+                Phones show only the two lower ones; the rest would cover the photo. */}
             {(
               [
-                [t.hero.tags[0], "rocket", "top-[57%] end-0 sm:-end-12", 0],
-                [t.hero.tags[3], "code", "top-[76%] start-0 sm:-start-12", 2],
+                [t.hero.tags[1], "sparkle", "hidden sm:flex top-[5%] start-0 sm:-start-24", 1],
+                [t.hero.tags[4], "layers", "hidden sm:flex top-[23%] start-0 sm:-start-28", 3],
+                [t.hero.tags[5], "globe", "hidden sm:flex top-[42%] start-0 sm:-start-16", 4],
+                [t.hero.tags[0], "rocket", "flex top-[57%] end-0 sm:-end-12", 0],
+                [t.hero.tags[3], "code", "flex top-[72%] start-0 sm:-start-12", 2],
+                [t.hero.tags[6], "user", "hidden sm:flex top-[86%] end-0 sm:-end-6", 5],
               ] as const
             ).map(([label, icon, pos, d]) => (
-              <span key={label} className={`glass float label absolute flex items-center gap-2 whitespace-nowrap !rounded-full bg-bg/90 px-3.5 py-2.5 text-fg normal-case shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
+              <span key={label} className={`glass float label absolute items-center gap-2 whitespace-nowrap !rounded-full bg-bg/90 px-3.5 py-2.5 text-fg normal-case shadow-2 ${pos}`} style={{ "--d": d } as React.CSSProperties}>
                 <Icon name={icon} className="size-4 text-gold" />
                 {label}
               </span>
