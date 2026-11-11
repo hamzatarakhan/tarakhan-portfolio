@@ -42,7 +42,6 @@ export default function Home() {
   const kinds = ["redesign", "new"] as const;
   const [kind, setKind] = useState<(typeof kinds)[number]>("redesign");
   const built = t.play.items.filter((p) => p.kind === kind);
-  const reel = [1, 3, 4, 7, 2, 8, 5, 9, 6, 10, 11]; // U CAN screens, in a pleasing order
   const icons = ["search", "target", "pen", "flask", "code"];
   // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
   const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
@@ -66,16 +65,7 @@ export default function Home() {
               <Link to={`/${lang}/contact`} data-magnetic className={btnPrimary}>{t.hero.ctaProject}</Link>
               <a href="#work" className={btnGhost}>{t.hero.cta1} <Icon name="arrow" className="flip-rtl size-4" /></a>
             </div>
-            {/* Proof in the first seconds: the operators whose dealers use what I designed */}
-            <div className="rise mt-9 flex flex-wrap items-center gap-x-5 gap-y-3" style={st(4)}>
-              <span className="label text-muted">{t.hero.trust}</span>
-              <span className="flex flex-wrap items-center gap-x-5 gap-y-2" dir="ltr">
-                {[["ooredoo.svg", "h-3.5"], ["stc.svg", "h-5"], ["beyond-dark.svg", "h-4"], ["awasr.webp", "h-5"], ["starlink.svg", "h-6"]].map(([f, h]) => (
-                  <img key={f} src={`/clients/${f}`} alt="" className={`${h} w-auto opacity-75 [filter:brightness(0)_invert(1)] [:root[data-theme=light]_&]:[filter:brightness(0)]`} />
-                ))}
-              </span>
-            </div>
-            <p className="label rise mt-6 text-muted" style={st(5)}>{t.hero.eyebrow}</p>
+            <p className="label rise mt-6 text-muted" style={st(4)}>{t.hero.eyebrow}</p>
           </div>
 
           <div className="rise relative mx-auto mt-10 w-full max-w-md lg:mt-0" style={st(2)}>
@@ -98,20 +88,6 @@ export default function Home() {
               </span>
             ))}
           </div>
-        </section>
-
-        {/* Real shipped screens drifting by (U CAN, designed and coded by me), in phone frames */}
-        <section aria-hidden className="py-6">
-          <div className="mq" dir="ltr">
-            <div className="mq-track">
-              {[...reel, ...reel].map((n, i) => (
-                <div key={i} className="w-40 shrink-0 rounded-[1.6rem] border border-[var(--glass-line)] bg-surface p-1.5 shadow-2 sm:w-44">
-                  <img src={`/work/ucan/${n}.webp`} alt="" loading="lazy" width={600} height={1301} className="h-auto w-full rounded-[1.25rem]" />
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="label mt-5 text-center text-muted">{t.hero.reel}</p>
         </section>
 
         {/* Proof */}
