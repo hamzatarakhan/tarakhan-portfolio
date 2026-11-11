@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getDict, useLang } from "@/lib/i18n";
 import { Divider, Footer, Header, Rich, wrap } from "@/components/Chrome";
 import { CopyEmail, CountUp } from "@/components/HomeClient";
-import { Icon } from "@/components/Mock";
+import { Icon, Mock } from "@/components/Mock";
 import { Txt } from "@/components/Txt";
 import { ContactForm } from "@/components/ContactForm";
 import { ClientLogos, ConfManageMark } from "@/components/ClientLogos";
@@ -42,6 +42,9 @@ export default function Home() {
   const kinds = ["redesign", "new"] as const;
   const [kind, setKind] = useState<(typeof kinds)[number]>("redesign");
   const built = t.play.items.filter((p) => p.kind === kind);
+  const cards = [...t.work.items.map((w) => w.title), ...t.play.items.map((p) => p.name)];
+  const row1 = cards.slice(0, 7);
+  const row2 = cards.slice(7).concat(cards.slice(0, 4));
   const icons = ["search", "target", "pen", "flask", "code"];
   // One colour per step (amber, violet, blue, pink, green), like a journey; tuned for dark and light in CSS.
   const stepColors = ["#f5a524", "#a78bfa", "#60a5fa", "#f472b6", "#34d399"];
@@ -88,6 +91,22 @@ export default function Home() {
               </span>
             ))}
           </div>
+        </section>
+
+        {/* Auto-scrolling project rows */}
+        <section aria-hidden className="space-y-5 py-6">
+          {[row1, row2].map((row, r) => (
+            <div key={r} className={`mq ${r ? "rev" : ""}`} dir="ltr">
+              <div className="mq-track">
+                {[...row, ...row].map((name, i) => (
+                  <div key={i} className="w-72 shrink-0">
+                    <Mock v={i + r * 2} className="h-44" />
+                    <p className="label mt-3 truncate text-muted">{name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </section>
 
         {/* Proof */}
