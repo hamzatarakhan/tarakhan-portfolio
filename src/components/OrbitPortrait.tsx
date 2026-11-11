@@ -19,7 +19,8 @@ export function OrbitPortrait({ alt, tags, status, className = "" }: { alt: stri
       <div aria-hidden className="orbit absolute inset-0 rounded-full border-2 border-dashed border-[var(--glass-line)]" />
       <div aria-hidden className="absolute inset-[6%] rounded-full border border-[var(--glass-line)]" />
       <div className="absolute inset-[12%] overflow-hidden rounded-full bg-gradient-to-b from-accent/45 via-accent-soft to-surface ring-1 ring-[var(--glass-line)]">
-        <img src={cutout} alt={alt} loading="lazy" className="absolute inset-x-0 bottom-0 mx-auto h-[92%] w-auto max-w-none object-contain object-bottom" />
+        {/* The photo runs to the waist: scale it up from the top so head and shoulders fill the circle */}
+        <img src={cutout} alt={alt} loading="lazy" className="absolute inset-x-0 top-[8%] mx-auto h-[150%] w-auto max-w-none" />
       </div>
       {status && (
         <span className="label absolute -top-2 start-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-[var(--glass-line)] bg-bg/90 px-3 py-1.5 normal-case text-fg shadow-2 rtl:translate-x-1/2">

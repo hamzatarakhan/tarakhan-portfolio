@@ -77,7 +77,7 @@ export default function Home() {
             <div aria-hidden className="absolute inset-x-[6%] top-[14%] bottom-[4%] rounded-full bg-gradient-to-b from-accent/35 via-accent/20 to-gold/30 blur-3xl" />
             <div aria-hidden className="absolute start-1/2 top-[6%] aspect-square w-[92%] -translate-x-1/2 rounded-full border border-[var(--glass-line)] rtl:translate-x-1/2" />
             <div className="float relative" style={{ "--d": 0.6 } as React.CSSProperties}>
-              <img src={cutout} alt={t.hero.name} width={900} height={984} fetchPriority="high" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" />
+              <img src={cutout} alt={t.hero.name} width={615} height={800} fetchPriority="high" className="relative h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent_98%)]" />
             </div>
             {/* Skill tags around the portrait, on the background and the jacket, never over the face.
                 Phones show only the two lower ones; the rest would cover the photo. */}
